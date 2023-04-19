@@ -1,0 +1,10 @@
+.container-fluid{
+  display: flex;
+}
+
+.collapse{
+  display: flex;
+}
+.nav-item{
+  float: left;
+}
