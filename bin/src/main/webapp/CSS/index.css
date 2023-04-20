@@ -1,11 +1,3 @@
-html {
-	width:100%;
-	height:100%;
-}
-body {
-	margin: 0;
-}
-
 .container-fluid{
   display: inline-block;
   width: 100%;
@@ -57,25 +49,4 @@ body {
 .nav-item::after{
   transform: scaleX(1);
   transform-origin: bottom left;
-}
-
-.row{
-  width: 100%;
-  height: auto;
-}
-.col-home{
-  display: flex;
-}
-.card{
-  float: left;
-  width: 25%;
-  border: 1px rgb(121, 121, 121) solid;
-}
-.btn{
-  padding: 5px;
-  border: 1px #cdcdcd solid;
-  border-radius: 4px;
-  text-decoration: none;
-  background-color: #4680ff;
-  color: aliceblue;
 }

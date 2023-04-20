@@ -1,5 +1,4 @@
 package com.example.btl_web_book.model;
-
 public class User {
     private Long id;
     private String userName;

@@ -1,13 +1,4 @@
-<%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    User auth = (User) request.getSession().getAttribute("auth");
-    if(auth!= null){
-        request.setAttribute("auth", auth);
-        response.sendRedirect("index.jsp");
-    }
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,20 +9,19 @@
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
-    <div class="container">
-        	<div>
-        		<h3 class="card-header">User Login</h3>
-        	</div>
+    <div id="container">
+        <div class="card">
+            <h3 class="card-header">User Login</h3>
             <div class="card-body">
                 <form action="user-login" method="post" class="form">
                     <div class="form-group">
-                        <div class="text__label">Email Address</div>
+                        <div>Email Address</div>
                         <label>
                             <input type="email" class="input form-control" name="login-email" placeholder="Enter Your Email" required>
                         </label>
                     </div>
                     <div class="form-group">
-                        <div class="text__label">Password</div>
+                        <div>Password</div>
                         <label>
                             <input type="password" class="input form-control" name="login-password" placeholder="********" required>
                         </label>
@@ -41,6 +31,7 @@
                     </div>
                 </form>
             </div>
+        </div>
     </div>
 </body>
 </html>

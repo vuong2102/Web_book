@@ -17,7 +17,6 @@
     </head>
     <body>
         <%@include file="includes/nav-bar.jsp"%>
-
         <div class="container">
             <h2 class="card-header">All Products</h2>
             <div class="row">
