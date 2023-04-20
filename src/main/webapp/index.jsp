@@ -19,13 +19,13 @@
         <%@include file="includes/nav-bar.jsp"%>
 
         <div class="container">
-            <div class="card-header">All Products</div>
+            <h2 class="card-header">All Products</h2>
             <div class="row">
 <%--                <%--%>
 <%--                if (!products.isEmpty()) {--%>
 <%--                    for (Product p : products) {--%>
 <%--                %>--%>
-                <div class="col-md-3 my-3">
+                <div class="col-home">
                     <div class="card">
 <%--                        <img class="card-img-top" src="product-image/<%=p.getImage() %>"--%>
 <%--                            alt="Card image cap">--%>

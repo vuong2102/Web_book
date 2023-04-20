@@ -50,3 +50,16 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.row{
+  width: 100%;
+  height: auto;
+}
+.col-home{
+  display: flex;
+}
+.card{
+  float: left;
+  width: 33%;
+  border: #cdcdcd;
+}
