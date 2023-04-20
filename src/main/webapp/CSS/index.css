@@ -60,6 +60,14 @@
 }
 .card{
   float: left;
-  width: 33%;
-  border: #cdcdcd;
+  width: 25%;
+  border: 1px rgb(121, 121, 121) solid;
+}
+.btn{
+  padding: 5px;
+  border: 1px #cdcdcd solid;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #4680ff;
+  color: aliceblue;
 }
