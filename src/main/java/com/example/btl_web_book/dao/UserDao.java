@@ -5,7 +5,6 @@ import com.example.btl_web_book.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 public class UserDao {
     private Connection con;
     private String query;
