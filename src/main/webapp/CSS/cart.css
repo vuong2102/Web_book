@@ -1,0 +1,91 @@
+.btn{
+    padding: 9px;
+    border: 1px #cdcdcd solid;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #4680ff;
+    color: aliceblue;
+}
+
+.fas{
+    font-weight: bolder;
+}
+
+.btn-remove{
+    text-align: center;
+    background-color: rgb(234, 66, 66);
+    padding: 9px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    margin-left: 35%;
+}
+.content-cart{
+    display: flex;
+}
+
+.btn-checkout{
+    place-items: center;
+    margin-top: 23px;
+}
+.nav-cart{
+    width: 20%;
+}
+.table-cart{
+    width: 100%;
+    height: max-content;
+    position: relative;
+    /* border-top: 1px solid;
+    border-bottom: 1px solid;  */
+    margin-top: 20px;
+}
+.container{
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    height: max-content;
+}
+.table-head{
+    margin-top: 10px;
+    border-top: 1px solid;
+    padding: 15px 0 15px 20px;
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+    display: flex;
+}
+.table-col{
+    float: left;
+    width: 20%;
+    justify-content: center;
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.table-content{
+    float: left;
+    width: 20%;
+    list-style: none;
+    font-size: 16px;
+}
+.btn-cart-remove{
+    text-align: center;
+}
+.btn-decree,
+.btn-incre{
+    text-decoration: none;
+    padding: 5px 9px;
+    border: 1px #cdcdcd solid;
+    border-radius: 5px;
+}
+.btn-decree:hover,
+.btn-incre:hover{
+    background-color: #dedede;
+}
+.form-control{
+    padding: 7px 0 4px 0;
+    text-align: center;
+    border: 1px #cdcdcd solid;
+    border-radius: 4px;
+}
