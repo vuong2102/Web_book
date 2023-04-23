@@ -16,7 +16,9 @@
     if(cartArrayList != null){
         ProductDao productDao = new ProductDao(JDBCConnect.getConnection());
         cartProduct = productDao.getCartProducts(cartArrayList);
+        double totalPrice = productDao.getTotalCartPrice(cartArrayList);
         request.setAttribute("cartArrayList", cartArrayList);
+        request.setAttribute("totalPrice", totalPrice);
     }
 %>
 <html>
@@ -29,7 +31,7 @@
         <%@include file="includes/nav-bar.jsp"%>
         <div class="container">
             <div class="content-cart">
-                <div class="nav-cart"><h2 class="">Total Price: $452</h2></div>
+                <div class="nav-cart"><h2 class="">Total Price: $ ${totalPrice > 0} totalPrice:0</h2></div>
                 <div class="nav-cart btn-checkout">
                     <a class="btn btn-primary" href="#">Check out</a>
                 </div>
@@ -44,7 +46,7 @@
                         <li class="table-col">Action</li>
                     </ul>
                 </div>
-                <div>
+                <div class="list_items">
                     <% if(cartArrayList != null){
                         for(Cart c : cartProduct){ %>
                             <ul>
