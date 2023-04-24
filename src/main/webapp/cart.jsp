@@ -56,20 +56,20 @@
                             <ul>
                                 <li class="table-content"><%= c.getName()%></li>
                                 <li class="table-content"><%= c.getCategory()%></li>
-                                <li class="table-content"><%= c.getPrice()%></li>
+                                <li class="table-content">$<%= dcf.format(c.getPrice())%></li>
                                 <li class="table-content">
                                     <form action="" method="post" class="form-inline">
                                         <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
                                         <div class="form-group">
-                                            <a href="" class="btn-incre"><i class="fas">+</i></a>
+                                            <a href="quantity-inc-dec?action=inc&id=<%=c.getId()%>" class="btn-incre"><i class="fas">+</i></a>
                                             <label>
-                                                <input class="form-control" type="text" name="quantity" value="1" readonly>
+                                                <input class="form-control" type="text" name="quantity" value="<%= c.getQuantity()%>" readonly>
                                             </label>
-                                            <a href="" class="btn-decree"><i class="fas">-</i></a>
+                                            <a href="quantity-inc-dec?action=decree&id=<%=c.getId()%>" class="btn-decree"><i class="fas">-</i></a>
                                         </div>
                                     </form>
                                 </li>
-                                <li class="table-content"><a class="btn-remove" href="">Remove</a></li>
+                                <li class="table-content"><a class="btn-remove" href="remove-from-cart?id=<%= c.getId()%>">Remove</a></li>
                             </ul>
                         <%}
                     }%>
