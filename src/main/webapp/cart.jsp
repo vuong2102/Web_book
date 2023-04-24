@@ -4,8 +4,12 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.dao.ProductDao" %>
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
@@ -31,7 +35,7 @@
         <%@include file="includes/nav-bar.jsp"%>
         <div class="container">
             <div class="content-cart">
-                <div class="nav-cart"><h2 class="">Total Price: $ ${totalPrice > 0} totalPrice:0</h2></div>
+                <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>
                 <div class="nav-cart btn-checkout">
                     <a class="btn btn-primary" href="#">Check out</a>
                 </div>
