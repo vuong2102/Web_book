@@ -79,6 +79,7 @@ body{
   justify-content: space-between;
   float: left;
   width: 100%;
+  flex-direction: column;
 }
 
 .card-img-top{
