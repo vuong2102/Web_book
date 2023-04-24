@@ -65,4 +65,25 @@ public class ProductDao {
         }
         return books;
     }
+    public double getTotalCartPrice(ArrayList<Cart> cartArrayList){
+        double sum = 0;
+        try{
+            if(cartArrayList.size() > 0){
+                for(Cart item : cartArrayList){
+                    query = "select price from products where id=?";
+                    pst = this.con.prepareStatement(query);
+                    pst.setInt(1, item.getId());
+                    rs = pst.executeQuery();
+
+                    while (rs.next()){
+                        sum += rs.getDouble("price") * item.getQuantity();
+                    }
+                }
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return sum;
+    }
 }

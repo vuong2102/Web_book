@@ -74,6 +74,7 @@ html{
     font-weight: bold;
     text-align: center;
 }
+<<<<<<< HEAD
 
 .info_product{
     text-align: center;
@@ -82,6 +83,12 @@ html{
     border: 1px solid black;
 }
 
+=======
+.list_items{
+    display: flex;
+    flex-direction: column;
+}
+>>>>>>> e9b473c9b353af70e43f48351d8c0d0768ca19b7
 .table-content{
     padding: 28px 0 0 0;
     float: left;

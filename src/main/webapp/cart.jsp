@@ -4,8 +4,12 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.dao.ProductDao" %>
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
@@ -16,7 +20,9 @@
     if(cartArrayList != null){
         ProductDao productDao = new ProductDao(JDBCConnect.getConnection());
         cartProduct = productDao.getCartProducts(cartArrayList);
+        double totalPrice = productDao.getTotalCartPrice(cartArrayList);
         request.setAttribute("cartArrayList", cartArrayList);
+        request.setAttribute("totalPrice", totalPrice);
     }
 %>
 <html>
@@ -29,7 +35,7 @@
         <%@include file="includes/nav-bar.jsp"%>
         <div class="container">
             <div class="content-cart">
-                <div class="nav-cart"><h2 class="">Total Price: $452</h2></div>
+                <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>
                 <div class="nav-cart btn-checkout">
                     <a class="btn btn-primary" href="#">Check out</a>
                 </div>
@@ -44,26 +50,26 @@
                         <li class="table-col">Action</li>
                     </ul>
                 </div>
-                <div>
+                <div class="list_items">
                     <% if(cartArrayList != null){
                         for(Cart c : cartProduct){ %>
                             <ul>
                                 <li class="table-content"><%= c.getName()%></li>
                                 <li class="table-content"><%= c.getCategory()%></li>
-                                <li class="table-content"><%= c.getPrice()%></li>
+                                <li class="table-content">$<%= dcf.format(c.getPrice())%></li>
                                 <li class="table-content">
                                     <form action="" method="post" class="form-inline">
                                         <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
                                         <div class="form-group">
-                                            <a href="" class="btn-incre"><i class="fas">+</i></a>
+                                            <a href="quantity-inc-dec?action=inc&id=<%=c.getId()%>" class="btn-incre"><i class="fas">+</i></a>
                                             <label>
-                                                <input class="form-control" type="text" name="quantity" value="1" readonly>
+                                                <input class="form-control" type="text" name="quantity" value="<%= c.getQuantity()%>" readonly>
                                             </label>
-                                            <a href="" class="btn-decree"><i class="fas">-</i></a>
+                                            <a href="quantity-inc-dec?action=decree&id=<%=c.getId()%>" class="btn-decree"><i class="fas">-</i></a>
                                         </div>
                                     </form>
                                 </li>
-                                <li class="table-content"><a class="btn-remove" href="">Remove</a></li>
+                                <li class="table-content"><a class="btn-remove" href="remove-from-cart?id=<%= c.getId()%>">Remove</a></li>
                             </ul>
                         <%}
                     }%>
