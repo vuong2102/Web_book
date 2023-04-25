@@ -37,6 +37,9 @@
                         </label>
                     </div>
                     <div>
+                        <a href="#">Register now</a>
+                    </div>
+                    <div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </form>

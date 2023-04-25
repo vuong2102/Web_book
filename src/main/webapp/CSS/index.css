@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;500&display=swap');
+html{
+  font-family: 'Montserrat', sans-serif;
+  background: beige;
+}
 body{
   margin: 0;
+  padding: 0;
 }
 .container-fluid{
   display: inline-block;
@@ -58,17 +64,49 @@ body{
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .col-home{
+  background: floralwhite;
   display: flex;
-  margin: 5px;
   padding: 10px;
   width: 25%;
   border: 1px rgb(121, 121, 121) solid;
 }
 .card{
+  display: flex;
+  justify-content: space-between;
   float: left;
   width: 100%;
+  flex-direction: column;
+}
+
+.card-img-top{
+  margin-left: 25%;
+  max-width: 150px;
+  max-height: 214px;
+}
+.card-title{
+    margin: 0;
+    padding: 5px 0 0 0;
+    font-size: 15px;
+}
+.price{
+  margin: 0;
+  padding: 5px 0 0 0;
+  font-size: 15px;
+}
+
+.category{
+  margin: 0;
+  padding: 5px 0 0 0;
+  font-size: 15px;
+}
+.container-btn{
+  padding: 5px 0 0 0;
+  display: flex;
+  justify-content: space-between;
 }
 .btn{
   padding: 5px;
