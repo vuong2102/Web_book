@@ -19,28 +19,25 @@
 <body>
     <%@include file="includes/nav-bar.jsp"%>
     <div class="container">
-        	<div>
-        		<h3 class="card-header">User Login</h3>
+        	<div class="card-header">
+        		<div class="welcome">Welcome to</div>
+                <div class="header-name">VATTH Book Web</div>
         	</div>
             <div class="card-body">
                 <form action="user-login" method="post" class="form">
                     <div class="form-group">
-                        <div class="text__label">Email Address</div>
                         <label>
-                            <input type="email" class="input form-control" name="login-email" placeholder="Enter Your Email" required>
+                            <input type="email" class="input" name="login-email" placeholder="Enter Your Email" required>
+                        </label>
+                        <label>
+                            <input type="password" class="input" name="login-password" placeholder="********" required>
                         </label>
                     </div>
-                    <div class="form-group">
-                        <div class="text__label">Password</div>
-                        <label>
-                            <input type="password" class="input form-control" name="login-password" placeholder="********" required>
-                        </label>
-                    </div>
-                    <div>
-                        <a href="#">Register now</a>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="card-submit">
+                        <div class="register">
+                            <a href="#">Register now</a>
+                        </div>
+                        <button type="submit" class="btn-submit">Login</button>
                     </div>
                 </form>
             </div>

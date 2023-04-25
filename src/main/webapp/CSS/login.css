@@ -1,68 +1,110 @@
 html{
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 body {
-	margin: 0;
-	padding: 0;
-	background-color: rgba(0, 0, 0, 0.4);
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    font-family: cursive;
 }
-/* .form{
-    height: 40%;
-    width: 50%;
-}
-*/
 
 .container{
-	margin-top: 150px;
-    margin-left: 580px;
-    margin-right: 403px;
-    width: 600px !important;
-    height: 400px;
+    margin: 4rem 30rem;
+    width: 430px !important;
+    height: 520px;
     background-color: white;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 10px;
-    margin: auto;
-}
-
-.input{
-    padding: 7px;
-    width: 80%;
-    border-radius: 5px
 }
 
 .card-header{
-	margin:0;
-	background: aqua;
-	padding: 20px 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-	font-size: 50px;
-	font-weight: 600;
-	color: limegreen;	
+    display: flex;
+    justify-content: flex-end;
+    height: 30%;
+    width: 100%;
+    flex-direction: column;
 }
 
-.text__label{
-	font-size: 20px;	
-	float: left;
-    padding-left: 9%;
-    margin-bottom: 5px;	
-    margin-top: 5px;
+.welcome {
+    font-size: 1.5rem;
+    color: #87CBB9;
+}
+
+.header-name {
+    font-size: 2rem;
+    color: #577D86;
+}
+
+.card-body {
+    width: 100%;
+    height: 70%;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
 }
 
 .form-group{
-	margin-top: 20px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.btn-primary{
-    background-color: rgb(87, 144, 242);
-    margin-top: 40px;
-    width: 100px;
-    height: 40px;
-    font-size: 15px;
-    color: white;
-    border-radius: 10px;
-} 
+.input{
+    width: 75%;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #577D86;
+    font-size: 1rem;
+}
+
+.input ::placeholder {
+    font-family: cursive;
+    display: flex;
+    align-items: flex-end;
+}
+
+.input :focus {
+    outline: none;
+}
+
+.card-submit {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+}
+
+.register > a {
+    color: #7F8487;
+}
+
+.register > a :hover {
+    color: #413F42;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDF7E3;
+    width: 10rem;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    color: #41644A;
+    font-family: cursive !important;
+    border-color: #5D9C59;
+}
+
+.btn-submit :hover {
+    background-color: #3C6255;
+    cursor: pointer;
+}
 
