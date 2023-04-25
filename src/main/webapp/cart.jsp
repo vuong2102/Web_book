@@ -58,7 +58,7 @@
                                 <li class="table-content"><%= c.getCategory()%></li>
                                 <li class="table-content">$<%= dcf.format(c.getPrice())%></li>
                                 <li class="table-content">
-                                    <form action="" method="post" class="form-inline">
+                                    <form action="order-now" method="post" class="form-inline">
                                         <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
                                         <div class="form-group">
                                             <a href="quantity-inc-dec?action=inc&id=<%=c.getId()%>" class="btn-incre"><i class="fas">+</i></a>
@@ -66,10 +66,13 @@
                                                 <input class="form-control" type="text" name="quantity" value="<%= c.getQuantity()%>" readonly>
                                             </label>
                                             <a href="quantity-inc-dec?action=decree&id=<%=c.getId()%>" class="btn-decree"><i class="fas">-</i></a>
+                                            <button type="submit" class="table-action btn btn-buy">Buy</button>
                                         </div>
                                     </form>
                                 </li>
-                                <li class="table-content"><a class="btn-remove" href="remove-from-cart?id=<%= c.getId()%>">Remove</a></li>
+                                <ul class="table-content" style="display: flex; justify-content: space-around">
+                                    <li class="table-action"><a class="btn-remove" href="remove-from-cart?id=<%= c.getId()%>">Remove</a></li>
+                                </ul>
                             </ul>
                         <%}
                     }%>

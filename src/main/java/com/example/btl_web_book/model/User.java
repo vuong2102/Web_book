@@ -1,6 +1,6 @@
 package com.example.btl_web_book.model;
 public class User {
-    private Long id;
+    private int id;
     private String userName;
     private String phoneNumber;
     private String address;
@@ -8,7 +8,7 @@ public class User {
     private String passWord;
 
 
-    public User(Long id, String userName, String phoneNumber, String address, String email, String passWord) {
+    public User(int id, String userName, String phoneNumber, String address, String email, String passWord) {
         this.id = id;
         this.userName = userName;
         this.phoneNumber = phoneNumber;
@@ -19,10 +19,10 @@ public class User {
     public User() {
 
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getUserName() {

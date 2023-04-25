@@ -17,11 +17,15 @@ public class RemoveFormCartServlet extends HttpServlet {
         try(PrintWriter out = response.getWriter()){
             String id = request.getParameter("id");
             if(id != null){
-                ArrayList<Cart> cartArrayList = (ArrayList<Cart>)  request.getSession().getAttribute("cart-list");
+                ArrayList<Cart> cartArrayList = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                 if(cartArrayList != null) {
                     for(Cart c : cartArrayList){
-                        if(c.getId() == Integer.parseInt(id));
+                        if(c.getId() == Integer.parseInt(id)){
+                            cartArrayList.remove(c);
+                            break;
+                        }
                     }
+                    response.sendRedirect("cart.jsp");
                 }
             }
             else{
