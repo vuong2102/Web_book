@@ -29,9 +29,36 @@
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
+    <div class="slideshow-container">
 
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./product-images/img1.jpg" style="width:100%" alt="not remember">
+            <div class="text">Tuyên đẹp trai</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./product-images/img2.jpg" style="width:100%" alt="not remember">
+            <div class="text">Tuyên đẹp trai</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./product-images/img3.jpg" style="width:100%" alt="not remember">
+            <div class="text">Tuyên đẹp trai</div>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <script src="./JS/Showslider.js"></script>
     <div class="container">
-        <h2 class="card-header">All Products</h2>
         <div class="row">
             <%
                 if (!products.isEmpty()) {
@@ -57,5 +84,6 @@
                 </div>
             </div>
         <%@include file="includes/footer.jsp"%>
-    </body>
+
+</body>
 </html>
