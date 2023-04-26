@@ -9,7 +9,7 @@ public class JDBCConnect {
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if(connection == null){
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_book","root","trongsql@2407");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3309/web_book","root","21022002");
             System.out.print("connected");
         }
         return connection;

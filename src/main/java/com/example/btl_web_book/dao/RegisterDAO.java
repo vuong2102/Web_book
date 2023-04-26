@@ -25,9 +25,10 @@ public class RegisterDAO {
             preparedStatement.setString(6,user.getRole());
             preparedStatement.executeUpdate();
 
+
         }catch (SQLException e){
             e.printStackTrace();
-            result = "Failed";
+            result = "Register Failed";
         }
         return result;
     }

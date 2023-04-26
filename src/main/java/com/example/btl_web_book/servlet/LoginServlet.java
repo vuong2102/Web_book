@@ -29,11 +29,11 @@ public class LoginServlet extends HttpServlet {
 
                 if (user != null){
                     out.print("user login");
-                    request.getSession().setAttribute("auth", user);
+//                    request.getSession().setAttribute("auth", user);
                     response.sendRedirect("index.jsp");
                 }
                 else {
-                    out.print("user failed");
+                    out.print("Login failed - Email or password don't exsit");
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();

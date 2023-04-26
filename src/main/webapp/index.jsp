@@ -6,10 +6,10 @@
 <%@ page import="java.util.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    User auth = (User) request.getSession().getAttribute("auth");
-    if(auth!= null){
-        request.setAttribute("auth", auth);
-    }
+//    User auth = (User) request.getSession().getAttribute("auth");
+//    if(auth!= null){
+//        request.setAttribute("auth", auth);
+//    }
     ProductDao pd = new ProductDao(JDBCConnect.getConnection());
     List<Product> products = pd.getAllProducts();
 
@@ -85,5 +85,5 @@
             </div>
         <%@include file="includes/footer.jsp"%>
 
-</body>
+    </body>
 </html>

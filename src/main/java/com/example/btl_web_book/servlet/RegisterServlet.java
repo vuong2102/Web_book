@@ -31,22 +31,17 @@ public class RegisterServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String passWord = request.getParameter("passWord");
         String role = "user";
-        User user = new User(userName,phoneNumber,address,email,password,role);
+        User user = new User(userName,phoneNumber,address,email,passWord,role);
         RegisterDAO registerDAO = new RegisterDAO();
         RequestDispatcher dispatcher = null;
         try {
             String result = registerDAO.insert(user);
             response.getWriter().print(result);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+            response.sendRedirect("login.jsp");
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
-
     }
 }
