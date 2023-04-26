@@ -1,23 +1,17 @@
 package com.example.btl_web_book.servlet;
 
 import java.io.*;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.dao.UserDao;
 import com.example.btl_web_book.model.User;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet("/user-login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Connection con= null;
-    public LoginServlet() throws SQLException, ClassNotFoundException {
-        con = JDBCConnect.getConnection();
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("login.jsp");
@@ -34,15 +28,14 @@ public class LoginServlet extends HttpServlet {
                 User user = userDao.userLogin(email, password);
 
                 if (user != null){
-                    HttpSession session = request.getSession();
-                    session.setAttribute("auth", user);
+                    out.print("user login");
+                    request.getSession().setAttribute("auth", user);
                     response.sendRedirect("index.jsp");
                 }
                 else {
-                    request.setAttribute("mess", "Wrong user or password");
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                    out.print("user failed");
                 }
-            } catch (SQLException | ClassNotFoundException | ServletException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }

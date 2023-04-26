@@ -1,11 +1,14 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%--    <meta charset="UTF-8">--%>
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
     <title>Document</title>
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 </head>
 <body>
@@ -36,7 +39,7 @@
                             <li><a href=""></a>Điều khoản sử dụng</li>
                             <li><a href=""></a>Chính sách bảo mật thông tin cá nhân</li>
                             <li><a href=""></a>Chính sách bảo mật thanh toán</li>
-                            <li><a href=""></a>Giới thiệu Fahasa</li>
+                            <li><a href=""></a>Giới thiệu VATTH</li>
                             <li><a href=""></a>Hệ thống trung tâm - nhà sách</li>
                         </ul>
                     </div>

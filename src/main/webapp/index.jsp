@@ -5,19 +5,15 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
-        request.setAttribute("person", auth);
+        request.setAttribute("auth", auth);
     }
-
-    ProductDao pd = null;
-    try {
-        pd = new ProductDao(JDBCConnect.getConnection());
-    } catch (ClassNotFoundException | SQLException e) {
-        throw new RuntimeException(e);
-    }
+    ProductDao pd = new ProductDao(JDBCConnect.getConnection());
     List<Product> products = pd.getAllProducts();
 
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -33,6 +29,7 @@
     <title>Welcome to Shopping Book</title>
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/nav-bar.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
@@ -92,5 +89,5 @@
             </div>
         <%@include file="includes/footer.jsp"%>
 
-    </body>
+</body>
 </html>

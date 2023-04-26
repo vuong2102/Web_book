@@ -24,15 +24,17 @@
 <%--        </div>--%>
 <%--    </div>--%>
 <%--</nav>--%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%--    <meta charset="UTF-8">--%>
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/nav-bar.css">
+<%--    <link rel="stylesheet" href="CSS/index.css">--%>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
@@ -59,7 +61,7 @@
                         <span class="badge">${ cartArrayList.size()}</span>
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>--%>
+                <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Manage Book</a></li>
                 <%
                         if(auth != null){
