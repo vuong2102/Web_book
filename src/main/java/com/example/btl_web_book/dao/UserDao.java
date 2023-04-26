@@ -1,10 +1,13 @@
 package com.example.btl_web_book.dao;
 
+
 import com.example.btl_web_book.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+
 public class UserDao {
     private Connection con;
     private String query;
@@ -26,9 +29,10 @@ public class UserDao {
                 user = new User();
                 user.setId(rs.getInt("id"));
                 user.setUserName(rs.getString("userName"));
-                user.setPhoneNumber(rs.getString("phoneNumber"));
                 user.setAddress(rs.getString("address"));
+                user.setPhoneNumber(rs.getString("phoneNumber"));
                 user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role"));
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -36,5 +40,6 @@ public class UserDao {
         }
         return user;
     }
+
 
 }
