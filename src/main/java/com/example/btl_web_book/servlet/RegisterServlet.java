@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String password = request.getParameter("passWord");
         String role = "user";
         User user = new User(userName,phoneNumber,address,email,password,role);
         RegisterDAO registerDAO = new RegisterDAO();
@@ -39,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             String result = registerDAO.insert(user);
             response.getWriter().print(result);
-
+            response.sendRedirect("login.jsp");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

@@ -1,6 +1,7 @@
 package com.example.btl_web_book.servlet;
 
 import java.io.*;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.example.btl_web_book.connection.JDBCConnect;
@@ -12,6 +13,10 @@ import jakarta.servlet.annotation.*;
 @WebServlet("/user-login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private Connection con= null;
+    public LoginServlet() throws SQLException, ClassNotFoundException {
+        con = JDBCConnect.getConnection();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("login.jsp");
