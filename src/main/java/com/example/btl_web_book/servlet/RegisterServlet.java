@@ -22,9 +22,7 @@ public class RegisterServlet extends HttpServlet {
         super();
         this.userDao = new UserDao(JDBCConnect.getConnection());
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append("Server at: ").append(request.getContextPath());
-    }
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String userName = request.getParameter("userName");
@@ -38,7 +36,6 @@ public class RegisterServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
         try {
             String result = registerDAO.insert(user);
-            response.getWriter().print(result);
             response.sendRedirect("login.jsp");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
