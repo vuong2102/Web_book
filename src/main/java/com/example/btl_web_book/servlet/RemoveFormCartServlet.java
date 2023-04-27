@@ -21,12 +21,12 @@ public class RemoveFormCartServlet extends HttpServlet {
                 if(cartArrayList != null) {
                     for(Cart c : cartArrayList){
                         if(c.getId() == Integer.parseInt(id)){
-                            cartArrayList.remove(c);
+                            cartArrayList.remove(cartArrayList.indexOf(c));
                             break;
                         }
                     }
-                    response.sendRedirect("cart.jsp");
                 }
+                response.sendRedirect("cart.jsp");
             }
             else{
                 response.sendRedirect("cart.jsp");

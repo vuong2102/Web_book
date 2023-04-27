@@ -12,8 +12,8 @@
 
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
-        request.setAttribute("auth", auth);
-        response.sendRedirect("index.jsp");
+        request.setAttribute("person", auth);
+//        response.sendRedirect("index.jsp");
     }
     ArrayList<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct = null;

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.dao.UserDao;
 import com.example.btl_web_book.model.User;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -28,14 +29,15 @@ public class LoginServlet extends HttpServlet {
                 User user = userDao.userLogin(email, password);
 
                 if (user != null){
-                    out.print("user login");
-//                    request.getSession().setAttribute("auth", user);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("auth", user);
                     response.sendRedirect("index.jsp");
                 }
                 else {
-                    out.print("Login failed - Email or password don't exsit");
+                    request.setAttribute("mess", "Wrong user or password");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException | ServletException e) {
                 e.printStackTrace();
             }
         }

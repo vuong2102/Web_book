@@ -27,7 +27,7 @@ public class OrderNowServlet extends HttpServlet {
             Date date = new Date();
 
             User auth = (User) request.getSession().getAttribute("auth");
-
+            User user = new User();
             if (auth != null) {
                 String productId = request.getParameter("id");
                 int productQuantity = Integer.parseInt(request.getParameter("quantity"));
@@ -61,7 +61,6 @@ public class OrderNowServlet extends HttpServlet {
             }
 
         } catch (ClassNotFoundException|SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
