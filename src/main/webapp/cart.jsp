@@ -37,7 +37,7 @@
             <div class="content-cart">
                 <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>
                 <div class="nav-cart btn-checkout">
-                    <a class="btn btn-primary" href="#">Check out</a>
+                    <a class="btn btn-primary" href="cart-check-out">Check out</a>
                 </div>
             </div>
             <div class="table-cart">

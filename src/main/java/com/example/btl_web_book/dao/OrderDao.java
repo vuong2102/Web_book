@@ -65,7 +65,7 @@ public class OrderDao {
     public void cancelOrder(int id) {
         //boolean result = false;
         try {
-            query = "delete from orders where o_id=?";
+            query = "delete from orders where id=?";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             pst.execute();

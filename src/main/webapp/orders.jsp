@@ -37,24 +37,24 @@
     <title>Title</title>
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/cart.css">
+    <link rel="stylesheet" href="CSS/orders.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
     <div class="container">
-        <div class="card-header my-3">All Orders</div>
+        <h2 class="card-header my-3">All Orders</h2>
         <div class="table-cart">
             <div>
                 <ul class="table-head">
                     <li class="table-col">Date</li>
                     <li class="table-col">Name</li>
                     <li class="table-col">Category</li>
-                    <li class="table-col">Quantity</li>
-                    <li class="table-col">Price</li>
+                    <li class="table-col table-col-small">Quantity</li>
+                    <li class="table-col table-col-small">Price</li>
                     <li class="table-col">Cancel</li>
                 </ul>
             </div>
-            <div>
+            <div class="list_items">
                 <%
                     if(orders != null){
                         for(Order o:orders){%>
@@ -62,8 +62,8 @@
                         <li class="table-content"><%=o.getDate() %></li>
                         <li class="table-content"><%=o.getName() %></li>
                         <li class="table-content"><%=o.getCategory() %></li>
-                        <li class="table-content"><%=o.getQuantity() %></li>
-                        <li class="table-content"><%=dcf.format(o.getPrice()) %></li>
+                        <li class="table-content table-col-small"><%=o.getQuantity() %></li>
+                        <li class="table-content table-col-small"><%=dcf.format(o.getPrice()) %></li>
                         <li class="table-content"><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId()%>">Cancel Order</a></li>
                     </ul>
                 <%}
