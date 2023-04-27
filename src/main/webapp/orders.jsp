@@ -37,41 +37,41 @@
     <title>Title</title>
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/cart.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
     <div class="container">
         <div class="card-header my-3">All Orders</div>
-        <table class="table table-light">
-            <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Cancel</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <%
-                if(orders != null){
-                    for(Order o:orders){%>
-                <tr>
-                    <td><%=o.getDate() %></td>
-                    <td><%=o.getName() %></td>
-                    <td><%=o.getCategory() %></td>
-                    <td><%=o.getQuantity() %></td>
-                    <td><%=dcf.format(o.getPrice()) %></td>
-                    <td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId()%>">Cancel Order</a></td>
-                </tr>
-            <%}
-            }
-            %>
-
-            </tbody>
-        </table>
+        <div class="table-cart">
+            <div>
+                <ul class="table-head">
+                    <li class="table-col">Date</li>
+                    <li class="table-col">Name</li>
+                    <li class="table-col">Category</li>
+                    <li class="table-col">Quantity</li>
+                    <li class="table-col">Price</li>
+                    <li class="table-col">Cancel</li>
+                </ul>
+            </div>
+            <div>
+                <%
+                    if(orders != null){
+                        for(Order o:orders){%>
+                    <ul>
+                        <li class="table-content"><%=o.getDate() %></li>
+                        <li class="table-content"><%=o.getName() %></li>
+                        <li class="table-content"><%=o.getCategory() %></li>
+                        <li class="table-content"><%=o.getQuantity() %></li>
+                        <li class="table-content"><%=dcf.format(o.getPrice()) %></li>
+                        <li class="table-content"><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId()%>">Cancel Order</a></li>
+                    </ul>
+                <%}
+                }
+                %>
+            </div>
+        </div>
     </div>
+    <%@include file="/includes/footer.jsp"%>
 </body>
 </html>

@@ -37,22 +37,22 @@ public class OrderDao {
     public List<Order> userOrders(int id) {
         List<Order> list = new ArrayList<>();
         try {
-            query = "select * from orders where u_id=? order by orders.o_id desc";
+            query = "select * from orders where user_id=? order by orders.id desc";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             rs = pst.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
                 ProductDao productDao = new ProductDao(this.con);
-                int pId = rs.getInt("p_id");
+                int pId = rs.getInt("product_id");
                 Product product = productDao.getSingleProduct(pId);
-                order.setOrderId(rs.getInt("o_id"));
+                order.setOrderId(rs.getInt("id"));
                 order.setId(pId);
                 order.setName(product.getName());
                 order.setCategory(product.getCategory());
-                order.setPrice(product.getPrice()*rs.getInt("o_quantity"));
-                order.setQuantity(rs.getInt("o_quantity"));
-                order.setDate(rs.getString("o_date"));
+                order.setPrice(product.getPrice()*rs.getInt("order_quantity"));
+                order.setQuantity(rs.getInt("order_quantity"));
+                order.setDate(rs.getString("order_date"));
                 list.add(order);
             }
         } catch (Exception e) {
