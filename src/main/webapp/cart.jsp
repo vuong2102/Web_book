@@ -5,6 +5,7 @@
 <%@ page import="com.example.btl_web_book.dao.ProductDao" %>
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
 <%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
@@ -12,13 +13,18 @@
 
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
-        request.setAttribute("auth", auth);
-        response.sendRedirect("index.jsp");
+        request.setAttribute("person", auth);
+//        response.sendRedirect("index.jsp");
     }
     ArrayList<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct = null;
     if(cartArrayList != null){
-        ProductDao productDao = new ProductDao(JDBCConnect.getConnection());
+        ProductDao productDao = null;
+        try {
+            productDao = new ProductDao(JDBCConnect.getConnection());
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
         cartProduct = productDao.getCartProducts(cartArrayList);
         double totalPrice = productDao.getTotalCartPrice(cartArrayList);
         request.setAttribute("cartArrayList", cartArrayList);
@@ -37,7 +43,7 @@
             <div class="content-cart">
                 <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>
                 <div class="nav-cart btn-checkout">
-                    <a class="btn btn-primary" href="#">Check out</a>
+                    <a class="btn btn-primary" href="cart-check-out">Check out</a>
                 </div>
             </div>
             <div class="table-cart">

@@ -9,7 +9,7 @@ html{
     position: relative;
     height: max-content;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .btn{
@@ -49,14 +49,26 @@ html{
     margin:auto;
 }
 .table-cart{
-    width: 100%;
+    /* width: 100%; */
     height: max-content;
-    position: relative;
-    /* border-top: 1px solid;
-    border-bottom: 1px solid;  */
+    /* position: relative; */
+    border: 1px solid;
     margin-top: 20px;
-}
+    float: left;
+    width: 70%;
+    margin-right: 10px;
 
+}
+.table-cart-right{
+    /* width: 100%; */
+    height: max-content;
+    /* position: relative; */
+    border: 1px solid;
+    margin-top: 20px;
+    float: left;
+    width: 30%;
+
+}
 .table-head{
     margin: 0;
     background-color: #ffffff;
@@ -67,14 +79,16 @@ html{
 }
 .table-col{
     float: left;
-    width: 20%;
+    width: 16.66%;
     justify-content: center;
     list-style: none;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
-
+.table-col-small{
+    width: 10% !important;
+}
 .info_product{
     text-align: center;
     margin: 0;
@@ -85,7 +99,7 @@ html{
 .table-content{
     padding: 28px 0 0 0;
     float: left;
-    width: 20%;
+    width: 16.66%;
     list-style: none;
     font-size: 16px;
 }
@@ -114,17 +128,6 @@ html{
     display: flex;
     flex-direction: column;
 }
-.btn-decree,
-.btn-incre{
-    text-decoration: none;
-    padding: 5px 9px;
-    border: 1px #cdcdcd solid;
-    border-radius: 5px;
-}
-.btn-decree:hover,
-.btn-incre:hover{
-    background-color: #dedede;
-}
 .form-control{
     margin: 0 6px 0 6px;
     padding: 7px 0 4px 0;
@@ -136,4 +139,47 @@ html{
 .form-group{
     display: flex;
     flex-direction: row;
+}
+
+.right-col1{
+    list-style: none;
+    float: left;
+    width: 50%;
+    font-size: 18px;
+}
+.right-col2{
+    width: 100%;
+    list-style: none;
+}
+.right-col3{
+    width: 100%;
+    list-style: none;
+}
+.m-10{
+    margin-bottom: 13px;
+}
+.btn-buy{
+    padding: 9px;
+    border: 1px #cdcdcd solid;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #4680ff;
+    color: aliceblue;
+    width: 70%;
+    font-weight: 500;
+}
+.btn-buy:hover{
+    cursor: pointer;
+    background-color: #5b8fff;
+}
+.right-row4{
+    display: flex;
+    width: 100%;
+    list-style: none;
+}
+.right-col41{
+    float: left;
+}
+.right-col42{
+    float: right;
 }

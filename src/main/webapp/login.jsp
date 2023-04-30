@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Shopping Login Page</title>
+    <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/login.css">
     <link rel="stylesheet" href="CSS/index.css">

@@ -68,7 +68,7 @@ body{
 .container-fluid{
   display: inline-block;
   width: 100%;
-  background-color: beige;
+  background-color: #ffffff;
 }
 .collapse{
   float: right;
@@ -76,19 +76,19 @@ body{
 .navbar-brand{
   font-size: 18px;
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
   place-items: center;
 }
 .nav-link{
   text-decoration: none;
   font-weight: bold;
-  color: darkgoldenrod;
+  color: #000000;
 }
 .nav-item{
   display: inline-block;
   position: relative;
   margin: 0 5px 0 5px;
-  color: #ffffff;
+  color: #000000;
   font-family: sans-serif;
   font-size: 20px;
   cursor: pointer;

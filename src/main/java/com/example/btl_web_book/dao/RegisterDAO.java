@@ -12,10 +12,10 @@ public class RegisterDAO {
     public String insert(User user) throws SQLException, ClassNotFoundException {
 
         String result = "Succesfully";
-        String insertquery = "INSERT INTO users" + "  (userName,phoneNumber,address,email,password,role) VALUES " +
+        String insertQuery = "INSERT INTO users" + "  (userName,phoneNumber,address,email,password,role) VALUES " +
                 " (?, ?, ?, ?, ?, ?);";
         try(Connection con = JDBCConnect.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(insertquery)){
+            PreparedStatement preparedStatement = con.prepareStatement(insertQuery)){
 
             preparedStatement.setString(1,user.getUserName());
             preparedStatement.setString(2,user.getPhoneNumber());
@@ -25,9 +25,11 @@ public class RegisterDAO {
             preparedStatement.setString(6,user.getRole());
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+
+        }
+        catch (Exception e){
             e.printStackTrace();
-            result = "Failed";
+            result = "Register Failed";
         }
         return result;
     }

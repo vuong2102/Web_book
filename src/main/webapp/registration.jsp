@@ -43,7 +43,7 @@
                 <div class="card-submit">
                     <button type="submit" class="btn-submit">Register</button>
                     <div class ="login">
-                        <a href="login.jsp"> Login now</a>
+                        <a href="login.jsp">Login now</a>
                     </div>
 
                 </div>
