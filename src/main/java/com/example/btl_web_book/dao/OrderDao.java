@@ -1,5 +1,6 @@
 package com.example.btl_web_book.dao;
 
+import com.example.btl_web_book.model.Cart;
 import com.example.btl_web_book.model.Order;
 import com.example.btl_web_book.model.Product;
 
@@ -61,7 +62,26 @@ public class OrderDao {
         }
         return list;
     }
+    public double getTotalOrderPrice(ArrayList<Order> orderArrayList){
+        double sum = 0;
+        try{
+            if(orderArrayList.size() > 0){
+                for(Order item : orderArrayList){
+                    query = "select price from products where id=?";
+                    pst = this.con.prepareStatement(query);
+                    pst.setInt(1, item.getId());
+                    rs = pst.executeQuery();
+                    while (rs.next()){
+                        sum += rs.getDouble("price") * item.getQuantity();
+                    }
+                }
+            }
 
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return sum;
+    }
     public void cancelOrder(int id) {
         //boolean result = false;
         try {

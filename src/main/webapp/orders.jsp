@@ -13,23 +13,26 @@
     request.setAttribute("dcf", dcf);
     User auth = (User) request.getSession().getAttribute("auth");
     List<Order> orders = null;
+
+    OrderDao orderDao  = null;
+    try {
+        orderDao = new OrderDao(JDBCConnect.getConnection());
+    } catch (ClassNotFoundException | SQLException e) {
+        throw new RuntimeException(e);
+    }
     if (auth != null) {
         request.setAttribute("person", auth);
-        OrderDao orderDao  = null;
-        try {
-            orderDao = new OrderDao(JDBCConnect.getConnection());
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
-        }
         orders = orderDao.userOrders(auth.getId());
     }else{
         response.sendRedirect("login.jsp");
     }
-    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-    if (cart_list != null) {
-        request.setAttribute("cart_list", cart_list);
+    double totalPrice = 0;
+    if(orders != null){
+        for(Order o : orders){
+            totalPrice += o.getPrice();
+        }
     }
-
+    request.setAttribute("totalPrice", totalPrice);
 %>
 
 <html>
@@ -41,8 +44,8 @@
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
+    <h2 class="card-header my-3">All Orders</h2>
     <div class="container">
-        <h2 class="card-header my-3">All Orders</h2>
         <div class="table-cart">
             <div>
                 <ul class="table-head">
@@ -70,6 +73,23 @@
                 }
                 %>
             </div>
+        </div>
+        <div class="table-cart-right">
+            <ul class="right-col">
+                <li class="m-10 right-col1">Giao tới</li>
+                <li class="m-10 right-col1"><a href="#">Thay đổi</a></li>
+            </ul>
+            <ul>
+                <li class="m-10 right-col2">${sessionScope.auth.userName}    |    ${sessionScope.auth.phoneNumber}</li>
+            </ul>
+            <ul>
+                <li class="right-col3">Địa chỉ: ${sessionScope.auth.address}</li>
+            </ul>
+            <ul class="right-row4">
+                <li class="right-col41"><h3 class="">Total Price: </h3></li>
+                <li class="right-col42"><h3 class="">$ ${(totalPrice>0)?dcf.format(totalPrice):0}</h3></li>
+            </ul>
+            <ul class="btn-right"><button type="submit" class="btn-buy">Mua hàng</button></ul>
         </div>
     </div>
     <%@include file="/includes/footer.jsp"%>
