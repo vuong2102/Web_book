@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
+    <h3 style="color: red">${requestScope.ms}</h3>
     <div class="container">
         <div class="card-header">
             <div class="register_form">Register Form</div>
@@ -38,6 +39,7 @@
                     <label>
                         <input type="password" class="input" name="passWord" placeholder="*******" required>
                     </label>
+
 
                 </div>
                 <div class="card-submit">

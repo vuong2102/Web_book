@@ -22,23 +22,31 @@ public class RegisterServlet extends HttpServlet {
         super();
         this.userDao = new UserDao(JDBCConnect.getConnection());
     }
-    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().append("Server at: ").append(request.getContextPath());
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String userName = request.getParameter("userName");
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
-        String passWord = request.getParameter("passWord");
+        String password = request.getParameter("passWord");
         String role = "user";
-        User user = new User(userName,phoneNumber,address,email,passWord,role);
+        User user = new User(userName,phoneNumber,address,email,password,role);
         RegisterDAO registerDAO = new RegisterDAO();
         RequestDispatcher dispatcher = null;
         try {
             String result = registerDAO.insert(user);
+            response.getWriter().print(result);
             response.sendRedirect("login.jsp");
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
+
     }
 }
