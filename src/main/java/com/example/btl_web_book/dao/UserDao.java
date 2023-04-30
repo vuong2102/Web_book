@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 public class UserDao {
     private Connection con;
     private String query;
+
     private PreparedStatement pst;
     private ResultSet rs;
     public UserDao(Connection con) {
@@ -40,6 +41,7 @@ public class UserDao {
         }
         return user;
     }
+
 
 
 }
