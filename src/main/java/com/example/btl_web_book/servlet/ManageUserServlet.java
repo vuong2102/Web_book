@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/manager-user")
+@WebServlet("/manage-user")
 public class ManageUserServlet extends HttpServlet {
     private  static final long serialVersionUID = 1L;
     private ManageUsersDAO manageUsersDAO;
@@ -29,19 +29,19 @@ public class ManageUserServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "manager-user/new":
+                case "manage-user/new":
                     showNewForm(request, response);
                     break;
-                case "manager-user/insert":
+                case "manage-user/insert":
                     insertUser(request, response);
                     break;
-                case "manager-user/delete":
+                case "manage-user/delete":
                     deleteUser(request, response);
                     break;
-                case "manager-user/edit":
+                case "manage-user/edit":
                     showEditForm(request, response);
                     break;
-                case "manager-user/update":
+                case "manage-user/update":
                     updateUser(request, response);
                     break;
                 default:
@@ -95,7 +95,7 @@ public class ManageUserServlet extends HttpServlet {
             try {
                 User user = new User(userName,phoneNumber,address,email,password,role);
                 manageUsersDAO.insertUser(user);
-                response.sendRedirect("list");
+                response.sendRedirect("manage-user");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
@@ -115,13 +115,13 @@ public class ManageUserServlet extends HttpServlet {
 
         User user = new User(id,userName,phoneNumber,address,email,password,role);
         manageUsersDAO.updateUser(user);
-        response.sendRedirect("list");
+        response.sendRedirect("manage-user");
     }
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
         manageUsersDAO.deleteUser(id);
-        response.sendRedirect("list");
+        response.sendRedirect("manage-user");
     }
 
 }
