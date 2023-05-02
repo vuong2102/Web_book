@@ -41,6 +41,7 @@
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/orders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
@@ -89,9 +90,43 @@
                 <li class="right-col41"><h3 class="">Total Price: </h3></li>
                 <li class="right-col42"><h3 class="">$ ${(totalPrice>0)?dcf.format(totalPrice):0}</h3></li>
             </ul>
-            <ul class="btn-right"><button type="submit" class="btn-buy">Mua hàng</button></ul>
+            <ul class="btn-right"><button type="submit" class="btn-buy js-buy">Mua hàng</button></ul>
         </div>
     </div>
+    <div class="modal js-modal">
+        <div class="modal-container">
+            <div class="modal-close"><i class="fa-solid fa-circle-xmark js-modal-close"></i></div>
+            <div class="modal-sucess"><i class="fa-solid fa-circle-check fa-beat" style="color: #036937;"></i></div>
+            <div>
+                <h2 class="tieude">Đặt hàng thành công</h2>
+                <p>Cảm ơn quý khách đã mua hàng tại <i class="name-branch">VATTH Book</i></p>
+                <p class="content">Bộ phận phụ trách sẽ liên hệ lại với anh (chị) trong thời gian sớm nhất có thể.
+                    Trong trường hợp cần gấp, vui lòng liên hệ Hotline: <i class="phone-red">0388530484</i> để được hỗ trợ!</p>
+            </div>
+            <div>
+                <button class="btn-index"><a href="index.jsp" class="btn-modal">Về trang chủ</a></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const buyBtn = document.querySelector('.js-buy');
+        const modal = document.querySelector('.js-modal');
+        const modalClose = document.querySelector('.js-modal-close');
+
+
+        function showBuy(){
+            //alert("Show")
+            modal.classList.add('open')
+        }
+        function hideBuy(){
+            modal.classList.remove('open')
+        }
+
+        buyBtn.addEventListener('click', showBuy);
+        modal.addEventListener('click', hideBuy);
+        modalClose.addEventListener('click', hideBuy);
+
+    </script>
     <%@include file="/includes/footer.jsp"%>
 </body>
 </html>

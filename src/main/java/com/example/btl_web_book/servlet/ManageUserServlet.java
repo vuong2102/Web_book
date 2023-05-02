@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("/manager-user")
 public class ManageUserServlet extends HttpServlet {
     private  static final long serialVersionUID = 1L;
     private ManageUsersDAO manageUsersDAO;
