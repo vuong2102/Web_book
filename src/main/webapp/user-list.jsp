@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.btl_web_book.model.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: DUCTRONG
   Date: 4/30/2023
@@ -6,12 +7,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>User Management Application</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
 <header>
@@ -52,35 +53,40 @@
             </tr>
             </thead>
             <tbody>
-            <!--   for (Todo todo: todos) {  -->
-            <c:forEach var="user" items="${listUser}">
+
+            <%
+                List<User> listUser = (List<User>) request.getAttribute("listUser");
+                for(User user: listUser){
+            %>
 
                 <tr>
                     <td>
-                        <c:out value="${user.id}" />
+                        <%=user.getId()%>
                     </td>
                     <td>
-                        <c:out value="${user.userName}" />
+                        <%=user.getUserName()%>
                     </td>
                     <td>
-                        <c:out value="${user.phoneNumber}" />
+                        <%=user.getPhoneNumber()%>
                     </td>
                     <td>
-                        <c:out value="${user.address}" />
+                        <%=user.getAddress()%>
                     </td>
                     <td>
-                        <c:out value="${user.email}" />
+                        <%=user.getEmail()%>
                     </td>
                     <td>
-                        <c:out value="${user.passWord}" />
+                        <%=user.getPassWord()%>
                     </td>
+
                     <td>
-                        <c:out value="${user.role}" />
+                        <%=user.getRole()%>
                     </td>
-                    <td><a href="edit?id=<c:out value='${user.id}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${user.id}' />">Delete</a></td>
+                    <td><a href="edit?id=<%=user.getId()%>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<%=user.getId()%>">Delete</a></td>
                 </tr>
-            </c:forEach>
-            <!-- } -->
+            <%
+                }
+            %>
             </tbody>
 
         </table>
