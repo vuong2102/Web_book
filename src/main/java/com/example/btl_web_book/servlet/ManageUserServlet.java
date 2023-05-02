@@ -29,19 +29,19 @@ public class ManageUserServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "/new":
+                case "manager-user/new":
                     showNewForm(request, response);
                     break;
-                case "/insert":
+                case "manager-user/insert":
                     insertUser(request, response);
                     break;
-                case "/delete":
+                case "manager-user/delete":
                     deleteUser(request, response);
                     break;
-                case "/edit":
+                case "manager-user/edit":
                     showEditForm(request, response);
                     break;
-                case "/update":
+                case "manager-user/update":
                     updateUser(request, response);
                     break;
                 default:

@@ -8,7 +8,7 @@
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart<span class="badge" style="color:red;font-size: 18px">${ cartArrayList.size()}</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="list">Manage Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Manage Book</a></li>
                 <% if(auth != null){ %>
                     <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
