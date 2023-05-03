@@ -66,6 +66,7 @@ body{
 }
 
 .container-fluid{
+  border-bottom: 1px solid;
   display: inline-block;
   width: 100%;
   background-color: beige;
@@ -79,20 +80,33 @@ body{
   color: #ffffff;
   place-items: center;
 }
+ul.navbar-nav {
+  margin: 0;
+}
 .nav-link{
+  line-height: 55px;
   text-decoration: none;
   font-weight: bold;
   color: darkgoldenrod;
 }
+
+.nav-link:hover{
+  background-color: white;
+}
 .nav-item{
   display: inline-block;
   position: relative;
-  margin: 0 5px 0 5px;
-  color: #ffffff;
+  padding: 0 24px;
   font-family: sans-serif;
   font-size: 20px;
   cursor: pointer;
   transition: 0.4s all ease;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  background: white;
+  color: #242424;
 }
 .nav-item-end{
   margin-right: 20px;
@@ -100,6 +114,11 @@ body{
 .nav-item:hover{
   color: #cdcdcd;
   transition: 0.4s all ease;
+}
+
+.maxim{
+  width: 100%;
+  text-align: center;
 }
 
 .row{

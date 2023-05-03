@@ -2,16 +2,11 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp">E-Commerce Cart</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" href="/index.jsp">VATTH</a>
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="index.jsp">Home</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="ManagerProduct.jsp">Manage Book</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart<span class="badge" style="color:red;font-size: 18px">${ cartArrayList.size()}</span></a></li>
                 <%
                     if(auth != null){
