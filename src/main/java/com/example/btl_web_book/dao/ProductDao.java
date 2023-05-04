@@ -100,6 +100,7 @@ public class ProductDao {
 
     public void insertProduct(String pname, String pimage, String pprice, String ptitle,String  pcategory, String pdescription) {
         String query="insert into products (name, category, price, image, title, description) values (?, ?, ?, ?, ?, ?)";
+        String a="";
         try {
             pst = this.con.prepareStatement(query);
             pst.setString(1,pname);
