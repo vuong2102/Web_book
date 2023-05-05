@@ -23,7 +23,7 @@ public class ManageUserServlet extends HttpServlet {
         super();
         this.manageUsersDAO = new ManageUsersDAO(JDBCConnect.getConnection());
     }
-
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         String action = request.getServletPath();
 
@@ -42,6 +42,7 @@ public class ManageUserServlet extends HttpServlet {
                     showEditForm(request, response);
                     break;
                 case "/update_user":
+
                     updateUser(request, response);
                     break;
                 default:
@@ -55,7 +56,7 @@ public class ManageUserServlet extends HttpServlet {
         }
 
     }
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doGet(request,response);
     }
@@ -96,12 +97,9 @@ public class ManageUserServlet extends HttpServlet {
                 User user = new User(userName,phoneNumber,address,email,password,role);
                 manageUsersDAO.insertUser(user);
                 response.sendRedirect("manage-user");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-        //}
     }
     private void updateUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {

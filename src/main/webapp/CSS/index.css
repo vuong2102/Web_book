@@ -60,6 +60,10 @@ body{
   from {opacity: .4}
   to {opacity: 1}
 }
+.maxim{
+  width: 100%;
+  text-align: center;
+}
 
 .row{
   width: 100%;

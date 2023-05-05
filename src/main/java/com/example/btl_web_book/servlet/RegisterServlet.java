@@ -45,8 +45,5 @@ public class RegisterServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
-
     }
 }

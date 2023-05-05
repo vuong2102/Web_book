@@ -22,7 +22,7 @@ public class DeleteControl extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
-        //dao.delete(pid);
+        dao.delete(pid);
         response.sendRedirect("ManagerProduct.jsp");
     }
 }

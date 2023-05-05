@@ -1,21 +1,20 @@
 <%@ page import="com.example.btl_web_book.model.User" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: DUCTRONG
-  Date: 4/30/2023
-  Time: 10:47 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>User Management Application</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/nav-bar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 <header>
+    <%@include file="includes/nav-bar.jsp"%>
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #577D86;">
         <div>
             <a class="navbar-brand"> User Management</a>
@@ -78,7 +77,6 @@
                     <td>
                         <%=user.getPassWord()%>
                     </td>
-
                     <td>
                         <%=user.getRole()%>
                     </td>

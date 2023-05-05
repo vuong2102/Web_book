@@ -4,26 +4,22 @@
 <%@ page import="com.example.btl_web_book.model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.model.Cart" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: tuyen
-  Date: 27-Apr-23
-  Time: 22:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
     }
-    ProductDao pd = new ProductDao(JDBCConnect.getConnection());
+
+    ProductDao pd = null;
+    try {
+        pd = new ProductDao(JDBCConnect.getConnection());
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
     List<Product> products = pd.getAllProducts();
-//
-//    List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
-//    if(cartArrayList != null){
-//        request.setAttribute("cartArrayList", cartArrayList);
-//    }
 %>
 
 <html>
