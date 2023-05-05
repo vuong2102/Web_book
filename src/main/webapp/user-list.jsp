@@ -22,7 +22,7 @@
         </div>
 
         <ul class="navbar-nav">
-            <li><a href="<%=request.getContextPath()%>/list" class="nav-link">Users</a></li>
+            <li><a href="<%=request.getContextPath()%>/manage-user" class="nav-link">Users</a></li>
         </ul>
         <div><a class ="navbar-nav"></a></div>
     </nav>
@@ -36,7 +36,7 @@
         <hr>
         <div class="container text-left">
 
-            <a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add New User</a>
+            <a href="<%=request.getContextPath()%>/new_user" class="btn btn-success">Add New User</a>
         </div>
         <br>
         <table class="table table-bordered">
@@ -59,32 +59,31 @@
                 for(User user: listUser){
             %>
 
-            <tr>
-                <td>
-                    <%=user.getId()%>
-                </td>
-                <td>
-                    <%=user.getUserName()%>
-                </td>
-                <td>
-                    <%=user.getPhoneNumber()%>
-                </td>
-                <td>
-                    <%=user.getAddress()%>
-                </td>
-                <td>
-                    <%=user.getEmail()%>
-                </td>
-                <td>
-                    <%=user.getPassWord()%>
-                </td>
+                <tr>
+                    <td>
+                        <%=user.getId()%>
+                    </td>
+                    <td>
+                        <%=user.getUserName()%>
+                    </td>
+                    <td>
+                        <%=user.getPhoneNumber()%>
+                    </td>
+                    <td>
+                        <%=user.getAddress()%>
+                    </td>
+                    <td>
+                        <%=user.getEmail()%>
+                    </td>
+                    <td>
+                        <%=user.getPassWord()%>
+                    </td>
 
-                <td>
-                    <%=user.getRole()%>
-                </td>
-                <td><a href="manage-user/edit?id=<%=user.getId()%>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="manage-user/delete?id=<%=user.getId()%>">Delete</a></td>
-            </tr>
+                    <td>
+                        <%=user.getRole()%>
+                    </td>
+                    <td><a href="edit_user?id=<%=user.getId()%>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete_user?id=<%=user.getId()%>">Delete</a></td>
+                </tr>
             <%
                 }
             %>

@@ -19,7 +19,7 @@
             <a class="navbar-brand"> User Management App </a>
         </div>
         <ul class="navbar-nav">
-            <li><a href="<%=request.getContextPath()%>/list" class="nav-link">Users</a></li>
+            <li><a href="<%=request.getContextPath()%>/list_user" class="nav-link">Users</a></li>
         </ul>
     </nav>
 </header>
@@ -32,10 +32,10 @@
                 User user = (User) request.getAttribute("user");
                 if(user != null){
             %>
-            <form action="update" method="post">
+            <form action="update_user" method="post">
                     <%}else {
                 %>
-                <form action="insert" method="post">
+                <form action="insert_user" method="post">
                     <%}
                     %>
 
