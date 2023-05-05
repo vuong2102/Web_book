@@ -4,7 +4,8 @@
 <%@ page import="com.example.btl_web_book.model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.model.Cart" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
@@ -14,9 +15,7 @@
     ProductDao pd = null;
     try {
         pd = new ProductDao(JDBCConnect.getConnection());
-    } catch (ClassNotFoundException e) {
-        throw new RuntimeException(e);
-    } catch (SQLException e) {
+    } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
     List<Product> products = pd.getAllProducts();
@@ -27,7 +26,10 @@
     <title>Quản lí sản phẩm</title>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/cart.css">
+    <link rel="stylesheet" href="CSS/nav-bar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/MngProduct.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 <%@include file="includes/nav-bar.jsp"%>
