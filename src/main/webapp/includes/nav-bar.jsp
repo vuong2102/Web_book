@@ -1,4 +1,4 @@
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -23,22 +23,23 @@
                         <span class="badge">${ cartArrayList.size()}</span>
                     </a>
                 </li>
+
                 <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
                 <li class="nav-item"><a class="nav-link" href="ManagerProduct.jsp">Manage Book</a></li>
-<%--                <%--%>
-<%--                    if(auth != null){--%>
-<%--                %>--%>
+                <%
+                    if(session.getAttribute("auth") != null){
+                %>
                 <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
                 <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
-<%--                <%--%>
-<%--                }else{--%>
-<%--                %>--%>
+                <%
+                }else{
+                %>
                 <li class="nav-item nav-item-end">
                     <a class="nav-link" href="login.jsp">Login</a>
                 </li>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
+                <%
+                    }
+                %>
             </ul>
         </div>
     </div>

@@ -6,7 +6,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
 
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%
     User auth = (User) request.getSession().getAttribute("auth");

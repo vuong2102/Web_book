@@ -6,7 +6,7 @@
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.sql.SQLException" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);

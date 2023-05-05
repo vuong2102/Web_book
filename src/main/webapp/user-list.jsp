@@ -1,7 +1,7 @@
 <%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page import="java.util.List" %>
 
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
