@@ -16,7 +16,6 @@ import java.util.List;
 public class ManagerControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String s="";
         ProductDao dao = null;
         try {
             dao = new ProductDao(JDBCConnect.getConnection());

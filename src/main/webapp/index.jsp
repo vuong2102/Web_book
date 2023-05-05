@@ -13,7 +13,12 @@
     if(auth!= null){
         request.setAttribute("auth", auth);
     }
-    ProductDao pd = new ProductDao(JDBCConnect.getConnection());
+    ProductDao pd = null;
+    try {
+        pd = new ProductDao(JDBCConnect.getConnection());
+    } catch (ClassNotFoundException | SQLException e) {
+        throw new RuntimeException(e);
+    }
     List<Product> products = pd.getAllProducts();
 
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -30,9 +35,12 @@
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
+<%--    <jsp:include page="includes/nav-bar.jsp">Nav-bar</jsp:include>--%>
     <div class="slideshow-container">
 
         <div class="mySlides fade">
