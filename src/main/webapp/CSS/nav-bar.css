@@ -1,31 +1,45 @@
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
 .container-fluid {
     background-color: #ffffff;
-    height: 3.5rem;
+    height: 4rem;
 }
 
 .navbar-brand {
     float: left;
-    width: 25%;
+    width: 20%;
+}
+
+.navbar-brand img {
+    margin-left: 2rem;
 }
 
 .search-container {
-    margin-top: 0.4rem;
+    margin-top: 0.7rem;
     float: left;
-    width: 30%;
+    width: 35%;
 }
 
 #search {
-    border: 1px solid #ccc;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    border-radius: 0.5rem;
+    position: relative;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    -webkit-box-align: center;
+    align-items: center;
 }
 
 #search .fas {
     color: #555555;
-    flex-basis: 7%;
-    padding: 0.6rem 0 0.6rem 1.4rem;
-    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0px 0px 0px 0.5rem;
 }
 
 .search-in {
@@ -35,28 +49,44 @@
 }
 
 #search input {
-    padding: 0.5rem;
+    border: 0;
+    padding: 0px 0.5rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    flex: 1 1 0%;
+    outline: none;
+    border-right: 1px solid #ccc;
 }
 
 #search input:focus {
     border: none;
 }
 
-.search-btn {
-    flex-basis: 27%;
-}
-
 #search button {
-    padding: 0 1.1rem;
-    background-color: #fff;
-    border: 0;
-    border-radius: 0 0.5rem 0.5rem 0;
-    border-left: 1px solid #ccc;
-    color: #e2a200;
     cursor: pointer;
+    border: 0;
+    width: 6rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    border-radius: 0px 8px 8px 0px;
+    background: transparent;
+    color: #f97d00;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 #search button:hover {
+    height: 2.5rem;
+    width: 6rem;
     background-color: #f4ea7a;
     border-radius: 0 0.5rem 0.5rem 0;
 }
@@ -71,12 +101,12 @@
     list-style-type: none;
     float: left;
     padding: 4px;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 1rem;
 }
 
 .nav-item .fas {
-     color: #555555;
+    color: #555555;
 }
 
 .nav-item .fa-home {
@@ -110,8 +140,6 @@
     text-align: center;
     line-height: 16px;
 }
-
-
 
 
 
