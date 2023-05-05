@@ -15,5 +15,4 @@
     <url-pattern>/delete_user</url-pattern>
 <url-pattern>/edit_user</url-pattern>
 </servlet-mapping>
-
 </web-app>

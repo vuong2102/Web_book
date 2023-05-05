@@ -46,6 +46,7 @@ public class AddControl extends HttpServlet {
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
+
         dao.insertProduct(pname,pimage, pprice, ptitle, pcategory, pdescription);
         response.sendRedirect("ManagerProduct.jsp");
     }
