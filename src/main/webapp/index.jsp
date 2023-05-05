@@ -54,7 +54,6 @@
         </div>
 
     </div>
-    <br>
 
     <div style="text-align:center">
         <span class="dot"></span>
@@ -62,6 +61,10 @@
         <span class="dot"></span>
     </div>
     <script src="./JS/Showslider.js"></script>
+    <div class="maxim">
+        <h3>Chuyên bán sách giả sách lậu. Cam kết ko chính hãng. Mua là mất tiền</h3>
+    </div>
+
     <div class="container">
         <div class="row">
             <%
