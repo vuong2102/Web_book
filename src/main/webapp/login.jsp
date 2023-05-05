@@ -35,12 +35,13 @@
                     </div>
                     <div class="card-submit">
                         <div class="register">
-                            <a href="#">Register now</a>
+                            <a href="registration.jsp">Register now</a>
                         </div>
                         <button type="submit" class="btn-submit">Login</button>
                     </div>
                 </form>
             </div>
     </div>
+    <%@include file="includes/footer.jsp"%>
 </body>
 </html>

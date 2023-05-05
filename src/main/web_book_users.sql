@@ -8,6 +8,7 @@ CREATE TABLE `users` (
   `address` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `passWord` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -18,7 +19,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Nguyen Van A','0912748122','Hà Nội','test@gmail.com','12345');
+INSERT INTO `users` VALUES (1,'Nguyen Van A','0912748122','Hà Nội','test@gmail.com','12345', 'user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

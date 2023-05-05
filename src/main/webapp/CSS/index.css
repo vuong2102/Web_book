@@ -60,62 +60,6 @@ body{
   from {opacity: .4}
   to {opacity: 1}
 }
-.navbar{
-  background-color: #242424;
-  text-decoration: none;
-}
-
-.container-fluid{
-  border-bottom: 1px solid;
-  display: inline-block;
-  width: 100%;
-  background-color: beige;
-}
-.collapse{
-  float: right;
-}
-.navbar-brand{
-  font-size: 18px;
-  text-decoration: none;
-  color: #ffffff;
-  place-items: center;
-}
-ul.navbar-nav {
-  margin: 0;
-}
-.nav-link{
-  line-height: 55px;
-  text-decoration: none;
-  font-weight: bold;
-  color: darkgoldenrod;
-}
-
-.nav-link:hover{
-  background-color: white;
-}
-.nav-item{
-  display: inline-block;
-  position: relative;
-  padding: 0 24px;
-  font-family: sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  transition: 0.4s all ease;
-}
-
-.nav-item:hover {
-  cursor: pointer;
-  background: white;
-  color: #242424;
-}
-.nav-item-end{
-  margin-right: 20px;
-}
-.nav-item:hover{
-  color: #cdcdcd;
-  transition: 0.4s all ease;
-}
-
 .maxim{
   width: 100%;
   text-align: center;
@@ -180,10 +124,4 @@ ul.navbar-nav {
   background-color: #4680ff;
   color: aliceblue;
   font-weight: 500;
-}
-
-.badge{
-  color: rgb(255, 0, 0);
-  font-size: 20px;
-  position: relative;
 }
