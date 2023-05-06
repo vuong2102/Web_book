@@ -5,7 +5,7 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
-
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%
@@ -40,7 +40,6 @@
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
-<%--    <jsp:include page="includes/nav-bar.jsp">Nav-bar</jsp:include>--%>
     <div class="slideshow-container">
 
         <div class="mySlides fade">

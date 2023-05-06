@@ -28,10 +28,17 @@ public class LoginServlet extends HttpServlet {
                 User user = userDao.userLogin(email, password);
 
                 if (user != null){
-                    out.print("user login");
-                    HttpSession session = request.getSession();
-                    session.setAttribute("auth", user);
-                    response.sendRedirect("index.jsp");
+                    if(user.getRole().equals("user")){
+                        out.print("user login");
+                        HttpSession session = request.getSession();
+                        session.setAttribute("auth", user);
+                        response.sendRedirect("index.jsp");
+                    }
+                    else if(user.getRole().equals("admin")){
+                        HttpSession session = request.getSession();
+                        session.setAttribute("authAdmin", user);
+                        response.sendRedirect("indexAdmin.jsp");
+                    }
                 }
                 else {
 //                    out.print("user failed");

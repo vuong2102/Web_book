@@ -7,9 +7,9 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
-    User auth = (User) request.getSession().getAttribute("auth");
+    User auth = (User) request.getSession().getAttribute("authAdmin");
     if(auth!= null){
-        request.setAttribute("auth", auth);
+        request.setAttribute("authAdmin", auth);
     }
 
     ProductDao pd = null;
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
-<%@include file="includes/nav-bar.jsp"%>
+<%@include file="includes/nav-bar-admin.jsp"%>
 <div class="container">
     <div class="content-cart">
         <div class="nav-cart"><h2 class=""></h2></div>

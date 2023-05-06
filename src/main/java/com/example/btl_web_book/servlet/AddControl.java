@@ -48,6 +48,6 @@ public class AddControl extends HttpServlet {
         }
 
         dao.insertProduct(pname,pimage, pprice, ptitle, pcategory, pdescription);
-        response.sendRedirect("ManagerProduct.jsp");
+        response.sendRedirect("manageBook.jsp");
     }
 }

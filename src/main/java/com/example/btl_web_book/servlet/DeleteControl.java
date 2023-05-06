@@ -23,6 +23,6 @@ public class DeleteControl extends HttpServlet {
             throw new RuntimeException(e);
         }
         dao.delete(pid);
-        response.sendRedirect("ManagerProduct.jsp");
+        response.sendRedirect("manageBook.jsp");
     }
 }

@@ -3,11 +3,11 @@
 <%@ page import="com.example.btl_web_book.model.Order" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.dao.OrderDao" %>
-<%@ page import="com.example.btl_web_book.model.Cart" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);

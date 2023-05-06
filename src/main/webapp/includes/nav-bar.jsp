@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
+
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp">
@@ -23,19 +24,15 @@
                         <span class="badge">${ cartArrayList.size()}</span>
                     </a>
                 </li>
-
-                <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
-                <li class="nav-item"><a class="nav-link" href="ManagerProduct.jsp">Manage Book</a></li>
-                <%
-                    if(session.getAttribute("auth") != null){
-                %>
-                <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-                <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
+               <%
+                    if(session.getAttribute("auth") != null){ %>
+                        <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
+                        <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
                 <%
                 }else{
                 %>
                 <li class="nav-item nav-item-end">
-                    <a class="nav-link" href="login.jsp">Login</a>
+                    <a class="nav-link" href="login.jsp">Login </a>
                 </li>
                 <%
                     }
