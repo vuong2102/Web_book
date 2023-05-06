@@ -1,17 +1,9 @@
-html{
-    height: 100%;
-    width: 100%;
-}
 body {
-     margin: 0;
-     padding: 0;
-     background-color: rgba(0, 0, 0, 0.4);
-     height: 100%;
-     width: 100%;
-     font-family: cursive;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
  }
 .container{
-    margin: 4rem 30rem;
+    margin: auto !important;
     width: 430px !important;
     height: 520px;
     background-color: white;
@@ -22,7 +14,7 @@ body {
 .card-header{
     display: flex;
     justify-content: flex-end;
-    height: 30%;
+    height: 15%;
     width: 100%;
     flex-direction: column;
 }
@@ -37,13 +29,14 @@ body {
 .card-body {
     width: 100%;
     height: 70%;
+    margin-top: 1rem;
 }
 .form {
     width: 100%;
     height: 100%;
 }
 .form-group{
-    height: 60%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
