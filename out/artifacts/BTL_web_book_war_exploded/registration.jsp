@@ -1,12 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DUCTRONG
-  Date: 4/25/2023
-  Time: 9:27 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.btl_web_book.model.User" %>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth!= null){
+        request.setAttribute("auth", auth);
+        response.sendRedirect("index.jsp");
+    }
+%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Shopping Register Page</title>
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-    <h3 style="color: red">${requestScope.ms}</h3>
+<%@include file="includes/nav-bar.jsp"%>
+
     <div class="container">
         <div class="card-header">
             <div class="register_form">Register Form</div>
@@ -52,5 +53,6 @@
             </form>
         </div>
     </div>
+<%@include file="includes/footer.jsp"%>
 </body>
 </html>

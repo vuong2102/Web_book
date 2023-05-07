@@ -1,4 +1,12 @@
 <%@ page import="com.example.btl_web_book.model.User" %>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth!= null){
+        request.setAttribute("auth", auth);
+        response.sendRedirect("/manage-user");
+    }
+%>
+<%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: DUCTRONG
@@ -6,7 +14,8 @@
   Time: 10:47 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.btl_web_book.model.User" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,18 +24,7 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #577D86;">
-        <div>
-            <a class="navbar-brand"> User Management</a>
-        </div>
-
-        <ul class="navbar-nav">
-            <li><a href="<%=request.getContextPath()%>/manage-user" class="nav-link">Users</a></li>
-        </ul>
-        <div><a class ="navbar-nav"></a></div>
-    </nav>
-</header>
+<%@include file="includes/nav-bar.jsp"%>
 <br>
 <div class="row">
     <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
@@ -92,6 +90,6 @@
         </table>
     </div>
 </div>
-
+<%@include file="includes/footer.jsp"%>
 </body>
 </html>

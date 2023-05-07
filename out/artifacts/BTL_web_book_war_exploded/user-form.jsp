@@ -1,108 +1,80 @@
-<%@ page import="com.example.btl_web_book.model.User" %><%--
-  Created by IntelliJ IDEA.
-  User: DUCTRONG
-  Date: 4/30/2023
-  Time: 10:47 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.example.btl_web_book.model.User" %>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth!= null){
+        request.setAttribute("auth", auth);
+        response.sendRedirect("/");
+    }
+%>
+<%@ page import="com.example.btl_web_book.model.User" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>User Management Application</title>
+    <link rel="stylesheet" href="CSS/register.css">
+    <link rel="stylesheet" href="CSS/index.css">
 
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #577D86">
-        <div>
-            <a class="navbar-brand"> User Management App </a>
-        </div>
-        <ul class="navbar-nav">
-            <li><a href="<%=request.getContextPath()%>/list_user" class="nav-link">Users</a></li>
-        </ul>
-    </nav>
-</header>
-<br>
-<div class="container col-md-5">
-    <div class="card">
-        <div class="card-body">
+<%@include file="includes/nav-bar.jsp"%>
 
+<div class="container">
+    <div class="card-body">
             <%
                 User user = (User) request.getAttribute("user");
                 if(user != null){
             %>
-            <form action="update_user" method="post">
+                <form action="update_user"  method="post" class="form">
                     <%}else {
                 %>
-                <form action="insert_user" method="post">
+                    <form action="insert_user" method="post" class="form" >
                     <%}
                     %>
 
-                    <caption>
+                    <div class="card-header">
                         <h2>
                             <%if(user != null){
                             %>
-                            Edit User
+                            <div class="register_form">Edit User</div>
                             <%}else {
                             %>
-                            Add New User
+                            <div class="register_form">Add New User</div>
                             <%}
                             %>
                         </h2>
-                    </caption>
 
+                    </div>
+                    <div class="form-group">
                     <% if(user != null){
                     %>
-                    <input type="hidden" name="id" value="<%= user.getId()%>" />
 
-                    <fieldset class="form-group">
-                        <label>User Name</label> <input type="text" value="<%=user.getUserName()%>" class="form-control" name="userName" required="required">
-                    </fieldset>
+                            <input type="hidden" name="id" value="<%= user.getId()%>" />
+                            <label>User Name  <input type="text" value="<%=user.getUserName()%>" class="input" name="userName" required="required"></label>
+                            <label>Phone Number <input type="text" value="<%=user.getPhoneNumber()%>" class="input" name="phoneNumber"></label>
+                            <label>Address <input type="text" value="<%=user.getAddress()%>" class="input" name="address"></label>
+                            <label>User Email<input type="text" value="<%=user.getEmail()%>" class="input" name="email"></label>
+                            <label>Password <input type="password" value="<%=user.getPassWord()%>" class="input" name="passWord"></label>
+                            <label>Role <input type="text" value="<%=user.getRole()%>" class="input" name="role"></label>
 
-                    <fieldset class="form-group">
-                        <label>Phone Number</label> <input type="text" value="<%=user.getPhoneNumber()%>" class="form-control" name="phoneNumber">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Address</label> <input type="text" value="<%=user.getAddress()%>" class="form-control" name="address">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>User Email</label> <input type="text" value="<%=user.getEmail()%>" class="form-control" name="email">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Password</label> <input type="password" value="<%=user.getPassWord()%>" class="form-control" name="passWord">
-                    </fieldset>S
-                    <fieldset class="form-group">
-                        <label>Role</label> <input type="text" value="<%=user.getRole()%>" class="form-control" name="role">
-                    </fieldset>
                     <%}else {
                     %>
-                    <fieldset class="form-group">
-                        <label>User Name</label> <input type="text" class="form-control" name="userName" required="required">
-                    </fieldset>
-
-                    <fieldset class="form-group">
-                        <label>Phone Number</label> <input type="text" class="form-control" name="phoneNumber">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Address</label> <input type="text" class="form-control" name="address">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>User Email</label> <input type="text" class="form-control" name="email">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Password</label> <input type="password" class="form-control" name="passWord">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Role</label> <input type="text" class="form-control" name="role">
-                    </fieldset>
+                        <label>User Name <input type="text" class="input" name="userName" required="required"></label>
+                        <label>Phone Number <input type="text" class="input" name="phoneNumber"></label>
+                        <label>Address <input type="text" class="input" name="address"></label>
+                        <label>User Email<input type="text" class="input" name="email"></label>
+                        <label>Password <input type="password" class="input" name="passWord"></label>
+                        <label>Role <input type="text" class="input" name="role"></label>
                     <%
                         }
                     %>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <div class="card-submit">
+                        <button type="submit" class="btn-submit">Save</button>
+                    </div>
+
                 </form>
-        </div>
+                </div>
     </div>
 </div>
+<%@include file="includes/footer.jsp"%>
 </body>
 </html>
