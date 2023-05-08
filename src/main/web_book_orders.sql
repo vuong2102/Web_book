@@ -1,6 +1,6 @@
 
 
-CREATE TABLE `products` (
+CREATE TABLE `orders` (
   `id` int NOT NULL,
   `product_id` int DEFAULT NULL,
   `user_id`int DEFAULT NULL,

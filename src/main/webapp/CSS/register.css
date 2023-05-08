@@ -4,7 +4,7 @@ body {
  }
 .container{
     margin: auto !important;
-    width: 430px !important;
+    width: 460px !important;
     height: 520px;
     background-color: white;
     display: flex;
@@ -42,8 +42,9 @@ body {
     justify-content: space-evenly;
 }
 .input{
-    width: 50%;
+    width: 65%;
     height: 30px;
+    padding: 12px;
     border: 0;
     border-bottom: 1px solid #577D86;
     font-size: 1rem;

@@ -134,7 +134,7 @@ public class ProductDao {
             pst.setString(2,pcategory);
             pst.setString(6,pdescription);
             pst.executeUpdate();
-        } catch (Exception e){
+        } catch (Exception ignored){
         }
     }
 }

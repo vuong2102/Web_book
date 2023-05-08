@@ -42,7 +42,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     </head>
     <body>
-        <%@include file="includes/nav-bar.jsp"%>
+        <%@include file="includes/navBar.jsp"%>
         <div class="container">
             <div class="content-cart">
                 <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>

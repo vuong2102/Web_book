@@ -1,26 +1,30 @@
-
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="com.example.btl_web_book.model.User" %>
+<%@ page import="com.example.btl_web_book.model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
         response.sendRedirect("index.jsp");
     }
+    List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if(cartArrayList != null){
+        request.setAttribute("cartArrayList", cartArrayList);
+    }
 %>
-
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <title>Shopping Register Page</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/register.css">
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 </head>
 <body>
-<%@include file="includes/nav-bar.jsp"%>
-
+<%--<%@include file="includes/navBar.jsp"%>--%>
     <div class="container">
         <div class="card-header">
             <div class="register_form">Register Form</div>
@@ -44,19 +48,16 @@
                     <label>
                         <input type="password" class="input" name="passWord" placeholder="Nhập mật khẩu:" required>
                     </label>
-
-
                 </div>
                 <div class="card-submit">
                     <button type="submit" class="btn-submit">Register</button>
                     <div class ="login">
                         <a href="login.jsp">Login now</a>
                     </div>
-
                 </div>
             </form>
         </div>
     </div>
-<%@include file="includes/footer.jsp"%>
+<%--<%@include file="includes/footer.jsp"%>--%>
 </body>
 </html>

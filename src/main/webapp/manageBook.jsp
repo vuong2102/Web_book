@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="CSS/cart.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/MngProduct.css">
+    <link rel="stylesheet" href="CSS/manageBook.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
@@ -69,11 +69,11 @@
                                 <input class="form-control" type="text" name="quantity" value="" readonly>
                             </label>
                             <a href="quantity-inc-dec?action=decree&id=<%=p.getId()%>" class="btn-decree"><i class="fas">-</i></a>
-                            <button type="submit" class="table-action btn btn-buy">Buy</button>
                         </div>
                     </form>
                 </li>
                 <ul class="table-content" style="display: flex; justify-content: space-around">
+                    <li class="table-action"><a class="btn-edit" href="delete?pid=<%=p.getId()%>">Edit</a></li>
                     <li class="table-action"><a class="btn-remove" href="delete?pid=<%=p.getId()%>">Remove</a></li>
                 </ul>
             </ul>

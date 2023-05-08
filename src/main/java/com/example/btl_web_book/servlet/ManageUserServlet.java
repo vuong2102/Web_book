@@ -18,7 +18,7 @@ import java.util.List;
 @WebServlet("/manage-user")
 public class ManageUserServlet extends HttpServlet {
     private  static final long serialVersionUID = 1L;
-    private ManageUsersDAO manageUsersDAO;
+    private final ManageUsersDAO manageUsersDAO;
     public ManageUserServlet() throws SQLException, ClassNotFoundException {
         super();
         this.manageUsersDAO = new ManageUsersDAO(JDBCConnect.getConnection());
@@ -42,7 +42,6 @@ public class ManageUserServlet extends HttpServlet {
                     showEditForm(request, response);
                     break;
                 case "/update_user":
-
                     updateUser(request, response);
                     break;
                 default:
@@ -79,7 +78,6 @@ public class ManageUserServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
-
     }
     public void insertUser(HttpServletRequest request,HttpServletResponse response) throws SQLException, IOException, ServletException {
         String userName = request.getParameter("userName");
@@ -121,5 +119,4 @@ public class ManageUserServlet extends HttpServlet {
         manageUsersDAO.deleteUser(id);
         response.sendRedirect("manage-user");
     }
-
 }

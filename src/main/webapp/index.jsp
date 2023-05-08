@@ -5,8 +5,8 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
-
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%
@@ -39,43 +39,44 @@
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
-<body>
-    <%@include file="includes/nav-bar.jsp"%>
-    <div class="slideshow-container">
+    <body>
+    <%@include file="includes/navBar.jsp"%>
+            <%--    <%@include file="includes/nav-bar.jsp"%>--%>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="./product-images/img1.jpg" style="width:100%" alt="not remember">
+                </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="./product-images/img1.jpg" style="width:100%" alt="not remember">
-        </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="./product-images/img2.jpg" style="width:100%" alt="not remember">
+                </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="./product-images/img2.jpg" style="width:100%" alt="not remember">
-        </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="./product-images/img3.jpg" style="width:100%" alt="not remember">
+                </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="./product-images/img3.jpg" style="width:100%" alt="not remember">
-        </div>
+            </div>
 
-    </div>
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <script src="./JS/Showslider.js"></script>
 
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-    <script src="./JS/Showslider.js"></script>
+            <div class="maxim">
+                <h3>Chuyên bán sách giả sách lậu. Cam kết ko chính hãng. Mua là mất tiền</h3>
+            </div>
 
-    <div class="maxim">
-        <h3>Chuyên bán sách giả sách lậu. Cam kết ko chính hãng. Mua là mất tiền</h3>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <%
-                if (!products.isEmpty()) {
-                    for (Product p : products) { %>
+        <tbody>
+            <div class="container">
+                <div class="row">
+                    <%
+                        if (!products.isEmpty()) {
+                            for (Product p : products) { %>
                     <div class="col-home">
                         <div class="card">
                             <img class="card-img-top" src="product-images/<%=p.getImage()%>"
@@ -96,7 +97,9 @@
                     %>
                 </div>
             </div>
-        <%@include file="includes/footer.jsp"%>
-
-</body>
+        </tbody>
+        <footer>
+            <%@include file="includes/footer.jsp"%>
+        </footer>
+    </body>
 </html>

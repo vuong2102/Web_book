@@ -37,6 +37,7 @@ public class AddToCartServlet extends HttpServlet {
                 for (Cart c : cart_List) {
                     if (c.getId() == id) {
                         exist = true;
+                        out.println("alert(Sản phẩm đã có trong giỏ hàng)");
                         out.println("<h3 style='color:crimson; text-align: center; top: 30%'>Item Already in Cart. <a href='cart.jsp'>Go to Cart Page</a></h3>");
                     }
                 }
