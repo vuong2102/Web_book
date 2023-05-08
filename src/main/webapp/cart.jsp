@@ -6,7 +6,8 @@
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.sql.SQLException" %>
-
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);
@@ -36,6 +37,9 @@
         <title>Cart Page</title>
         <link rel="stylesheet" href="CSS/index.css">
         <link rel="stylesheet" href="CSS/cart.css">
+        <link rel="stylesheet" href="CSS/nav-bar.css">
+        <link rel="stylesheet" href="CSS/footer.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     </head>
     <body>
         <%@include file="includes/nav-bar.jsp"%>

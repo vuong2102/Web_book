@@ -1,12 +1,12 @@
-.fab, .fas {
+#footer .fab, .fas {
     font-size: 20px;
     color: #000;
 }
 
 .container-in {
-    padding: 2rem 0.5rem;
+    padding: 2rem 0 0 2rem;
     background-color: #ffffff;
-    margin: 2rem 0;
+    margin-top: 5rem;
     border-top: 1px solid #ccc;
     display: flex;
     flex-wrap: wrap;
@@ -53,13 +53,6 @@
     text-decoration: none;
 }
 
-.footer-detail li:hover {
-    padding-left: 1rem;
-    color: #de1a1a;
-}
-
 .footer-detail a i:hover {
     opacity: 0.6;
 }
-
-

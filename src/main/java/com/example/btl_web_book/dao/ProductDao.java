@@ -6,6 +6,7 @@ import com.example.btl_web_book.model.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,5 +110,31 @@ public class ProductDao {
             e.printStackTrace();
         }
         return sum;
+    }
+
+    public void delete(String pid){
+         String query="delete from products where id=?";
+         try {
+             pst = this.con.prepareStatement(query);
+             pst.setString(1,pid);
+             pst.executeUpdate();
+         } catch (Exception e){
+         }
+    }
+
+    public void insertProduct(String pname, String pimage, String pprice, String ptitle,String  pcategory, String pdescription) {
+        String query="insert into products (name, category, price, image, title, description) values (?, ?, ?, ?, ?, ?)";
+        String a="";
+        try {
+            pst = this.con.prepareStatement(query);
+            pst.setString(1,pname);
+            pst.setString(4,pimage);
+            pst.setString(3,pprice);
+            pst.setString(5,ptitle);
+            pst.setString(2,pcategory);
+            pst.setString(6,pdescription);
+            pst.executeUpdate();
+        } catch (Exception e){
+        }
     }
 }

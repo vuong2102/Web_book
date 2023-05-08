@@ -47,7 +47,7 @@ public class OrderNowServlet extends HttpServlet {
                     if (cart_list != null) {
                         for (Cart c : cart_list) {
                             if (c.getId() == Integer.parseInt(productId)) {
-                                cart_list.remove(cart_list.indexOf(c));
+                                cart_list.remove(c);
                                 break;
                             }
                         }

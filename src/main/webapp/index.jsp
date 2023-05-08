@@ -6,14 +6,20 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
 
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
     }
-    ProductDao pd = new ProductDao(JDBCConnect.getConnection());
+    ProductDao pd = null;
+    try {
+        pd = new ProductDao(JDBCConnect.getConnection());
+    } catch (ClassNotFoundException | SQLException e) {
+        throw new RuntimeException(e);
+    }
     List<Product> products = pd.getAllProducts();
 
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -30,6 +36,8 @@
     <%@include file="includes/head.jsp"%>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
     <%@include file="includes/nav-bar.jsp"%>
@@ -38,30 +46,31 @@
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
             <img src="./product-images/img1.jpg" style="width:100%" alt="not remember">
-            <div class="text">Tuyên đẹp trai</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
             <img src="./product-images/img2.jpg" style="width:100%" alt="not remember">
-            <div class="text">Tuyên đẹp trai</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
             <img src="./product-images/img3.jpg" style="width:100%" alt="not remember">
-            <div class="text">Tuyên đẹp trai</div>
         </div>
 
     </div>
-    <br>
 
-    <div style="text-align:center">
+    <div class="dots">
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
     </div>
     <script src="./JS/Showslider.js"></script>
+
+    <div class="maxim">
+        <h3>Chuyên bán sách giả sách lậu. Cam kết ko chính hãng. Mua là mất tiền</h3>
+    </div>
+
     <div class="container">
         <div class="row">
             <%
@@ -73,8 +82,8 @@
                                  alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><%= p.getName() %></h5>
-                                <h6 class="price">Price: $<%= p.getPrice()%></h6>
-                                <h6 class="category">Category: <%= p.getCategory()%></h6>
+                                <h6 class="category">Thể loại: <%= p.getCategory()%></h6>
+                                <h4 class="price">$<%= p.getPrice()%></h4>
                                 <div class="container-btn">
                                     <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Thêm vào giỏ hàng</a>
                                     <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Mua ngay</a>

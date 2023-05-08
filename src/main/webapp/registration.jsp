@@ -1,3 +1,4 @@
+
 <%@ page import="com.example.btl_web_book.model.User" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
@@ -6,6 +7,9 @@
         response.sendRedirect("index.jsp");
     }
 %>
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
@@ -26,19 +30,19 @@
             <form action="register" method="post" class="form">
                 <div class="form-group">
                     <label>
-                        <input type="text" class="input" name="userName" placeholder="Enter Your Full Name" required>
+                        <input type="text" class="input" name="userName" placeholder="Nhập tên:" required>
                     </label>
                     <label>
-                        <input type="text" class="input" name="phoneNumber" placeholder="Enter Your Phone Number" required>
+                        <input type="text" class="input" name="phoneNumber" placeholder="Nhập SĐT:" required>
                     </label>
                     <label>
-                        <input type="text" class="input" name="address" placeholder="Enter Your Address" required>
+                        <input type="text" class="input" name="address" placeholder="Nhập địa chỉ:" required>
                     </label>
                     <label>
-                        <input type="email" class="input" name="email" placeholder="Enter Your Email" required>
+                        <input type="email" class="input" name="email" placeholder="Nhập email:" required>
                     </label>
                     <label>
-                        <input type="password" class="input" name="passWord" placeholder="*******" required>
+                        <input type="password" class="input" name="passWord" placeholder="Nhập mật khẩu:" required>
                     </label>
 
 

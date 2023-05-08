@@ -1,24 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<%--    <meta charset="UTF-8">--%>
-<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
-<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-</head>
-<body>
 <div id="footer">
     <div class="footer-container">
         <div class="container-in">
             <div class="footer-ct">
                 <div style="padding-right: 32px; border-right: 1px solid #ccc">
                     <div style="margin-bottom: 8px;">
-                        <img alt="vatth.com" src="https://images.cooltext.com/5654904.png">
+                        <img alt="vatth.com" src="https://blog.flamingtext.com/blog/2023/05/03/flamingtext_com_1683135141_1036448446.png">
                     </div>
                     <div class="footer-detail">66 Nguyễn Trãi, Hà Đông, Hà Nội</div>
                     <div class="footer-detail">VATTH Book nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống VATTH trên toàn quốc.</div>
@@ -81,5 +69,5 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+<%--</body>--%>
+<%--</html>--%>
