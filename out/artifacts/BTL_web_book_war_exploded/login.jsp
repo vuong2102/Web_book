@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
+    <%@include file="includes/nav-bar.jsp"%>
     <div class="container">
         	<div class="card-header">
         		<div class="welcome">Welcome to</div>
@@ -40,5 +41,6 @@
                 </form>
             </div>
     </div>
+    <%@include file="includes/footer.jsp"%>
 </body>
 </html>

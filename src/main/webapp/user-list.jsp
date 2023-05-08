@@ -1,4 +1,7 @@
 <%@ page import="com.example.btl_web_book.model.User" %>
+<%@ page import="com.example.btl_web_book.model.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <% User auth = (User) request.getSession().getAttribute("authAdmin");
@@ -6,6 +9,7 @@
     request.setAttribute("authAdmin", auth);
     }
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,16 +21,40 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
-    <header>
+<header>
         <%@include file="includes/nav-bar-admin.jsp"%>
     </header>
-    <br>
-    <div class="row">
-        <div class="container">
-            <h3 class="text-center">List Users</h3>
-            <hr>
-            <div class="container text-left">
+<br>
+<div class="row">
+    <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
+    <div class="container">
+        <h3 class="text-center">List Users</h3>
+        <hr>
+        <div class="container text-left">
+
+            <a href="<%=request.getContextPath()%>/new_user" class="btn btn-success">Add New User</a>
+        </div>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <%
+                List<User> listUser = (List<User>) request.getAttribute("listUser");
+                for(User user: listUser){
+            %>
                 <a href="<%=request.getContextPath()%>/new_user" class="btn btn-success">Add New User</a>
             </div>
             <br>
@@ -82,6 +110,8 @@
             </table>
         </div>
     </div>
+</div>
+<%@include file="includes/footer.jsp"%>
 
 </body>
 </html>
