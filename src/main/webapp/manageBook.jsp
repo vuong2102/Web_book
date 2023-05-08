@@ -63,13 +63,7 @@
                 <li class="table-content">
                     <form action="order-now" method="post" class="form-inline">
                         <input type="hidden" name="id" value="" class="form-input">
-                        <div class="form-group">
-                            <a href="quantity-inc-dec?action=inc&id=<%=p.getId()%>" class="btn-incre"><i class="fas">+</i></a>
-                            <label>
-                                <input class="form-control" type="text" name="quantity" value="" readonly>
-                            </label>
-                            <a href="quantity-inc-dec?action=decree&id=<%=p.getId()%>" class="btn-decree"><i class="fas">-</i></a>
-                        </div>
+                        <h5>100</h5>
                     </form>
                 </li>
                 <ul class="table-content" style="display: flex; justify-content: space-around">

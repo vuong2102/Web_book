@@ -9,8 +9,8 @@
     <div class="search-container">
       <form id="search">
         <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" class="search-in" placeholder="Tìm kiếm">
-        <button class="secrch-btn" type="submit">Tìm kiếm</button>
+        <label for="searchInput"></label><input type="text" id="searchInput" class="search-in" placeholder="Tìm kiếm">
+        <button class="search-btn" type="submit">Tìm kiếm</button>
       </form>
     </div>
     <div class="collapse navbar-collapse" id="navbarScroll">
