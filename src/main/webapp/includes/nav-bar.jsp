@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f0f89b99a65d8a0199089704a94e4fe5944b8399
 
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -27,22 +31,19 @@
                         <% } %>
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
-                <li class="nav-item"><a class="nav-link" href="ManagerProduct.jsp">Manage Book</a></li>
-<%--                <%--%>
-<%--                    if(auth != null){--%>
-<%--                %>--%>
-                <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-                <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
-<%--                <%--%>
-<%--                }else{--%>
-<%--                %>--%>
+               <%
+                    if(session.getAttribute("auth") != null){ %>
+                        <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
+                        <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
+                <%
+                }else{
+                %>
                 <li class="nav-item nav-item-end">
                     <a class="nav-link" href="login.jsp">Đăng nhập</a>
                 </li>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
+                <%
+                    }
+                %>
             </ul>
         </div>
     </div>

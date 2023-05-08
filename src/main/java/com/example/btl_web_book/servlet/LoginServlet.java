@@ -28,12 +28,21 @@ public class LoginServlet extends HttpServlet {
                 User user = userDao.userLogin(email, password);
 
                 if (user != null){
-                    out.print("user login");
-                    request.getSession().setAttribute("auth", user);
-                    response.sendRedirect("index.jsp");
+                    if(user.getRole().equals("user")){
+                        out.print("user login");
+                        HttpSession session = request.getSession();
+                        session.setAttribute("auth", user);
+                        response.sendRedirect("index.jsp");
+                    }
+                    else if(user.getRole().equals("admin")){
+                        HttpSession session = request.getSession();
+                        session.setAttribute("authAdmin", user);
+                        response.sendRedirect("indexAdmin.jsp");
+                    }
                 }
                 else {
-                    out.print("user failed");
+//                    out.print("user failed");
+                    out.println("<h3 style='color:crimson; text-align: center; top: 30%'>Email or password is not Exist <a href='login.jsp'>Go to Login Page</a></h3>");
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
