@@ -9,6 +9,7 @@ public class Order extends Product{
     public Order() {
     }
     public Order(int id, String name, String category, Double price, String image, int orderId, int userId, int quantity, String date) {
+        super(id, name, category, price, image);
         this.orderId = orderId;
         this.userId = userId;
         this.quantity = quantity;

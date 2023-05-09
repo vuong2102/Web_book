@@ -16,17 +16,4 @@
         <url-pattern>/edit_user</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>manage-book</servlet-name>
-        <servlet-class>com.example.btl_web_book.servlet.ManagerBookServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>manage-book</servlet-name>
-        <url-pattern>/new_book</url-pattern>
-        <url-pattern>/insert_book</url-pattern>
-        <url-pattern>/update_book</url-pattern>
-        <url-pattern>/delete_book</url-pattern>
-        <url-pattern>/edit_book</url-pattern>
-    </servlet-mapping>
-
 </web-app>

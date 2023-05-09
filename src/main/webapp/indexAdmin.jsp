@@ -35,7 +35,7 @@
 </head>
     <body>
         <header>
-            <%@include file="includes/navbar-admin.jsp"%>
+            <%@include file="includes/nav-bar-admin.jsp"%>
             <div class="slideshow-container">
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>

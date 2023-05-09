@@ -1,0 +1,22 @@
+.container__detail{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-direction: row;
+    margin: auto;
+}
+
+.block__left{
+    width: 50%;
+    height: max-content;
+}
+
+.block__left img{
+    width: 100%;
+    height: max-content;
+}
+
+.block__right{
+    width: 50%;
+    height: max-content;
+}

@@ -6,28 +6,16 @@ public class Product {
     private String category;
     private Double price;
     private String image;
-    private String description;
-
-    public Product(String name, String category, Double price, String image, String description) {
-    }
-
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Product() {
     }
-    public Product(int id, String name, String category, Double price, String image, String description) {
+    public Product(int id, String name, String category, Double price, String image) {
         super();
         this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.image = image;
-        this.description = description;
     }
     public int getId() {
         return id;
