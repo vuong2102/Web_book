@@ -33,12 +33,11 @@ public class AddControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String a="";
-        String pname=request.getParameter("name");
-        String pimage=request.getParameter("image");
-        String pprice=request.getParameter("price");
-        String ptitle=request.getParameter("title");
-        String pcategory=request.getParameter("category");
-        String pdescription=request.getParameter("description");
+        String name=request.getParameter("name");
+        String image=request.getParameter("image");
+        String price=request.getParameter("price");
+        String category=request.getParameter("category");
+        String description=request.getParameter("description");
 
         ProductDao dao=null;
         try {
@@ -47,7 +46,7 @@ public class AddControl extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        dao.insertProduct(pname,pimage, pprice, ptitle, pcategory, pdescription);
+        dao.insertProduct(name,image, price, category, description);
         response.sendRedirect("manageBook.jsp");
 
     }

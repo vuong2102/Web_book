@@ -23,7 +23,7 @@
 </head>
 <body>
     <header>
-        <%@include file="includes/nav-bar-admin.jsp"%>
+        <%@include file="includes/navbar-admin.jsp"%>
     </header>
     <tbody>
         <div class="row">

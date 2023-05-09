@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>manage-book</servlet-name>
-        <servlet-class>com.example.btl_web_book.servlet.ManageUserServlet</servlet-class>
+        <servlet-class>com.example.btl_web_book.servlet.ManageBookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>manage-book</servlet-name>

@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <%@include file="includes/nav-bar-admin.jsp"%>
+    <%@include file="includes/navbar-admin.jsp"%>
     <tbody>
         <div class="container">
             <div class="card-body">

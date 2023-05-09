@@ -32,14 +32,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
-<%@include file="includes/nav-bar-admin.jsp"%>
+<%@include file="includes/navbar-admin.jsp"%>
 <div class="container">
-    <div class="content-cart">
-        <div class="nav-cart"><h2 class=""></h2></div>
-        <div class="nav-cart btn-checkout">
-            <a id="addNew" class="btn btn-primary" onclick="showModal()">Add new product</a>
-        </div>
-    </div>
     <div class="table-cart">
         <div>
             <ul class="table-head">
@@ -67,22 +61,24 @@
                     </form>
                 </li>
                 <ul class="table-content" style="display: flex; justify-content: space-around">
-                    <li class="table-action"><a class="btn-edit" href="delete?pid=<%=p.getId()%>">Edit</a></li>
+                    <li class="table-action"><a class="btn btn-edit" href="edit_book?pid=<%=p.getId()%>">Edit</a></li>
                     <li class="table-action"><a class="btn-remove" href="delete?pid=<%=p.getId()%>">Remove</a></li>
                 </ul>
             </ul>
             <%}
             }%>
         </div>
+        <div class="nav-cart btn-checkout">
+            <a id="addNew" class="btn btn-primary" href="addBook.jsp">Add new product</a>
+        </div>
     </div>
-    <%--        form add product--%>
+    <%--        form add product  onclick="showModal()" --%>
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="add" method="post">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Product</h4>
-<%--                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
