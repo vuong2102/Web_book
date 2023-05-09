@@ -1,13 +1,10 @@
 <%@ page import="com.example.btl_web_book.model.User" %>
-<%@ page import="com.example.btl_web_book.model.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("authAdmin");
     if(auth!= null){
-    request.setAttribute("authAdmin", auth);
+        request.setAttribute("authAdmin", auth);
     }
 %>
 
@@ -23,7 +20,7 @@
 </head>
 <body>
     <header>
-        <%@include file="includes/nav-bar-admin.jsp"%>
+        <%@include file="includes/navbar-admin.jsp"%>
     </header>
     <tbody>
         <div class="row">

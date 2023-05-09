@@ -2,7 +2,10 @@
     display: none;
     position: fixed;
 }
-
+#editBookModal{
+    display: none;
+    position: fixed;
+}
 #addNew:hover{
     opacity: 0.5;
     cursor: pointer;

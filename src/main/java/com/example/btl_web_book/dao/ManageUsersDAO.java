@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ManageUsersDAO {
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (userName, phoneNumber, address, email, password, role) VALUES " + " (?, ?, ?, ?, ?, ?);";
-    private static final String SELECT_USER_BY_ID = "select userName, phoneNumber, address, email, password, role from users where id =?";
+    private static final String INSERT_USERS_SQL = "INSERT INTO users  (userName, phoneNumber, address, email, password, role) VALUES " + " (?, ?, ?, ?, ?, ?);";
+    private static final String SELECT_USER_BY_ID = "select userName, phoneNumber, address, email, password, role from users where id =?;";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set userName = ?, phoneNumber = ?, address = ?, email =?, passWord = ?, role = ? where id = ?;";

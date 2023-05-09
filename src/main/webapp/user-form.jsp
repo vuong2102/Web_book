@@ -1,4 +1,3 @@
-
 <%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
@@ -16,10 +15,10 @@
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
-    <%@include file="includes/nav-bar-admin.jsp"%>
+    <%@include file="includes/navbar-admin.jsp"%>
     <tbody>
         <div class="container">
             <div class="card-body">
