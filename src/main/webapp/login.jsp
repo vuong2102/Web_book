@@ -10,8 +10,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Shopping Login Page</title>
-    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/login.css">
 </head>
 <body>
