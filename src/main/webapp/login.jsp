@@ -13,7 +13,6 @@
     <title>Shopping Login Page</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/login.css">
-    <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
     <div class="container">
