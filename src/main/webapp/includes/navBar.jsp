@@ -31,6 +31,7 @@
         <%
           if(session.getAttribute("auth") != null){ %>
         <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Thông tin tài khoản</a></li>
         <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
         <%
         }else{
