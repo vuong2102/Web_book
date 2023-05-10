@@ -1,3 +1,13 @@
+.container-managerbook{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
 #addEmployeeModal{
     display: none;
     position: fixed;

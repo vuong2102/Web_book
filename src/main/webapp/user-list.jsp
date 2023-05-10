@@ -15,6 +15,7 @@
 <html>
 <head>
     <title>User Management Application</title>
+    <link rel="stylesheet" href="CSS/userlist.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">

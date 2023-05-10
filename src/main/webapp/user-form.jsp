@@ -21,7 +21,7 @@
 <body>
     <%@include file="includes/navbar-admin.jsp"%>
     <tbody>
-        <div class="container">
+        <div class="container-edituser">
             <div class="card-body">
                 <%
                     User user = (User) request.getAttribute("user");
