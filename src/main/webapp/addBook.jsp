@@ -13,10 +13,8 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="CSS/nav-bar.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/cart.css">
+
     <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/manageBook.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>

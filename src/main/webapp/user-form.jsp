@@ -54,11 +54,11 @@
                                 <%}else {%>
 
                             <label>User Name <input type="text" class="input" name="userName" required="required"></label>
-                            <label>Phone Number <input type="text" class="input" name="phoneNumber"></label>
-                            <label>Address <input type="text" class="input" name="address"></label>
-                            <label>User Email<input type="text" class="input" name="email"></label>
-                            <label>Password <input type="password" class="input" name="passWord"></label>
-                            <label>Role <input type="text" class="input" name="role"></label>
+                            <label>Phone Number <input type="text" class="input" name="phoneNumber" required="required"></label>
+                            <label>Address <input type="text" class="input" name="address" required="required"></label>
+                            <label>User Email<input type="email" class="input" name="email" required="required"></label>
+                            <label>Password <input type="password" class="input" name="passWord" required="required"></label>
+                            <label>Role <input type="text" class="input" name="role" required="required"></label>
                                     <%}%>
 
                             <div class="card-submit">
