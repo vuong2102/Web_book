@@ -6,15 +6,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    height: 100%;
     width: 100%;
     font-family: cursive;
 }
 
 .container{
-    margin: 4rem 30rem;
+    margin: 4rem auto;
     width: 430px !important;
-    height: 520px;
+    height: 530px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -24,18 +23,18 @@ body {
 .card-header{
     display: flex;
     justify-content: flex-end;
-    height: 30%;
+    height: 29%;
     width: 100%;
     flex-direction: column;
 }
 
 .welcome {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: #87CBB9;
 }
 
 .header-name {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #577D86;
 }
 
@@ -50,7 +49,7 @@ body {
 }
 
 .form-group{
-    height: 60%;
+    height: 61%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -61,24 +60,25 @@ body {
     height: 30px;
     border: 0;
     border-bottom: 1px solid #577D86;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
-.input ::placeholder {
+input::placeholder {
     font-family: cursive;
     display: flex;
     align-items: flex-end;
 }
 
-.input :focus {
-    outline: none;
+input:focus {
+    outline: none !important;
+    font-family: cursive;
 }
 
 .card-submit {
     height: 40%;
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 1.15rem;
     align-items: center;
 }
 
@@ -86,7 +86,7 @@ body {
     color: #7F8487;
 }
 
-.register > a :hover {
+.register > a:hover {
     color: #413F42;
 }
 
@@ -97,14 +97,20 @@ body {
     background-color: #DDF7E3;
     width: 10rem;
     height: 3.25rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: #41644A;
     font-family: cursive !important;
     border-color: #5D9C59;
 }
 
-.btn-submit :hover {
-    background-color: #3C6255;
+.btn-submit:hover {
+    opacity: 0.8;
     cursor: pointer;
 }
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    font-family: cursive;
+}
+
 
