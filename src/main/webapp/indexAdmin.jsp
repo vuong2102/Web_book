@@ -18,7 +18,7 @@
   } catch (ClassNotFoundException | SQLException e) {
     throw new RuntimeException(e);
   }
-  List<Product> products = pd.getAllProducts();
+  List<Product> products = pd.get8TopLoadProducts();
 
   List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
   if(cartArrayList != null){
@@ -63,33 +63,62 @@
         </header>
         <tbody>
             <div class="container">
-                <div class="row">
+                <div id="content-index" class="row">
                     <%
                         if (!products.isEmpty()) {
                             for (Product p : products) { %>
-                    <div class="col-home">
-                        <div class="card">
-                            <img class="card-img-top" src="product-images/<%=p.getImage()%>"
-                                 alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= p.getName() %></h5>
-                                <h6 class="category">Thể loại: <%= p.getCategory()%></h6>
-                                <h4 class="price">$<%= p.getPrice()%></h4>
-                                <div class="container-btn">
-                                    <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Thêm vào giỏ hàng</a>
-                                    <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Mua ngay</a>
+                        <div class="col-home">
+                            <div class="card">
+                                <img class="card-img-top" src="product-images/<%=p.getImage()%>"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= p.getName() %></h5>
+                                    <h6 class="category">Thể loại: <%= p.getCategory()%></h6>
+                                    <h4 class="price">$<%= p.getPrice()%></h4>
+                                    <div class="container-btn">
+                                        <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Thêm vào giỏ hàng</a>
+                                        <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Mua ngay</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <%}
                     }
                     %>
                 </div>
             </div>
+            <div class="load-more">
+                <button class="btn" onclick="loadMore()">Load More</button>
+            </div>
         </tbody>
         <footer>
             <%@include file="includes/footer.jsp"%>
         </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            function loadMore(){
+                $.ajax({
+                    url: "/Web_book_war_exploded/load-home",
+                    success: function (data){
+                        const row = document.getElementById("content-index");
+                        row.innerHTML += data;
+                    }
+                });
+            }
+            function searchByName(param){
+                const txtSearch = param.value;
+                $.ajax({
+                    url: "/Web_book_war_exploded/search",
+                    type: "get",
+                    data: {
+                        txt: txtSearch
+                    },
+                    success: function (data){
+                        const row = document.getElementById("content-index");
+                        row.innerHTML = data;
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

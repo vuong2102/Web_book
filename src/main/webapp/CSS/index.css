@@ -155,4 +155,9 @@ body{
   flex-direction: column;
   text-align: center;
 }
+.load-more{
+  text-align: center;
+  margin: 30px;
+  padding: 10px;
+}
 

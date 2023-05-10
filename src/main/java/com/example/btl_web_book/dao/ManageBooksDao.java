@@ -54,6 +54,7 @@ public class ManageBooksDao {
     }
     public void updateProduct(Product book) throws SQLException,ClassNotFoundException{
         boolean updated;
+        con = JDBCConnect.getConnection();
         String query = "update products set name = ?, category = ?, price = ?, image =?, description = ? where id = ?;";
         try {
             pst = this.con.prepareStatement(query);

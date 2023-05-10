@@ -13,6 +13,8 @@ import java.util.List;
 
 public class ProductDao {
     private Connection con;
+    int start = 0;
+    int continueLoad = 8;
     private String query;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -40,6 +42,55 @@ public class ProductDao {
         } catch (Exception e){
             e.printStackTrace();
         }
+        return products;
+    }
+    public List<Product> get8TopLoadProducts(){
+        List<Product> products = new ArrayList<Product>();
+        try{
+            query = "SELECT * FROM products LIMIT ?,?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, start);
+            pst.setInt(2, 8);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                Product row = new Product();
+                row.setId(rs.getInt("id"));
+                row.setName(rs.getString("name"));
+                row.setCategory(rs.getString("category"));
+                row.setPrice(rs.getDouble("price"));
+                row.setImage(rs.getString("image"));
+                row.setDescription(rs.getString("description"));
+
+                products.add(row);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+    public List<Product> getLoadProducts(){
+        List<Product> products = new ArrayList<Product>();
+        try{
+            query = "SELECT * FROM products LIMIT ?,?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, continueLoad);
+            pst.setInt(2, 8);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                Product row = new Product();
+                row.setId(rs.getInt("id"));
+                row.setName(rs.getString("name"));
+                row.setCategory(rs.getString("category"));
+                row.setPrice(rs.getDouble("price"));
+                row.setImage(rs.getString("image"));
+                row.setDescription(rs.getString("description"));
+
+                products.add(row);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        continueLoad+=8;
         return products;
     }
     public List<Product> searchByName(String txtSearch){

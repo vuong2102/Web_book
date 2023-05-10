@@ -22,7 +22,6 @@
           if(session.getAttribute("authAdmin") != null){ %>
           <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
           <li class="nav-item"><a class="nav-link" href="manageBook.jsp">Manage Book</a></li>
-          <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
           <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
         <%
           }else{ %>

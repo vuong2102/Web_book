@@ -18,10 +18,10 @@ import java.sql.SQLException;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private UserDao userDao;
+
     public RegisterServlet() throws SQLException, ClassNotFoundException {
         super();
-        this.userDao = new UserDao(JDBCConnect.getConnection());
+        UserDao userDao = new UserDao(JDBCConnect.getConnection());
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().append("Server at: ").append(request.getContextPath());
