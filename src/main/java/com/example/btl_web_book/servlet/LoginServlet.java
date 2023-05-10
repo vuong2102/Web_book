@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.dao.UserDao;
 import com.example.btl_web_book.model.User;
+import com.example.btl_web_book.util.EncodePassWord;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -25,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 
             try{
                 UserDao userDao = new UserDao(JDBCConnect.getConnection());
-                User user = userDao.userLogin(email, password);
+                User user = userDao.userLogin(email, EncodePassWord.toSHA1(password));
 
                 if (user != null){
                     if(user.getRole().equals("user")){

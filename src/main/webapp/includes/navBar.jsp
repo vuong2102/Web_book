@@ -7,9 +7,9 @@
       <img src="https://blog.flamingtext.com/blog/2023/05/03/flamingtext_com_1683135141_1036448446.png">
     </a>
     <div class="search-container">
-      <form id="search">
+      <form id="search" action="search" method="post">
         <i class="fas fa-search"></i>
-        <label for="searchInput"></label><input type="text" id="searchInput" class="search-in" placeholder="Tìm kiếm">
+        <label for="searchInput"></label><input type="text" name="txt" id="searchInput" class="search-in" placeholder="Tìm kiếm">
         <button class="search-btn" type="submit">Tìm kiếm</button>
       </form>
     </div>
@@ -31,13 +31,13 @@
         <%
           if(session.getAttribute("auth") != null){ %>
         <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Thông tin tài khoản</a></li>
+        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
         <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
         <%
         }else{
         %>
         <li class="nav-item nav-item-end">
-          <a class="nav-link" href="login.jsp">Đăng nhập</a>
+          <a class="nav-link" href="login.jsp">Login</a>
         </li>
         <%
           }

@@ -33,11 +33,37 @@ public class ProductDao {
                 row.setCategory(rs.getString("category"));
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
+                row.setDescription(rs.getString("description"));
 
                 products.add(row);
             }
         } catch (Exception e){
             e.printStackTrace();
+        }
+        return products;
+    }
+    public List<Product> searchByName(String txtSearch){
+        List<Product> products = new ArrayList<>();
+        try{
+            con = JDBCConnect.getConnection();
+            query = "select * from products where name like ?";
+            pst = this.con.prepareStatement(query);
+            pst.setString(1, "%" + txtSearch + "%");
+            rs = pst.executeQuery();
+            while (rs.next()){
+                Product row = new Product();
+                row.setId(rs.getInt("id"));
+                row.setName(rs.getString("name"));
+                row.setCategory(rs.getString("category"));
+                row.setPrice(rs.getDouble("price"));
+                row.setImage(rs.getString("image"));
+                row.setDescription(rs.getString("description"));
+
+                products.add(row);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
         }
         return products;
     }
@@ -83,6 +109,7 @@ public class ProductDao {
                 row.setCategory(rs.getString("category"));
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
+                row.setDescription(rs.getString("description"));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,6 +4,7 @@ import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.dao.RegisterDAO;
 import com.example.btl_web_book.dao.UserDao;
 import com.example.btl_web_book.model.User;
+import com.example.btl_web_book.util.EncodePassWord;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,16 +34,14 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("passWord");
         String role = "user";
-        User user = new User(userName,phoneNumber,address,email,password,role);
+        User user = new User(userName,phoneNumber,address,email,EncodePassWord.toSHA1(password),role);
         RegisterDAO registerDAO = new RegisterDAO();
         RequestDispatcher dispatcher = null;
         try {
             String result = registerDAO.insert(user);
             response.getWriter().print(result);
             response.sendRedirect("login.jsp");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
