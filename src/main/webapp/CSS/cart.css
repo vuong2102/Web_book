@@ -88,6 +88,12 @@ html{
     list-style: none;
     font-size: 16px;
 }
+
+/*fix css img cart*/
+.img__product{
+    max-width: 150px!important;
+    max-height: 215px!important;
+}
 .count{
     display: flex;
     flex-direction: column;

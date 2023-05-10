@@ -33,7 +33,7 @@
 </head>
 <body>
 <%@include file="includes/navbar-admin.jsp"%>
-<div class="container">
+<div class="container container-managerbook">
     <div class="table-cart">
         <div>
             <ul class="table-head">
@@ -50,8 +50,8 @@
                 for (Product p : products) { %>
             <ul>
                 <li class="table-content"><%= p.getName()%></li>
-                <li class="table-content">
-                    <img src="product-images/<%= p.getImage()%>" alt="ảnh">
+                <li class="table-content"> 
+                    <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
                 </li>
                 <li class="table-content"><%= p.getPrice()%></li>
                 <li class="table-content">
