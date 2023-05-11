@@ -1,11 +1,13 @@
 package com.example.btl_web_book.dao;
 
 
+import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class UserDao {
@@ -41,7 +43,26 @@ public class UserDao {
         }
         return user;
     }
+    public void updateUser(User user) throws SQLException, ClassNotFoundException {
 
+        String result = "Successfully";
+        String query = "update users set userName = ?, phoneNumber = ?, address = ?, email = ? where id = ?;";
+        try(Connection con = JDBCConnect.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(query)){
+
+            preparedStatement.setString(1,user.getUserName());
+            preparedStatement.setString(2,user.getPhoneNumber());
+            preparedStatement.setString(3,user.getAddress());
+            preparedStatement.setString(4,user.getEmail());
+            preparedStatement.setInt(5,user.getId());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+            result = "Failed";
+        }
+    }
 
 
 }
