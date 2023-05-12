@@ -3,12 +3,23 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.model.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.btl_web_book.dao.OrderDao" %>
+<%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("authAdmin");
     if(auth!= null){
     request.setAttribute("authAdmin", auth);
     }
+    OrderDao orderDao = null;
+    List<User> listUser = (List<User>) request.getAttribute("listUser");
+    try {
+        orderDao  = new OrderDao(JDBCConnect.getConnection());
+    } catch (ClassNotFoundException | SQLException e) {
+        throw new RuntimeException(e);
+    }
+
 %>
 
 <!DOCTYPE html>
@@ -29,6 +40,8 @@
     <tbody>
         <div class="row">
             <div class="container">
+                <div>Thành viên: <%=listUser.size()%></div>
+                <div>Số thành viên đã mua hàng: <%=orderDao.soTVDaMuaHang()%></div>
                 <h3 class="text-center">List Users</h3>
                 <div class="container text-left">
                     <a href="<%=request.getContextPath()%>/new_user" class="btn btn-success">Add New User</a>
@@ -47,7 +60,6 @@
                         </tr>
                     </thead>
                         <%
-                        List<User> listUser = (List<User>) request.getAttribute("listUser");
                         for(User user: listUser){%>
                         <tr>
                             <td><%=user.getId()%></td>

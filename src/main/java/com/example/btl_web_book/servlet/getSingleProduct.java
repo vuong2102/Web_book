@@ -23,6 +23,6 @@ public class getSingleProduct extends HttpServlet {
         }
         Product p=dao.getSingleProduct(id);
         request.setAttribute("product1", "p");
-        request.getRequestDispatcher("detail.jsp").forward(request, response);
+        request.getRequestDispatcher("detailProduct.jsp").forward(request, response);
     }
 }

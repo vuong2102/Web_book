@@ -7,7 +7,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.thong-ke{
+    margin-top: 100px;
+}
 #addEmployeeModal{
     display: none;
     position: fixed;

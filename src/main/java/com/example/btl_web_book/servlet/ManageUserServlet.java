@@ -63,7 +63,7 @@ public class ManageUserServlet extends HttpServlet {
             throws SQLException, IOException, ServletException, ClassNotFoundException {
         List<User> listUser = manageUsersDAO.selectAllUsers();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("manageUser.jsp");
         dispatcher.forward(request, response);
     }
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)

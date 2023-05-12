@@ -8,7 +8,6 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
 
 <%

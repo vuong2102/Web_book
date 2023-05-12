@@ -69,11 +69,11 @@
                                 <li class="table-content">$<%= dcf.format(c.getPrice())%></li>
                                 <li class="table-content">
                                     <form action="order-now" method="post" class="form-inline">
-                                        <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
+                                        <input type="hidden" name="id" value="<%=c.getId()%>" class="form-input">
                                         <div class="form-group">
                                             <a href="quantity-inc-dec?action=inc&id=<%=c.getId()%>" class="btn-incre"><i class="fas">+</i></a>
                                             <label>
-                                                <input class="form-control" type="text" name="quantity" value="<%= c.getQuantity()%>" readonly>
+                                                <input class="form-control" type="text" name="quantity" value="<%=c.getQuantity()%>" readonly>
                                             </label>
                                             <a href="quantity-inc-dec?action=decree&id=<%=c.getId()%>" class="btn-decree"><i class="fas">-</i></a>
                                             <button type="submit" class="table-action btn btn-buy">Buy</button>

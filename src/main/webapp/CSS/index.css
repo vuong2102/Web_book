@@ -91,7 +91,10 @@ body{
   flex-basis: calc(100% / 4 - 1rem);
   border-radius: 5px;
 }
-
+.col-home:hover {
+  cursor: pointer;
+  background: #eaeaea;
+}
 .card{
   display: flex;
   justify-content: space-between;

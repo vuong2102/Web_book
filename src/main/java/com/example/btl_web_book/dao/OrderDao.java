@@ -3,6 +3,7 @@ package com.example.btl_web_book.dao;
 import com.example.btl_web_book.model.Cart;
 import com.example.btl_web_book.model.Order;
 import com.example.btl_web_book.model.Product;
+import com.example.btl_web_book.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,6 +63,53 @@ public class OrderDao {
         }
         return list;
     }
+    public int soTVDaMuaHang(){
+        List<Integer> list = new ArrayList<>();
+        try {
+            query = "select DISTINCT user_id from orders;";
+            pst = this.con.prepareStatement(query);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                int userId = rs.getInt("user_id");
+                list.add(userId);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return list.size();
+    }
+    public List<Order> getAllOrders(){
+        List<Order> list = new ArrayList<>();
+        try {
+            query = "select * from orders;";
+            pst = this.con.prepareStatement(query);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                ProductDao productDao = new ProductDao(this.con);
+
+                int productId = rs.getInt("product_id");
+                int userId = rs.getInt("user_id");
+                Product product = productDao.getSingleProduct(productId);
+
+                order.setId(productId);
+                order.setUserId(userId);
+                order.setOrderId(rs.getInt("id"));
+                order.setName(product.getName());
+                order.setPrice(product.getPrice()*rs.getInt("order_quantity"));
+                order.setImage(product.getImage());
+
+                order.setQuantity(rs.getInt("order_quantity"));
+                order.setDate(rs.getString("order_date"));
+                list.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
     public double getTotalOrderPrice(ArrayList<Order> orderArrayList){
         double sum = 0;
         try{
@@ -81,6 +129,24 @@ public class OrderDao {
             e.printStackTrace();
         }
         return sum;
+    }
+    public Order setTinhTrangGiaoHang(int id) {
+        Order tinhTrangGiaoHang = null;
+        try {
+            query = "select status_delivery from orders where id=?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                tinhTrangGiaoHang.setStatusDelivery("Delivered");
+            }
+            //result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.print(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return tinhTrangGiaoHang;
     }
     public void cancelOrder(int id) {
         //boolean result = false;

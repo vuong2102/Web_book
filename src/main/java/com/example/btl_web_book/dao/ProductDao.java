@@ -36,6 +36,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
 
                 products.add(row);
             }
@@ -60,6 +61,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
 
                 products.add(row);
             }
@@ -84,6 +86,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
 
                 products.add(row);
             }
@@ -109,6 +112,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
 
                 products.add(row);
             }
@@ -134,6 +138,7 @@ public class ProductDao {
                         row.setCategory(rs.getString("category"));
                         row.setPrice(rs.getDouble("price")*item.getQuantity());
                         row.setQuantity(item.getQuantity());
+                        row.setQuantityInStore(rs.getInt("quantityInStore")-item.getQuantity());
                         books.add(row);
                     }
                 }
@@ -161,6 +166,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -215,6 +221,7 @@ public class ProductDao {
                 row.setPrice(rs.getDouble("price"));
                 row.setImage(rs.getString("image"));
                 row.setDescription(rs.getString("description"));
+                row.setQuantityInStore(rs.getInt("quantityInStore"));
             }
         }
         catch (SQLException ignored){

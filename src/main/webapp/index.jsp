@@ -75,8 +75,9 @@
                     <%
                         if (!products.isEmpty()) {
 //                        if (products != null) {
-                            for (Product p : products){ %>
-                            <div class="col-home">
+                            for (Product p : products){
+                            %>
+                            <div class="col-home" onclick = window.location="http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=<%=p.getId()%>">
                                 <div class="card">
                                     <img class="card-img-top" src="product-images/<%=p.getImage()%>"
                                          alt="Card image cap">

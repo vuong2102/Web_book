@@ -62,8 +62,9 @@ public class ManageBookServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         String image = request.getParameter("image");
         String description = request.getParameter("description");
+        int quantityInStore = Integer.parseInt(request.getParameter("quantityInStore"));
         try {
-            Product book = new Product(name,category, price, image,description);
+            Product book = new Product(name,category, price, image,description,quantityInStore);
             manageBooksDao.insertProduct(book);
             response.sendRedirect("manageBook.jsp");
         } catch (SQLException | ClassNotFoundException e) {
@@ -85,7 +86,8 @@ public class ManageBookServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         String image = request.getParameter("image");
         String description = request.getParameter("description");
-        Product book = new Product(id, name, category, price, image, description);
+        int quantityInStore = Integer.parseInt(request.getParameter("quantityInStore"));
+        Product book = new Product(id, name, category, price, image, description, quantityInStore);
         manageBooksDao.updateProduct(book);
         response.sendRedirect("manageBook.jsp");
     }

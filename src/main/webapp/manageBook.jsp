@@ -5,6 +5,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.btl_web_book.dao.OrderDao" %>
+<%@ page import="com.example.btl_web_book.model.Order" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("authAdmin");
@@ -13,12 +15,23 @@
     }
 
     ProductDao pd = null;
+    OrderDao od = null;
     try {
         pd = new ProductDao(JDBCConnect.getConnection());
+        od = new OrderDao(JDBCConnect.getConnection());
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
     List<Product> products = pd.getAllProducts();
+    List<Order> orders = od.getAllOrders();
+    int soSachTrongKho = 0;
+    int soSachDaBan = 0;
+    for(Product p : products){
+        soSachTrongKho += p.getQuantityInStore();
+    }
+    for(Order p : orders){
+        soSachDaBan += p.getQuantity();
+    }
 %>
 
 <html>
@@ -34,6 +47,12 @@
 <body>
 <%@include file="includes/navbar-admin.jsp"%>
 <div class="container container-managerbook">
+    <div class="thong-ke">
+        <div>Số sách trong kho: <%=soSachTrongKho%></div>
+        <div>Số sách đã bán: <%=soSachDaBan%></div>
+        <div>Số đầu sách: <%=products.size()%></div>
+    </div>
+
     <div class="table-cart">
         <div>
             <ul class="table-head">
@@ -57,7 +76,7 @@
                 <li class="table-content">
                     <form action="order-now" method="post" class="form-inline">
                         <input type="hidden" name="id" value="" class="form-input">
-                        <h5>100</h5>
+                        <h5><%=p.getQuantityInStore()%></h5>
                     </form>
                 </li>
                 <ul class="table-content" style="display: flex; justify-content: space-around">

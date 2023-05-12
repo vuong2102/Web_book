@@ -7,10 +7,17 @@ public class Product {
     private Double price;
     private String image;
     private String description;
+    private int quantityInStore;
+    public int getQuantityInStore() {
+        return quantityInStore;
+    }
+    public void setQuantityInStore(int quantityInStore) {
+        this.quantityInStore = quantityInStore;
+    }
 
     public Product() {
     }
-    public Product(int id, String name, String category, Double price, String image, String description) {
+    public Product(int id, String name, String category, Double price, String image, String description, int quantityInStore) {
         super();
         this.id = id;
         this.name = name;
@@ -18,9 +25,10 @@ public class Product {
         this.price = price;
         this.image = image;
         this.description = description;
+        this.quantityInStore = quantityInStore;
     }
 
-    public Product(String name, String category, double price, String image, String description) {
+    public Product(String name, String category, double price, String image, String description, int quantityInStore) {
     }
 
     public int getId() {
