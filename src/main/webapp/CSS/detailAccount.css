@@ -4,9 +4,9 @@ body{
 }
 
 .content {
-    margin: 8rem auto;
+    margin: 8rem auto 0;
     font-family: Roboto, serif;
-    height: 400px;
+    height: 440px;
     width: 800px;
     background-color: #f6f1f1;
 }
@@ -40,4 +40,32 @@ body{
 
 .data {
     color: #393646;
+    width: 11rem;
+    height: 1.5rem;
+}
+
+.btn-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f1f1;
+    width: 7.25rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+    color: #41644A;
+    font-family: cursive !important;
+    border-color: #5D9C59;
+    cursor: pointer;
+}
+
+.divUpdate {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 0;
+}
+
+.container-in {
+    margin-top: 4rem !important;
 }
