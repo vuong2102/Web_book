@@ -48,7 +48,8 @@
                     </thead>
                         <%
                         List<User> listUser = (List<User>) request.getAttribute("listUser");
-                        for(User user: listUser){%>
+                        for(User user: listUser){
+                        %>
                         <tr>
                             <td><%=user.getId()%></td>
                             <td><%=user.getUserName()%></td>
