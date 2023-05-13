@@ -36,7 +36,7 @@
           if(session.getAttribute("auth") != null){ %>
         <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
         <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
-        <li class="nav-item"><a class="nav-link" href="log-out">Đăng nhập</a></li>
+        <li class="nav-item"><a class="nav-link" href="log-out">login</a></li>
         <%
         }else{
         %>
@@ -77,12 +77,12 @@
           if(session.getAttribute("auth") != null){ %>
         <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
         <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
-        <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-user"></i>Đăng nhập</a></li>
+        <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-user"></i>login</a></li>
         <%
         }else{
         %>
         <li class="nav-item nav-item-end">
-          <a class="nav-link" href="login.jsp">Đăng nhập</a>
+          <a class="nav-link" href="login.jsp"><i class="fas fa-user"></i>Đăng nhập</a>
         </li>
         <%
           }
