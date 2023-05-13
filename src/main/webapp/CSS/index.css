@@ -164,3 +164,35 @@ body{
   padding: 10px;
 }
 
+@media only screen and (max-width: 740px) {
+  html{
+    font-size: 12px;
+  }
+  .slideshow-container{
+    height: 160px;
+  }
+
+  .slideshow-container img{
+    height: 160px;
+    width: 100%;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .col-home{
+    width: 280px;
+    height: max-content;
+  }
+
+  .card{
+    padding: 0;
+    flex-direction: row;
+    width: 290px;
+  }
+  .card-img-top{
+    max-width: 160px;
+  }
+
+}

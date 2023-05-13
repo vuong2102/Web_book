@@ -56,3 +56,31 @@
 .footer-detail a i:hover {
     opacity: 0.6;
 }
+
+@media only screen and (max-width: 740px) {
+    html {
+        font-size: 12px;
+    }
+
+    .container-in{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .footer-title{
+        padding: 0;
+    }
+
+    .footer-ct{
+        border-right: none;
+    }
+
+    .footer-side{
+        flex-direction: column;
+    }
+
+    ul {
+        display: none;
+    }
+}
