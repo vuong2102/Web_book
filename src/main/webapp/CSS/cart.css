@@ -1,10 +1,6 @@
-html{
-    font-family: "Fira Code Medium";
-}
-
 .container{
-    width: 100%;
-    padding: 0 40px 0 40px;
+    top: 4rem;
+    padding-bottom: 4rem;
     position: relative;
     height: max-content;
     display: flex;
@@ -24,14 +20,6 @@ html{
     font-weight: bolder;
 }
 
-.btn-remove{
-    text-align: center;
-    background-color: rgb(234, 66, 66);
-    padding: 9px;
-    text-decoration: none;
-    color: white;
-    border-radius: 4px;
-}
 .content-cart{
     text-align: center;
     width: 20%;

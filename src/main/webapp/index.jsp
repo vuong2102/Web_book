@@ -35,10 +35,12 @@
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
     <body>
     <%@include file="includes/navBar.jsp"%>
+    <script src="JS/nav-bar.js"></script>
             <%--    <%@include file="includes/nav-bar.jsp"%>--%>
             <div class="slideshow-container">
                 <div class="mySlides fade">
