@@ -6,7 +6,7 @@
             <div class="footer-ct">
                 <div style="padding-right: 32px; border-right: 1px solid #ccc">
                     <div style="margin-bottom: 8px;">
-                        <img alt="vatth.com" src="https://blog.flamingtext.com/blog/2023/05/03/flamingtext_com_1683135141_1036448446.png">
+                        <img alt="vatth.com" src="./product-images/logo.png" style="width: 230px; height: 70px;">
                     </div>
                     <div class="footer-detail">66 Nguyễn Trãi, Hà Đông, Hà Nội</div>
                     <div class="footer-detail">VATTH Book nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống VATTH trên toàn quốc.</div>
