@@ -3,11 +3,12 @@
     position: fixed;
     top: 0;
     z-index: 99;
+    background-color: #ffffff;
+    height: 4rem;
 }
 
 .container-fluid {
-    background-color: #ffffff;
-    height: 4rem;
+    margin: 0 10%;
 }
 
 .navbar-brand {
@@ -16,13 +17,14 @@
 }
 
 .navbar-brand img {
-    margin-left: 2rem;
+    max-width: 100%;
+    height: auto;
 }
 
 .search-container {
     margin-top: 0.7rem;
     float: left;
-    width: 35%;
+    width: 40%;
 }
 
 #search {
@@ -94,7 +96,7 @@
 .navbar-collapse {
     float: left;
     display: block;
-    width: 45%;
+    width: 40%;
 }
 
 .nav-item {
@@ -142,5 +144,12 @@
     line-height: 16px;
 }
 
+.icon-menu {
+    display: none;
+}
+
+.nav-menu {
+    display: none;
+}
 
 
