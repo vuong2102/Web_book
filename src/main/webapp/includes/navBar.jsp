@@ -34,9 +34,9 @@
         </li>
         <%
           if(session.getAttribute("auth") != null){ %>
-        <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
-        <li class="nav-item"><a class="nav-link" href="log-out">login</a></li>
+            <li class="nav-item"><a class="nav-link" href="orders.jsp">Đơn hàng</a></li>
+            <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Tài khoản</a></li>
+            <li class="nav-item"><a class="nav-link" href="log-out">Đăng xuất</a></li>
         <%
         }else{
         %>
@@ -75,9 +75,9 @@
         </li>
         <%
           if(session.getAttribute("auth") != null){ %>
-        <li class="nav-item"><a class="nav-link" href="orders.jsp">Orders</a></li>
-        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Account</a></li>
-        <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-user"></i>login</a></li>
+        <li class="nav-item"><a class="nav-link" href="orders.jsp">Đơn hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Tài khoản</a></li>
+        <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-user"></i>Đăng xuất</a></li>
         <%
         }else{
         %>

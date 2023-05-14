@@ -46,7 +46,7 @@
           <% if(auth != null) { %>
               <li>Giao đến: <%= auth.getAddress()%></li>
           <%}%>
-          <div class="form-group">
+          <div class="form-group"> Số lượng
               <a href="quantity-inc-dec?action=inc&id=<%=p.getId()%>" class="btn-incre"><i class="fas">+</i></a>
               <label>
                   <input class="form-control" type="text" name="quantity" value="<%%>" readonly>

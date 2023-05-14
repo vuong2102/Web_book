@@ -65,16 +65,16 @@ public class ManageBookServlet extends HttpServlet {
         int quantityInStore = Integer.parseInt(request.getParameter("quantityInStore"));
         try {
             Product book = new Product(name,category, price, image,description,quantityInStore);
-            manageBooksDao.insertProduct(book);
-            response.sendRedirect("manageBook.jsp");
+            manageBooksDao.insertBook(book);
+            response.sendRedirect("manage-book");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
     private void listProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
-        List<Product> listProduct = productDao.getAllProducts();
-        request.setAttribute("products", listProduct);
+        List<Product> listProduct = manageBooksDao.selectAllProducts();
+        request.setAttribute("listProduct", listProduct);
         RequestDispatcher dispatcher = request.getRequestDispatcher("manageBook.jsp");
         dispatcher.forward(request, response);
     }
@@ -83,31 +83,31 @@ public class ManageBookServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String category = request.getParameter("category");
-        double price = Double.parseDouble(request.getParameter("price"));
+        Double price = Double.parseDouble(request.getParameter("price"));
         String image = request.getParameter("image");
         String description = request.getParameter("description");
         int quantityInStore = Integer.parseInt(request.getParameter("quantityInStore"));
         Product book = new Product(id, name, category, price, image, description, quantityInStore);
-        manageBooksDao.updateProduct(book);
-        response.sendRedirect("manageBook.jsp");
+        manageBooksDao.updateBook(book);
+        response.sendRedirect("manage-book");
     }
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("updateBook.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("add_update_Book.jsp");
         dispatcher.forward(request, response);
     }
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = manageBooksDao.getProductById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("updateBook.jsp");
-        request.setAttribute("product", product);
+        Product existingProduct = manageBooksDao.selectProduct(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("add_update_Book.jsp");
+        request.setAttribute("product", existingProduct);
         dispatcher.forward(request, response);
     }
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
-        manageBooksDao.deleteProduct(id);
-        response.sendRedirect("manageBook.jsp");
+        manageBooksDao.deleteBook(id);
+        response.sendRedirect("manage-book");
     }
 }

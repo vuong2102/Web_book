@@ -7,22 +7,23 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="com.example.btl_web_book.dao.OrderDao" %>
 <%@ page import="com.example.btl_web_book.model.Order" %>
+<%@ page import="com.example.btl_web_book.dao.ManageBooksDao" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("authAdmin");
     if(auth!= null){
         request.setAttribute("authAdmin", auth);
     }
-
-    ProductDao pd = null;
+    ManageBooksDao pd = null;
     OrderDao od = null;
     try {
-        pd = new ProductDao(JDBCConnect.getConnection());
+        pd = new ManageBooksDao(JDBCConnect.getConnection());
         od = new OrderDao(JDBCConnect.getConnection());
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
-    List<Product> products = pd.getAllProducts();
+    List<Product> products = (List<Product>) request.getAttribute("listProduct");
+
     List<Order> orders = od.getAllOrders();
     int soSachTrongKho = 0;
     int soSachDaBan = 0;
@@ -55,6 +56,9 @@
 
     <div class="table-cart">
         <div>
+            <a href="<%=request.getContextPath()%>/new_book" class="btn btn-success">Add New Book</a>
+        </div>
+        <div>
             <ul class="table-head">
                 <li class="table-col">Name</li>
                 <li class="table-col">Image</li>
@@ -80,22 +84,22 @@
                     </form>
                 </li>
                 <ul class="table-content" style="display: flex; justify-content: space-around">
-                    <li class="table-action"><a class="btn btn-edit" href="edit_book?pid=<%=p.getId()%>">Edit</a></li>
-                    <li class="table-action"><a class="btn-remove" href="delete?pid=<%=p.getId()%>">Remove</a></li>
+                    <li class="table-action"><a href="edit_book?id=<%=p.getId()%>">Edit</a> </li>
+                    <li class="table-action"><a class="btn-remove" href="delete_book?id=<%=p.getId()%>">Remove</a></li>
                 </ul>
             </ul>
             <%}
             }%>
         </div>
         <div class="nav-cart btn-checkout">
-            <a id="addNew" class="btn btn-primary" href="addBook.jsp">Add new product</a>
+            <a id="addNew" class="btn btn-primary" href="new_book">Add new product</a>
         </div>
     </div>
     <%--        form add product  onclick="showModal()" --%>
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="add" method="post">
+                <form action="insert_book" method="post">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Product</h4>
                     </div>

@@ -27,8 +27,14 @@ public class Product {
         this.description = description;
         this.quantityInStore = quantityInStore;
     }
-
     public Product(String name, String category, double price, String image, String description, int quantityInStore) {
+        super();
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+        this.quantityInStore = quantityInStore;
     }
 
     public int getId() {
