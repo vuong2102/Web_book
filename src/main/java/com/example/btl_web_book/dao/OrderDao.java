@@ -1,5 +1,6 @@
 package com.example.btl_web_book.dao;
 
+import com.example.btl_web_book.connection.JDBCConnect;
 import com.example.btl_web_book.model.Cart;
 import com.example.btl_web_book.model.Order;
 import com.example.btl_web_book.model.Product;
@@ -147,6 +148,23 @@ public class OrderDao {
             throw new RuntimeException(e);
         }
         return tinhTrangGiaoHang;
+    }
+    public int demSoLuongSachDaBanCuaMotSanPham(int id){
+        int count = 0;
+        try{
+            con = JDBCConnect.getConnection();
+            query = "select order_quantity from orders where product_id=?;";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                count += rs.getInt("order_quantity");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return count;
     }
     public void cancelOrder(int id) {
         //boolean result = false;

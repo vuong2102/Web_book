@@ -22,7 +22,7 @@ public class getSingleProduct extends HttpServlet {
             throw new RuntimeException(e);
         }
         Product p=dao.getSingleProduct(id);
-        request.setAttribute("product1", "p");
+        request.setAttribute("productDetail", p);
         request.getRequestDispatcher("detailProduct.jsp").forward(request, response);
     }
 }

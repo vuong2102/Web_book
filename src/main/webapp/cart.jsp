@@ -14,8 +14,8 @@
 
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
-        request.setAttribute("person", auth);
-//        response.sendRedirect("index.jsp");
+        request.setAttribute("auth", auth);
+//        response.senRedirect("index.jsp");
     }
     ArrayList<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct = null;
@@ -45,9 +45,26 @@
         <%@include file="includes/navBar.jsp"%>
         <div class="container">
             <div class="content-cart">
-                <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>
-                <div class="nav-cart btn-checkout">
-                    <a class="btn btn-primary" href="cart-check-out">Check out</a>
+<%--                <div class="nav-cart"><h2 class="">Total Price: $ ${(totalPrice>0)?dcf.format(totalPrice):0}</h2></div>--%>
+<%--                <div class="nav-cart btn-checkout">--%>
+<%--                    <a class="btn btn-primary" href="cart-check-out">Check out</a>--%>
+<%--                </div>--%>
+                <div class="table-cart-right">
+                    <ul class="right-col">
+                        <li class="m-10 right-col1">Giao tới</li>
+                        <li class="m-10 right-col1"><a href="detailAccount.jsp">Thay đổi</a></li>
+                    </ul>
+                    <ul>
+                        <li class="m-10 right-col2">${sessionScope.auth.userName}    |    ${sessionScope.auth.phoneNumber}</li>
+                    </ul>
+                    <ul>
+                        <li class="right-col3">Địa chỉ: ${sessionScope.auth.address}</li>
+                    </ul>
+                    <ul class="right-row4">
+                        <li class="right-col41"><h3 class="">Total Price: </h3></li>
+                        <li class="right-col42"><h3 class="">$ ${(totalPrice>0)?dcf.format(totalPrice):0}</h3></li>
+                    </ul>
+                    <ul class="btn-right"><a type="submit" href="cart-check-out" class="btn-buy js-buy">Mua hàng</a></ul>
                 </div>
             </div>
             <div class="table-cart">

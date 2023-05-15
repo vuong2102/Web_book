@@ -86,23 +86,6 @@
                     %>
                 </div>
             </div>
-            <div class="table-cart-right">
-                <ul class="right-col">
-                    <li class="m-10 right-col1">Giao tới</li>
-                    <li class="m-10 right-col1"><a href="#">Thay đổi</a></li>
-                </ul>
-                <ul>
-                    <li class="m-10 right-col2">${sessionScope.auth.userName}    |    ${sessionScope.auth.phoneNumber}</li>
-                </ul>
-                <ul>
-                    <li class="right-col3">Địa chỉ: ${sessionScope.auth.address}</li>
-                </ul>
-                <ul class="right-row4">
-                    <li class="right-col41"><h3 class="">Total Price: </h3></li>
-                    <li class="right-col42"><h3 class="">$ ${(totalPrice>0)?dcf.format(totalPrice):0}</h3></li>
-                </ul>
-                <ul class="btn-right"><button type="submit" class="btn-buy js-buy">Mua hàng</button></ul>
-            </div>
         </div>
         <div class="modal js-modal">
             <div class="modal-container">

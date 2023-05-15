@@ -6,5 +6,6 @@ CREATE TABLE `orders` (
   `user_id`int DEFAULT NULL,
   `order_quantity` int DEFAULT NULL,
   `order_date` varchar(45) DEFAULT NULL,
+  `status_delivery` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
