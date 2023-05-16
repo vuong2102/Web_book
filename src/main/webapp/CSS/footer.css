@@ -3,10 +3,13 @@
     color: #000;
 }
 
+.footer-container {
+    background-color: #ffffff;
+}
+
 .container-in {
     padding: 2rem 0 0 2rem;
-    background-color: #ffffff;
-    margin-top: 5rem;
+    margin: 5rem 10% 0;
     border-top: 1px solid #ccc;
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +83,7 @@
         flex-direction: column;
     }
 
-    ul {
+    .footer-detail {
         display: none;
     }
 }
