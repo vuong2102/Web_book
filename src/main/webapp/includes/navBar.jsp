@@ -7,7 +7,7 @@
       <button><i class="fas fa-bars"></i></button>
     </div>
     <a class="navbar-brand" href="index.jsp">
-      <img style="width: 210px; height: 64px;" src="./product-images/logo.png">
+      <img style="width: 210px;" src="./product-images/logo.png">
     </a>
     <div class="search-container">
       <form id="search" action="search" method="get">
@@ -57,7 +57,7 @@
         <input oninput="searchByName(this)" type="text" name="txt" id="res-searchInput" class="search-in" placeholder="Tìm kiếm">
       </form>
     </div>
-    <div class="collapse res-navbar-collapse">
+    <div class="res-navbar-collapse">
       <ul class="navbar-nav" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.jsp"><i class="fas fa-home"></i>Trang chủ</a>
@@ -77,7 +77,7 @@
           if(session.getAttribute("auth") != null){ %>
         <li class="nav-item"><a class="nav-link" href="orders.jsp">Đơn hàng</a></li>
         <li class="nav-item"><a class="nav-link" href="detailAccount.jsp">Tài khoản</a></li>
-        <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-user"></i>Đăng xuất</a></li>
+        <li class="nav-item"><a class="nav-link" href="log-out"></i>Đăng xuất</a></li>
         <%
         }else{
         %>
