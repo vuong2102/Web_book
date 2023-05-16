@@ -2,9 +2,8 @@
 
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
     <a class="navbar-brand" href="index.jsp">
-      <img src="https://blog.flamingtext.com/blog/2023/05/03/flamingtext_com_1683135141_1036448446.png">
+      <img style="width: 210px;" src="./product-images/logo.png">
     </a>
     <div class="search-container">
       <form id="search">
@@ -20,10 +19,10 @@
         </li>
         <%
           if(session.getAttribute("authAdmin") != null){ %>
-          <li class="nav-item"><a class="nav-link" href="manage-user">Manage Account</a></li>
-          <li class="nav-item"><a class="nav-link" href="manage-book">Manage Book</a></li>
-          <li class="nav-item"><a class="nav-link" href="manageOrder.jsp">Manage Order</a></li>
-          <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="manage-user">Quản lý tài khoản</a></li>
+          <li class="nav-item"><a class="nav-link" href="manage-book">Quản lý sách</a></li>
+          <li class="nav-item"><a class="nav-link" href="manageOrder.jsp">Quản lý đặt hàng</a></li>
+          <li class="nav-item"><a class="nav-link" href="log-out"><i class="fas fa-sign-out"></i>Đăng xuất</a></li>
         <%
           }else{ %>
             <li class="nav-item nav-item-end">
@@ -34,5 +33,4 @@
         %>
       </ul>
     </div>
-  </div>
 </nav>
