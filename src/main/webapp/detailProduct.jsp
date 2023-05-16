@@ -6,6 +6,7 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.btl_web_book.dao.OrderDao" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
@@ -13,8 +14,10 @@
         request.setAttribute("auth", auth);
     }
     ProductDao pd = null;
+    OrderDao od = null;
     try {
         pd = new ProductDao(JDBCConnect.getConnection());
+        od = new OrderDao(JDBCConnect.getConnection());
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
@@ -22,8 +25,12 @@
     if(cartArrayList != null){
         request.setAttribute("cartArrayList", cartArrayList);
     }
-    Product p = pd.getSingleProduct(Integer.parseInt(request.getParameter("id")));
-    assert auth != null;%>
+    Product p1 = (Product) request.getAttribute("productDetail");
+    int soSachDaBanCuaSanPham = od.demSoLuongSachDaBanCuaMotSanPham(p1.getId());
+    request.setAttribute("productDetail", p1);
+    assert auth != null;
+    int soLuong = 1;
+%>
 <html>
 <head>
     <title>Chi tiết sản phẩm</title>
@@ -34,34 +41,31 @@
 </head>
 <body>
     <%@include file="includes/navBar.jsp"%>
-    <div class="container__detail">
-      <div class="block__left">
-        <img src="product-images/<%=p.getImage()%>" alt="Sách">
-      </div>
-      <div class="block__right">
-          <li><%=p.getName()%></li>
-          <li><%= p.getCategory()%></li>
-          <li><%= p.getPrice()%></li>
-          <li><%= p.getDescription()%></li>
-          <% if(auth != null) { %>
-              <li>Giao đến: <%= auth.getAddress()%></li>
-          <%}%>
-          <div class="form-group"> Số lượng
-              <a href="quantity-inc-dec?action=inc&id=<%=p.getId()%>" class="btn-incre"><i class="fas">+</i></a>
-              <label>
-                  <input class="form-control" type="text" name="quantity" value="<%%>" readonly>
-              </label>
-              <a href="quantity-inc-dec?action=decree&id=<%=p.getId()%>" class="btn-decree"><i class="fas">-</i></a>
-              <button type="submit" class="table-action btn btn-buy">Buy</button>
-          </div>
-          <div class="">
-              <a href="add-to-cart?id=<%=p.getId()%>">Thêm vào giỏ hàng</a>
-              <a href="order-now?quantity=1&id=<%=p.getId()%>">Mua ngay</a>
-          </div>
-      </div>
-    </div>
+        <div class="container__detail">
+            <div class="block__left">
+                <img src="product-images/<%=p1.getImage()%>" alt="Sách">
+            </div>
+            <div class="block__right">
+                <li><%=p1.getName()%></li>
+                <li><%= p1.getCategory()%></li>
+                <li>Giá: <%= p1.getPrice()%></li>
+                <li>Đã bán: <%= soSachDaBanCuaSanPham%></li>
+                <% if(auth != null) { %>
+                    <li>Giao đến: <%= auth.getAddress()%></li>
+                <%}%>
+                <div class="container-btn">
+                    <a class="btn btn-primary" onclick="showAlert()" href="add-to-cart?id=<%=p1.getId()%>">Mua ngay</a>
+                </div>
+                <li><%= p1.getDescription()%></li>
+            </div>
+        </div>
     <footer>
         <%@include file="includes/footer.jsp"%>
     </footer>
+    <script>
+        function showAlert(){
+            alert("Sản phẩm đã được thêm vào giỏ hàng")
+        }
+    </script>
 </body>
 </html>
