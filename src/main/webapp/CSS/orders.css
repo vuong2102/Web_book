@@ -1,15 +1,25 @@
-html{
-    font-family: "Fira Code Medium";
+tbody{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.order-title {
+    display: inline-flex;
+    margin: 8rem 10% 1rem 10%;
+    gap: 1rem;
+    align-items: center;
+}
+
+.titleName {
+    font-size: 1.75rem;
+    color: #263A29;
+    font-weight: 600;
 }
 
 .container{
-    width: 80%;
-    left: 10%;
-    right: 10%;
-    position: relative;
+    width: 100%;
     height: max-content;
     display: flex;
-    /* flex-direction: column; */
+    justify-content: center;
 }
 
 .btn{
@@ -21,10 +31,6 @@ html{
     color: aliceblue;
 }
 
-.fas{
-    font-weight: bolder;
-}
-
 .btn-remove{
     text-align: center;
     background-color: rgb(234, 66, 66);
@@ -33,62 +39,74 @@ html{
     color: white;
     border-radius: 4px;
 }
-.content-cart{
-    text-align: center;
-    width: 20%;
-    flex-direction: column;
-    margin-left: 80%;
-}
 
-.btn-checkout{
-    place-items: center;
-    margin-top: 23px;
-}
-.nav-cart{
-    width: max-content;
-    margin:auto;
-}
 .table-cart{
-    /* width: 100%; */
+    width: 100%;
     height: max-content;
-    /* position: relative; */
-    border: 1px solid;
-    margin-top: 20px;
-    float: left;
-    width: 70%;
-    margin-right: 10px;
-
+    margin: 20px 10% 0 10%;
 }
-.table-cart-right{
-    /* width: 100%; */
-    height: max-content;
-    /* position: relative; */
-    border: 1px solid;
-    margin-top: 20px;
-    float: left;
-    width: 30%;
 
-}
-.table-head{
+.table-head {
     margin: 0;
-    background-color: #ffffff;
-    padding: 15px 0 15px 0;
+    width: 100%;
+    padding: 15px 0;
     display: flex;
-    color: #242424;
+    color: #263A29;
     font-weight: 600;
-}
-.table-col{
-    float: left;
-    width: 16.66%;
-    justify-content: center;
-    list-style: none;
+    border-bottom: 2px solid #41644A;
     font-size: 18px;
-    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-category {
+    width: 15%;
+}
+
+.item-cancel {
+    width: 20%;
     text-align: center;
 }
-.table-col-small{
-    width: 10% !important;
+
+.item-name {
+    width: 27%;
 }
+
+.item-quantity {
+    width: 13%;
+    text-align: center;
+}
+
+.item-price, .item-date {
+    width: 15%;
+    text-align: center;
+}
+
+.item {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.list_items{
+    margin: 0;
+}
+
+.btn-cancel {
+    padding: 0.5rem;
+    background-color: #CD0404;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.btn-cancel:hover {
+    opacity: 0.8;
+}
+
 .info_product{
     text-align: center;
     margin: 0;
@@ -123,10 +141,6 @@ html{
     margin: 0;
     padding: 0;
     border: 1px solid black;
-}
-.list_items{
-    display: flex;
-    flex-direction: column;
 }
 .form-control{
     margin: 0 6px 0 6px;
