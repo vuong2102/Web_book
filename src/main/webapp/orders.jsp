@@ -79,8 +79,8 @@
                         <div class="item-date"><%=o.getDate() %></div>
                         <div class="item-name"><%=o.getName() %></div>
                         <div class="item-category"><%=o.getCategory() %></div>
-                        <div class="item-quantity"><%=o.getQuantity() %></div>
-                        <div class="item-price"><%=dcf.format(o.getPrice()) %></div>
+                        <div class="item-quantity">x<%=o.getQuantity() %></div>
+                        <div class="item-price">$<%=dcf.format(o.getPrice()) %></div>
                         <div class="item-cancel">
                             <a class="btn-cancel" href="cancel-order?id=<%=o.getOrderId()%>">
                                 Cancel Order
