@@ -17,6 +17,7 @@
 <html>
 <head>
     <title>Shopping Register Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/register.css">
     <link rel="stylesheet" href="CSS/index.css">
