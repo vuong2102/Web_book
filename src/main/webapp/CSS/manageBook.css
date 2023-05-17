@@ -1,15 +1,101 @@
-.container-managerbook{
-    width: 100%;
-    padding: 0;
+.container-managerbook {
+    width: 75%;
+    float: right;
+}
+
+.thong-ke{
+    float: left;
+    width: 17%;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    transform: translateY(28rem);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    font-size: 20px;
+    margin: 0 4rem 0 0.5rem;
+    position: fixed;
+}
+
+.thong-ke .title {
+    background: #f97d00;
     margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.tk-content {
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.container-ct {
     position: relative;
-    height: max-content;
     display: flex;
     flex-direction: column;
+    margin: 2rem 1rem;
+    padding: 2rem;
+    top: 4rem;
+    background: #ffffff;
+    transform: translateX(-1.25rem);
 }
-.thong-ke{
-    margin-top: 100px;
+
+.table-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
 }
+
+.table-item .table-head {
+    list-style-type: none;
+    display: flex;
+    color: #263A29;
+    font-size: 18px;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background: #41644A;
+    color: #ffffff;
+    margin: 0;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.table-item .table-col {
+    flex: 1;
+    text-align: center;
+}
+
+.item-ct {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    border-top: 1px solid #ccc;
+    margin: 0;
+    padding: 1rem 0.5rem;
+}
+
+.table-content {
+    padding: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.table-content img {
+    max-width: 100%;
+}
+
+.table-action {
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.table-action:hover, .btn:hover {
+    opacity: 0.6;
+}
+
 #addEmployeeModal{
     display: none;
     position: fixed;
@@ -19,6 +105,7 @@
     opacity: 0.5;
     cursor: pointer;
 }
+
 .modal{
     display: flex;
     height: 100%;
@@ -61,10 +148,11 @@
     border-radius: 4px;
 }
 
-.btn-success{
-    height: 32px;
-    width: 32px;
-
+.btn-checkout {
+    margin: 2rem 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 2rem
 }
 
 .btn-success:hover{

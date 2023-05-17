@@ -39,60 +39,61 @@
 <head>
     <title>Quản lí sản phẩm</title>
     <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/cart.css">
-    <link rel="stylesheet" href="CSS/nav-bar.css">
+    <link rel="stylesheet" href="CSS/navbar-admin.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/manageBook.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 <%@include file="includes/navbar-admin.jsp"%>
-<div class="container container-managerbook">
+<div class="container-tk">
     <div class="thong-ke">
-        <div>Số sách trong kho: <%=soSachTrongKho%></div>
-        <div>Số sách đã bán: <%=soSachDaBan%></div>
-        <div>Số đầu sách: <%=products.size()%></div>
+        <h4 class="title">Thống kê</h4>
+        <div class="tk-content">Số sách trong kho: <%=soSachTrongKho%></div>
+        <div class="tk-content">Số sách đã bán: <%=soSachDaBan%></div>
+        <div class="tk-content">Số đầu sách: <%=products.size()%></div>
     </div>
-
-    <div class="table-cart">
+</div>
+<div class="container-managerbook">
+    <div class="container-ct">
         <div>
-            <a href="<%=request.getContextPath()%>/new_book" class="btn btn-success">Add New Book</a>
+            <a href="<%=request.getContextPath()%>/new_book" class="btn btn-success">Thêm sách mới</a>
         </div>
-        <div>
+        <div class="table-item">
             <ul class="table-head">
-                <li class="table-col">Name</li>
-                <li class="table-col">Image</li>
-                <li class="table-col">Price</li>
-                <li class="table-col">Quantity</li>
-                <li class="table-col">Action</li>
+                <li class="table-col">Tên sách</li>
+                <li class="table-col">Hình ảnh</li>
+                <li class="table-col">Giá</li>
+                <li class="table-col">Số lượng</li>
+                <li class="table-col">Sửa/Xóa</li>
             </ul>
-        </div>
-        <div class="list_items">
-            <%
-            if (!products.isEmpty()) {
-                for (Product p : products) { %>
-            <ul>
-                <li class="table-content"><%= p.getName()%></li>
-                <li class="table-content"> 
-                    <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
-                </li>
-                <li class="table-content"><%= p.getPrice()%></li>
-                <li class="table-content">
-                    <form action="order-now" method="post" class="form-inline">
-                        <input type="hidden" name="id" value="" class="form-input">
-                        <h5><%=p.getQuantityInStore()%></h5>
-                    </form>
-                </li>
-                <ul class="table-content" style="display: flex; justify-content: space-around">
-                    <li class="table-action"><a href="edit_book?id=<%=p.getId()%>">Edit</a> </li>
-                    <li class="table-action"><a class="btn-remove" href="delete_book?id=<%=p.getId()%>">Remove</a></li>
+            <div class="list_items">
+                <%
+                    if (!products.isEmpty()) {
+                        for (Product p : products) { %>
+                <ul class="item-ct">
+                    <li class="table-content"><%= p.getName()%></li>
+                    <li class="table-content">
+                        <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
+                    </li>
+                    <li class="table-content"><%= p.getPrice()%></li>
+                    <li class="table-content">
+                        <form action="order-now" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="" class="form-input">
+                            <h5><%=p.getQuantityInStore()%></h5>
+                        </form>
+                    </li>
+                    <ul class="table-content" style="display: flex; justify-content: space-around">
+                        <li class="table-action"><a href="edit_book?id=<%=p.getId()%>"><i class="fas fa-edit"></i></a> </li>
+                        <li class="table-action"><a class="btn-remove" href="delete_book?id=<%=p.getId()%>"><i class="fas fa-trash-alt"></i></a></li>
+                    </ul>
                 </ul>
-            </ul>
-            <%}
-            }%>
-        </div>
-        <div class="nav-cart btn-checkout">
-            <a id="addNew" class="btn btn-primary" href="new_book">Add new product</a>
+                <%}
+                }%>
+            </div>
+            <div class="nav-cart btn-checkout">
+                <a id="addNew" class="btn btn-primary" href="new_book">Thêm sản phẩm mới</a>
+            </div>
         </div>
     </div>
     <%--        form add product  onclick="showModal()" --%>
@@ -101,7 +102,7 @@
             <div class="modal-content">
                 <form action="insert_book" method="post">
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Product</h4>
+                        <h4 class="modal-title">Thêm sản phẩm mới</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -140,6 +141,6 @@
     <script src="./JS/showAddProduct.js"></script>
 </div>
 
-<%@include file="/includes/footer.jsp"%>
+<%--<%@include file="/includes/footer.jsp"%>--%>
 </body>
 </html>
