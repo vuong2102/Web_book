@@ -12,6 +12,7 @@
 <head>
   <title>Shopping Login Page</title>
   <link rel="stylesheet" href="CSS/login.css">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 </head>
 <body>
 <div class="container">

@@ -64,14 +64,12 @@ body {
 }
 
 input::placeholder {
-    font-family: cursive;
     display: flex;
     align-items: flex-end;
 }
 
-input:focus {
+input:focus, input:active {
     outline: none !important;
-    font-family: cursive;
 }
 
 .card-submit {
@@ -110,7 +108,39 @@ input:focus {
 
 input:-webkit-autofill{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
-    font-family: cursive;
 }
 
+@media screen and (max-width: 730px) {
 
+    body {
+        height: 100vh;
+        margin: 0 !important;
+    }
+
+    .container {
+        width: 100vw !important;
+        height: 100vh;
+        margin: 0 !important;
+    }
+}
+
+@media screen and (max-width: 321px){
+
+    .welcome {
+        font-size: 1.45rem;
+    }
+
+    .header-name {
+        font-size: 1.75rem;
+    }
+
+    .btn-submit {
+        width: 8rem;
+        height: 3rem;
+        font-size: 1.35rem;
+    }
+
+    .input {
+        font-size: 1rem;
+    }
+}
