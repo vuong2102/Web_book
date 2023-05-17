@@ -1,6 +1,7 @@
 package com.example.btl_web_book.dao;
 
 import com.example.btl_web_book.connection.JDBCConnect;
+import com.example.btl_web_book.model.Order;
 import com.example.btl_web_book.model.Product;
 
 import java.sql.Connection;
@@ -87,6 +88,28 @@ public class ManageBooksDao {
             e.printStackTrace();
         }
         return products;
+    }
+    public List<Product> selectPaginationProducts(int startP) throws SQLException,ClassNotFoundException{
+        List<Product> productList = new ArrayList<>();
+        try (Connection connection = JDBCConnect.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from products limit ?,?;")){
+            preparedStatement.setInt(1,(startP-1)*15);
+            preparedStatement.setInt(2,15);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String image = resultSet.getString("image");
+                Double price = resultSet.getDouble("price");
+                String description=  resultSet.getString("description");
+                String category = resultSet.getString("category");
+                int quantityInStore = resultSet.getInt("quantityInStore");
+                productList.add(new Product(id,name,category,price,image,description,quantityInStore));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return productList;
     }
     public boolean deleteBook(int id) throws SQLException,ClassNotFoundException {
         boolean rowDeleted;

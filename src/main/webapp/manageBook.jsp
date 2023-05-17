@@ -1,9 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page import="com.example.btl_web_book.model.User" %>
-<%@ page import="com.example.btl_web_book.dao.ProductDao" %>
 <%@ page import="com.example.btl_web_book.connection.JDBCConnect" %>
 <%@ page import="com.example.btl_web_book.model.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="com.example.btl_web_book.dao.OrderDao" %>
 <%@ page import="com.example.btl_web_book.model.Order" %>
@@ -22,17 +21,18 @@
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
-    List<Product> products = (List<Product>) request.getAttribute("listProduct");
+    List<Product> listProduct = (List<Product>) request.getAttribute("listProduct");
+    int currentPage = Integer.parseInt(request.getParameter("index"));
+    int totalPage = (Integer) request.getAttribute("totalPage");
 
+    request.setAttribute("currentPage", currentPage);
     List<Order> orders = od.getAllOrders();
+    List<Product> listProductAll = pd.selectAllProducts();
     int soSachTrongKho = 0;
     int soSachDaBan = 0;
-    for(Product p : products){
-        soSachTrongKho += p.getQuantityInStore();
-    }
-    for(Order p : orders){
-        soSachDaBan += p.getQuantity();
-    }
+    for(Product p : listProductAll) soSachTrongKho += p.getQuantityInStore();
+    for(Order p : orders) soSachDaBan += p.getQuantity();
+
 %>
 
 <html>
@@ -46,100 +46,129 @@
 </head>
 <body>
 <%@include file="includes/navbar-admin.jsp"%>
-<div class="container-tk">
-    <div class="thong-ke">
-        <h4 class="title">Thống kê</h4>
-        <div class="tk-content">Số sách trong kho: <%=soSachTrongKho%></div>
-        <div class="tk-content">Số sách đã bán: <%=soSachDaBan%></div>
-        <div class="tk-content">Số đầu sách: <%=products.size()%></div>
-    </div>
-</div>
-<div class="container-managerbook">
-    <div class="container-ct">
-        <div>
-            <a href="<%=request.getContextPath()%>/new_book" class="btn btn-success">Thêm sách mới</a>
+    <div class="container-tk">
+        <div class="thong-ke">
+            <h4 class="title">Thống kê</h4>
+            <div class="tk-content">Số sách trong kho: <%=soSachTrongKho%></div>
+            <div class="tk-content">Số sách đã bán: <%=soSachDaBan%></div>
+            <div class="tk-content">Số đầu sách: <%=listProductAll.size()%></div>
         </div>
-        <div class="table-item">
-            <ul class="table-head">
-                <li class="table-col">Tên sách</li>
-                <li class="table-col">Hình ảnh</li>
-                <li class="table-col">Giá</li>
-                <li class="table-col">Số lượng</li>
-                <li class="table-col">Sửa/Xóa</li>
-            </ul>
-            <div class="list_items">
-                <%
-                    if (!products.isEmpty()) {
-                        for (Product p : products) { %>
-                <ul class="item-ct">
-                    <li class="table-content"><%= p.getName()%></li>
-                    <li class="table-content">
-                        <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
-                    </li>
-                    <li class="table-content"><%= p.getPrice()%></li>
-                    <li class="table-content">
-                        <form action="order-now" method="post" class="form-inline">
-                            <input type="hidden" name="id" value="" class="form-input">
-                            <h5><%=p.getQuantityInStore()%></h5>
-                        </form>
-                    </li>
-                    <ul class="table-content" style="display: flex; justify-content: space-around">
-                        <li class="table-action"><a href="edit_book?id=<%=p.getId()%>"><i class="fas fa-edit"></i></a> </li>
-                        <li class="table-action"><a class="btn-remove" href="delete_book?id=<%=p.getId()%>"><i class="fas fa-trash-alt"></i></a></li>
-                    </ul>
+    </div>
+    <div class="container-managerbook">
+        <div class="container-ct">
+            <div>
+                <a href="new_book" class="btn btn-success">Thêm sách mới</a>
+            </div>
+            <div class="table-item">
+                <ul class="table-head">
+                    <li class="table-col">Tên sách</li>
+                    <li class="table-col">Hình ảnh</li>
+                    <li class="table-col">Giá</li>
+                    <li class="table-col">Số lượng</li>
+                    <li class="table-col">Sửa/Xóa</li>
                 </ul>
-                <%}
-                }%>
+                <div class="list_items">
+                    <%
+                        if (!listProduct.isEmpty()) {
+                            for (Product p : listProduct) { %>
+                            <ul class="item-ct">
+                                <li class="table-content"><%= p.getName()%></li>
+                                <li class="table-content">
+                                    <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
+                                </li>
+                                <li class="table-content"><%= p.getPrice()%></li>
+                                <li class="table-content">
+                                    <form action="order-now" method="post" class="form-inline">
+                                        <input type="hidden" name="id" value="" class="form-input">
+                                        <h5><%=p.getQuantityInStore()%></h5>
+                                    </form>
+                                </li>
+                                <ul class="table-content" style="display: flex; justify-content: space-around">
+                                    <li class="table-action"><a href="edit_book?id=<%=p.getId()%>"><i class="fas fa-edit"></i></a> </li>
+                                    <li class="table-action"><a class="btn-remove" href="delete_book?id=<%=p.getId()%>"><i class="fas fa-trash-alt"></i></a></li>
+                                </ul>
+                            </ul>
+                    <%}
+                    }%>
+                </div>
+                <div class="nav-cart btn-checkout">
+                    <a id="addNew" class="btn btn-primary" href="new_book">Thêm sản phẩm mới</a>
+                </div>
             </div>
-            <div class="nav-cart btn-checkout">
-                <a id="addNew" class="btn btn-primary" href="new_book">Thêm sản phẩm mới</a>
+
+<%--            Phân trang--%>
+                <%
+                    int size = currentPage + 6;
+                    if(size > totalPage) size = totalPage;
+                    if(currentPage > 1) {%>
+                        <li><a href="manage-book?index=<%=currentPage-1%>">Previous</a></li>
+                    <%}%>
+                    <%
+                    for(int i = currentPage; i <= size; i++){ %>
+                        <a href="manage-book?index=<%=i%>"><%=i%></a>
+                    <%}
+                    if(currentPage < size){%>
+                        <a href="manage-book?index=<%=currentPage+1%>">Next</a>
+                    <%}
+                %>
+        </div>
+
+        <%--        form add product  onclick="showModal()" --%>
+        <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="insert_book" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thêm sản phẩm mới</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <label>
+                                    <input name="name" type="text" class="form-control" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <label>
+                                    <input name="image" type="text" class="form-control" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <label>
+                                    <input name="price" type="text" class="form-control" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <label>
+                                    <textarea name="title" class="form-control" required></textarea>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <label>
+                                    <textarea name="description" class="form-control" required></textarea>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <label>
+                                    <textarea name="category" class="form-control" required></textarea>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        <script src="./JS/showAddProduct.js"></script>
     </div>
-    <%--        form add product  onclick="showModal()" --%>
-    <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="insert_book" method="post">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Thêm sản phẩm mới</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input name="name" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input name="image" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input name="price" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Title</label>
-                            <textarea name="title" class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea name="description" class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Category</label>
-                            <textarea name="category" class="form-control" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Add">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script src="./JS/showAddProduct.js"></script>
-</div>
 
 <%--<%@include file="/includes/footer.jsp"%>--%>
 </body>

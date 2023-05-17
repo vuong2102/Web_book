@@ -17,6 +17,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>manage-order</servlet-name>
+        <servlet-class>com.example.btl_web_book.servlet.ManageOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manage-order</servlet-name>
+        <url-pattern>/delete_order</url-pattern>
+        <url-pattern>/insert_order</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>manage-book</servlet-name>
         <servlet-class>com.example.btl_web_book.servlet.ManageBookServlet</servlet-class>
     </servlet>

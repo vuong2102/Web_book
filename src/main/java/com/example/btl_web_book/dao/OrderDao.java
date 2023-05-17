@@ -80,6 +80,41 @@ public class OrderDao {
         }
         return list.size();
     }
+    public List<Order> selectPaginationOrders(int startP) throws SQLException,ClassNotFoundException{
+        List<Order> list = new ArrayList<>();
+        try {
+            query = "select * from orders limit ?,?;";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, (startP - 1) * 15);
+            pst.setInt(2, 15);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                Order order = new Order();
+                ProductDao productDao = new ProductDao(this.con);
+
+                int productId = rs.getInt("product_id");
+                int userId = rs.getInt("user_id");
+                Product product = productDao.getSingleProduct(productId);
+
+                order.setId(productId);
+                order.setUserId(userId);
+                order.setOrderId(rs.getInt("id"));
+                order.setName(product.getName());
+                order.setPrice(product.getPrice() * rs.getInt("order_quantity"));
+                order.setImage(product.getImage());
+                order.setQuantity(rs.getInt("order_quantity"));
+                order.setDate(rs.getString("order_date"));
+                order.setStatusDelivery(rs.getString("status_delivery"));
+                list.add(order);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
     public List<Order> getAllOrders(){
         List<Order> list = new ArrayList<>();
         try {
@@ -100,9 +135,9 @@ public class OrderDao {
                 order.setName(product.getName());
                 order.setPrice(product.getPrice()*rs.getInt("order_quantity"));
                 order.setImage(product.getImage());
-
                 order.setQuantity(rs.getInt("order_quantity"));
                 order.setDate(rs.getString("order_date"));
+                order.setStatusDelivery(rs.getString("status_delivery"));
                 list.add(order);
             }
         } catch (Exception e) {
