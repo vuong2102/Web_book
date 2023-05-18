@@ -50,8 +50,8 @@ public class ManageOrderServlet extends HttpServlet {
         int startP = Math.max(Integer.parseInt(request.getParameter("index")), 1);
         List<Order> listOrder = orderDao.getAllOrders();
         int totalAccount = listOrder.size();
-        int endPage = totalAccount/20;
-        if(totalAccount % 20 != 0) endPage++;
+        int endPage = totalAccount/15;
+        if(totalAccount % 15 != 0) endPage++;
         request.setAttribute("listOrder", listOrder);
         request.setAttribute("endP", endPage);
         request.getRequestDispatcher("manageOrder.jsp").forward(request, response);

@@ -51,7 +51,6 @@
 .table-item .table-head {
     list-style-type: none;
     display: flex;
-    color: #263A29;
     font-size: 18px;
     justify-content: space-around;
     padding: 1rem 0;
@@ -84,6 +83,11 @@
 
 .table-content img {
     max-width: 100%;
+    height: 9rem;
+}
+
+.item-ct .fas {
+    color: #f94144;
 }
 
 .table-action {
@@ -92,60 +96,17 @@
     cursor: pointer;
 }
 
-.table-action:hover, .btn:hover {
+.table-action:hover{
     opacity: 0.6;
 }
 
-#addEmployeeModal{
-    display: none;
-    position: fixed;
-}
-
-#addNew:hover{
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.modal{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-.modal-dialog{
-    height: 400px;
-    width: 500px;
-    background-color: #b3e8bd;
-    margin: auto;
-    border-radius: 6px;
-}
-
-.modal-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.close{
-    width: 32px;
-    height: 32px;
-    border-top-right-radius: 6px;
-}
-
-.form-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 16px 4px 16px;
-}
-
-.form-control{
-    height: 36px;
-    width: 70%;
-    margin: 0 6px 0 6px;
-    text-align: center;
-    border: 1px #cdcdcd solid;
-    border-radius: 4px;
+.btn-success, .btn-primary {
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #f94144;
+    color: #ffffff;
+    margin: 0 0.5rem;
 }
 
 .btn-checkout {
@@ -160,8 +121,31 @@
     opacity: 0.6;
 }
 
-.modal-footer{
+/*Phân trang*/
+.pagination {
+    font-size: 20px;
+    margin-top: 1rem;
+    list-style-type: none;
     display: flex;
-    justify-content: space-around;
-    margin-top: 24px;
+    justify-content: center;
+}
+
+.pagination a {
+    color: #666666;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 0.25rem;
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+.pagination a:hover {
+    opacity: 0.8;
 }

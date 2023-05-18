@@ -215,6 +215,9 @@
         font-size: 15px;
         color: #777777;
     }
+    #res-search {
+        margin: 0;
+    }
 
     .search-in {
         max-width: 75%;

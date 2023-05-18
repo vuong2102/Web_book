@@ -39,7 +39,6 @@
 </head>
     <body>
     <%@include file="includes/navBar.jsp"%>
-    <script src="JS/nav-bar.js"></script>
             <%--    <%@include file="includes/nav-bar.jsp"%>--%>
             <div class="slideshow-container">
                 <div class="mySlides fade">
