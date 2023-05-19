@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
                     else if(user.getRole().equals("admin")){
                         HttpSession session = request.getSession();
                         session.setAttribute("authAdmin", user);
-                        response.sendRedirect("indexAdmin.jsp");
+                        response.sendRedirect("manage-book?index=1");
                     }
                 }
                 else {

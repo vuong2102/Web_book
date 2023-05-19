@@ -51,7 +51,7 @@ public class ProductDao {
             query = "SELECT * FROM products LIMIT ?,?";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, start);
-            pst.setInt(2, 8);
+            pst.setInt(2, 12);
             rs = pst.executeQuery();
             while(rs.next()){
                 Product row = new Product();

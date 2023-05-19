@@ -13,13 +13,12 @@
 <head>
   <title>Title</title>
   <link rel="stylesheet" href="CSS/nav-bar.css">
-
   <link rel="stylesheet" href="CSS/footer.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 <tbody>
-<div class="container-edituser">
+<div class="container-editUser">
   <div class="card-body">
     <%
       Product product = (Product) request.getAttribute("product");

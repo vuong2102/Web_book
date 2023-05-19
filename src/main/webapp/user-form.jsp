@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group">
                                 <% if(user != null){%>
-                            <input type="hidden" name="id" value="<%= user.getId()%>" />
+                            <input type="hidden" name="id" value="<%=user.getId()%>" />
                             <label>User Name  <input type="text" value="<%=user.getUserName()%>" class="input" name="userName" required="required"></label>
                             <label>Phone Number <input type="text" value="<%=user.getPhoneNumber()%>" class="input" name="phoneNumber"></label>
                             <label>Address <input type="text" value="<%=user.getAddress()%>" class="input" name="address"></label>

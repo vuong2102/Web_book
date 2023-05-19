@@ -69,7 +69,9 @@
                 <div class="list_items">
                     <%
                         if (!listProduct.isEmpty()) {
-                            for (Product p : listProduct) { %>
+                            for (Product p : listProduct) {
+                            int soLuongDaBanCuaMotSanPham = od.demSoLuongSachDaBanCuaMotSanPham(p.getId());
+                            %>
                             <ul class="item-ct">
                                 <li class="table-content"><%= p.getName()%></li>
                                 <li class="table-content">
@@ -79,7 +81,7 @@
                                 <li class="table-content">
                                     <form action="order-now" method="post" class="form-inline">
                                         <input type="hidden" name="id" value="" class="form-input">
-                                        <h5><%=p.getQuantityInStore()%></h5>
+                                        <h5><%=p.getQuantityInStore()-soLuongDaBanCuaMotSanPham%></h5>
                                     </form>
                                 </li>
                                 <ul class="table-content" style="display: flex; justify-content: space-around">

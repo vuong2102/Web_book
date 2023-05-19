@@ -1,7 +1,6 @@
 package com.example.btl_web_book.dao;
 
 import com.example.btl_web_book.connection.JDBCConnect;
-import com.example.btl_web_book.model.Cart;
 import com.example.btl_web_book.model.Order;
 import com.example.btl_web_book.model.Product;
 import com.example.btl_web_book.model.User;
@@ -64,6 +63,38 @@ public class OrderDao {
         }
         return list;
     }
+    public Order getSingleOrder(int id) {
+        Order order = new Order();
+        try {
+            query = "select * from orders where id=? ";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                ProductDao productDao = new ProductDao(this.con);
+
+                int productId = rs.getInt("product_id");
+                int userId = rs.getInt("user_id");
+                Product product = productDao.getSingleProduct(productId);
+
+                order.setId(productId);
+                order.setUserId(userId);
+                order.setOrderId(rs.getInt("id"));
+                order.setName(product.getName());
+                order.setPrice(product.getPrice() * rs.getInt("order_quantity"));
+                order.setImage(product.getImage());
+                order.setQuantity(rs.getInt("order_quantity"));
+                order.setDate(rs.getString("order_date"));
+                order.setStatusDelivery(rs.getString("status_delivery"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return order;
+    }
     public int soTVDaMuaHang(){
         List<Integer> list = new ArrayList<>();
         try {
@@ -79,6 +110,44 @@ public class OrderDao {
             System.out.println(e.getMessage());
         }
         return list.size();
+    }
+    public boolean updateOrder(Order order) throws SQLException,ClassNotFoundException{
+        boolean updated;
+        try(Connection con =JDBCConnect.getConnection();
+            PreparedStatement pst = con.prepareStatement("update orders set id = ?, product_id = ?, user_id = ?, order_quantity =?, order_date = ?, status_delivery = ? where id = ?;")) {
+
+            pst.setInt(1,order.getOrderId());
+            pst.setInt(2,order.getId());
+            pst.setInt(3,order.getUserId());
+            pst.setInt(4,order.getQuantity());
+            pst.setString(5,order.getDate());
+            pst.setString(6,order.getStatusDelivery());
+            pst.setInt(7,order.getOrderId());
+            updated = pst.executeUpdate() > 0;
+        } return updated;
+    }
+    public void luuTinhTrangDatHang(int id){
+        Order order = null;
+        boolean updated;
+        try {
+            query = "select * from orders where id = ?;";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1,id);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                ProductDao productDao = new ProductDao(this.con);
+
+                order.setId(rs.getInt("product_id"));
+                order.setUserId(rs.getInt("user_id"));
+                order.setOrderId(rs.getInt("id"));
+                order.setQuantity(rs.getInt("order_quantity"));
+                order.setDate(rs.getString("order_date"));
+                order.setStatusDelivery("Delivered");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
     public List<Order> selectPaginationOrders(int startP) throws SQLException,ClassNotFoundException{
         List<Order> list = new ArrayList<>();
@@ -166,24 +235,6 @@ public class OrderDao {
         }
         return sum;
     }
-    public Order setTinhTrangGiaoHang(int id) {
-        Order tinhTrangGiaoHang = null;
-        try {
-            query = "select status_delivery from orders where id=?";
-            pst = this.con.prepareStatement(query);
-            pst.setInt(1, id);
-            rs = pst.executeQuery();
-            while (rs.next()){
-                tinhTrangGiaoHang.setStatusDelivery("Delivered");
-            }
-            //result = true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.print(e.getMessage());
-            throw new RuntimeException(e);
-        }
-        return tinhTrangGiaoHang;
-    }
     public int demSoLuongSachDaBanCuaMotSanPham(int id){
         int count = 0;
         try{
@@ -202,7 +253,6 @@ public class OrderDao {
         return count;
     }
     public void cancelOrder(int id) {
-        //boolean result = false;
         try {
             query = "delete from orders where id=?";
             pst = this.con.prepareStatement(query);
@@ -214,6 +264,5 @@ public class OrderDao {
             System.out.print(e.getMessage());
             throw new RuntimeException(e);
         }
-        //return result;
     }
 }

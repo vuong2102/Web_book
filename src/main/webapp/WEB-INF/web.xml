@@ -23,7 +23,7 @@
     <servlet-mapping>
         <servlet-name>manage-order</servlet-name>
         <url-pattern>/delete_order</url-pattern>
-        <url-pattern>/insert_order</url-pattern>
+        <url-pattern>/save_order</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -39,4 +39,12 @@
         <url-pattern>/edit_book</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>search-all</servlet-name>
+        <servlet-class>com.example.btl_web_book.servlet.SearchAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>search-all</servlet-name>
+        <url-pattern>/search_manage_user</url-pattern>
+    </servlet-mapping>
 </web-app>

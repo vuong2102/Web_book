@@ -135,5 +135,27 @@ public class ManageBooksDao {
             }
         }
     }
+    //Tìm kiếm sách
+    public List<Product> timKiemSachBangTen(String txt) throws SQLException,ClassNotFoundException{
+        List<Product> list = new ArrayList<>();
+        try (Connection connection = JDBCConnect.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from products where name like ?;")){
+            preparedStatement.setString(1,"%" + txt + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String image = resultSet.getString("image");
+                Double price = resultSet.getDouble("price");
+                String description=  resultSet.getString("description");
+                String category = resultSet.getString("category");
+                int quantityInStore = resultSet.getInt("quantityInStore");
+                list.add(new Product(id,name,category,price,image,description,quantityInStore));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
 
