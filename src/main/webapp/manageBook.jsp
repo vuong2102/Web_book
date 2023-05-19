@@ -40,7 +40,6 @@
     <title>Quản lí sản phẩm</title>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/navbar-admin.css">
-    <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/manageBook.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
@@ -97,79 +96,27 @@
             </div>
 
 <%--            Phân trang--%>
+            <div class="pagination">
                 <%
                     int size = currentPage + 6;
                     if(size > totalPage) size = totalPage;
                     if(currentPage > 1) {%>
-                        <li><a href="manage-book?index=<%=currentPage-1%>">Previous</a></li>
-                    <%}%>
-                    <%
+                <li class="previous"><a href="manage-book?index=<%=currentPage-1%>"><i class="fas fa-arrow-left"></i></a></li>
+                <%}%>
+                <%
                     for(int i = currentPage; i <= size; i++){ %>
-                        <a href="manage-book?index=<%=i%>"><%=i%></a>
-                    <%}
+                <li class="number-page"><a href="manage-book?index=<%=i%>"><%=i%></a></li>
+                <%}
                     if(currentPage < size){%>
-                        <a href="manage-book?index=<%=currentPage+1%>">Next</a>
-                    <%}
+                <li><a href="manage-book?index=<%=currentPage+1%>"><i class="fas fa-arrow-right"></i></a></li>
+                <%}
                 %>
-        </div>
-
-        <%--        form add product  onclick="showModal()" --%>
-        <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="insert_book" method="post">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Thêm sản phẩm mới</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <label>
-                                    <input name="name" type="text" class="form-control" required>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Image</label>
-                                <label>
-                                    <input name="image" type="text" class="form-control" required>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Price</label>
-                                <label>
-                                    <input name="price" type="text" class="form-control" required>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <label>
-                                    <textarea name="title" class="form-control" required></textarea>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <label>
-                                    <textarea name="description" class="form-control" required></textarea>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <label>
-                                    <textarea name="category" class="form-control" required></textarea>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" value="Add">
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
+        <script src="JS/pagination.js"></script>
         <script src="./JS/showAddProduct.js"></script>
     </div>
-
+<script src="JS/navbar-adimin.js"></script>
 <%--<%@include file="/includes/footer.jsp"%>--%>
 </body>
 </html>

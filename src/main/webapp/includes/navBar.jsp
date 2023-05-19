@@ -90,4 +90,5 @@
       </ul>
     </div>
   </div>
+  <script src="JS/nav-bar.js"></script>
 </nav>
