@@ -20,16 +20,16 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Khởi nghiệp phiêu lưu ký','Kinh doanh','145','Khởi nghiệp phiêu lưu ký.jpg'),
-							(2,'Bí kíp live-stream ','Bí kíp','150','Live-stream.png'),
-							(3,'Những câu hỏi tại sao?','Đố vui','50','Những câu hỏi tại sao.jpg'),
-							(4,'Sổ kế toán','Kế toán','72','Sổ kế toán.jpg'),
-							(5,'Thiên tài không bằng cấp','Self-help','112','Thiên tài không bằng cấp.jpg'),
-							(6,'Think and Grow Rich','Self-help','229','Think and Grow Rich.jpg'),
-							(7,'Đọc vị khách hàng','Business','213','Đọc vị khách hàng.jpg'),
-							(8,'Giải mã vũ trụ','Science','75','Giải mã vũ trụ.jpg'),
-							(9,'Kỳ vọng lớn lao','Novel','46','Kỳ vọng lớn lao.jpg'),
-							(10,'Một chỗ trong đời','Novel','52','Một chỗ trong đời.jpg');
+INSERT INTO `products` VALUES (1,'Khởi nghiệp phiêu lưu ký','Kinh doanh','145','Khởi nghiệp phiêu lưu ký.jpg',1),
+							(2,'Bí kíp live-stream ','Bí kíp','150','Live-stream.png',20),
+							(3,'Những câu hỏi tại sao?','Đố vui','50','Những câu hỏi tại sao.jpg',10),
+							(4,'Sổ kế toán','Kế toán','72','Sổ kế toán.jpg',5),
+							(5,'Thiên tài không bằng cấp','Self-help','112','Thiên tài không bằng cấp.jpg',7),
+							(6,'Think and Grow Rich','Self-help','229','Think and Grow Rich.jpg',6),
+							(7,'Đọc vị khách hàng','Business','213','Đọc vị khách hàng.jpg',3),
+							(8,'Giải mã vũ trụ','Science','75','Giải mã vũ trụ.jpg',8),
+							(9,'Kỳ vọng lớn lao','Novel','46','Kỳ vọng lớn lao.jpg',9),
+							(10,'Một chỗ trong đời','Novel','52','Một chỗ trong đời.jpg',9);
 
 UNLOCK TABLES;
 insert into products (name, category, price, image, description, quantityInStore) values ('Ba chú lợn con', 'Truyện tranh', '10', 'Ba chú lợn con.jpg', 'qetewty', '1000');

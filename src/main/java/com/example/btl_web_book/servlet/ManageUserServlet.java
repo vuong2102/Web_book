@@ -106,7 +106,7 @@ public class ManageUserServlet extends HttpServlet {
             try {
                 User user = new User(userName,phoneNumber,address,email,password,role);
                 manageUsersDAO.insertUser(user);
-                response.sendRedirect("manage-user");
+                response.sendRedirect("manage-user?index=1");
             } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -123,7 +123,7 @@ public class ManageUserServlet extends HttpServlet {
 
         User user = new User(id,userName,phoneNumber,address,email,password,role);
         manageUsersDAO.updateUser(user);
-        response.sendRedirect("manage-user");
+        response.sendRedirect("manage-user?index=1");
     }
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {

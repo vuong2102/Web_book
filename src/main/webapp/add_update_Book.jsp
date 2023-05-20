@@ -46,7 +46,7 @@
           <label>Price <input type="text" value="<%=product.getPrice()%>" class="input" name="price"></label>
           <label>Image <input type="text" value="<%=product.getImage()%>" class="input" name="image"></label>
           <label>Description<input type="text" value="<%=product.getDescription()%>" class="input" name="description"></label>
-          <label>Quantity<input type="text" value="<%=product.getQuantityInStore()%>" class="input" name="quantity"></label>
+          <label>Quantity<input type="text" value="<%=product.getQuantityInStore()%>" class="input" name="quantityInStore"></label>
 
             <%}else {%>
 
@@ -55,7 +55,7 @@
           <label>Price <input type="text" class="input" name="price"></label>
           <label>Image <input type="text" class="input" name="image"></label>
           <label>Description<input type="text"  class="input" name="description"></label>
-          <label>Quantity<input type="text"  class="input" name="quantity"></label>
+          <label>Quantity<input type="text"  class="input" name="quantityInStore"></label>
 
             <%}%>
 
