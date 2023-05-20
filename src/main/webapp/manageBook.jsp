@@ -92,9 +92,7 @@
                     <%}
                     }%>
                 </div>
-                <div class="nav-cart btn-checkout">
-                    <a id="addNew" class="btn btn-primary" href="new_book">Thêm sản phẩm mới</a>
-                </div>
+
             </div>
 
 <%--            Phân trang--%>

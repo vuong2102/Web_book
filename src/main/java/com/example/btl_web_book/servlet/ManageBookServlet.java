@@ -66,7 +66,7 @@ public class ManageBookServlet extends HttpServlet {
         try {
             Product book = new Product(name,category, price, image,description,quantityInStore);
             manageBooksDao.insertBook(book);
-            response.sendRedirect("manage-book");
+            response.sendRedirect("manage-book?index=1");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -100,7 +100,7 @@ public class ManageBookServlet extends HttpServlet {
         int quantityInStore = Integer.parseInt(request.getParameter("quantityInStore"));
         Product book = new Product(id, name, category, price, image, description, quantityInStore);
         manageBooksDao.updateBook(book);
-        response.sendRedirect("manage-book");
+        response.sendRedirect("manage-book?index=1");
     }
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
