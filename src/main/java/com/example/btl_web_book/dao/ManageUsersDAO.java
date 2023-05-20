@@ -76,8 +76,8 @@ public class ManageUsersDAO {
         try (Connection connection = JDBCConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("select * from users limit ?,?")){
             System.out.println(preparedStatement);
-            preparedStatement.setInt(1,(startP-1)*15);
-            preparedStatement.setInt(2,15);
+            preparedStatement.setInt(1,(startP-1)*20);
+            preparedStatement.setInt(2,20);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 int id = resultSet.getInt("id");

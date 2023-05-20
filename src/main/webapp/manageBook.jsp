@@ -7,6 +7,7 @@
 <%@ page import="com.example.btl_web_book.dao.OrderDao" %>
 <%@ page import="com.example.btl_web_book.model.Order" %>
 <%@ page import="com.example.btl_web_book.dao.ManageBooksDao" %>
+<%@ page import="com.example.btl_web_book.dao.ManageWareHouseDao" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("authAdmin");
@@ -15,9 +16,11 @@
     }
     ManageBooksDao pd = null;
     OrderDao od = null;
+    ManageWareHouseDao wareHouseDao = null;
     try {
         pd = new ManageBooksDao(JDBCConnect.getConnection());
         od = new OrderDao(JDBCConnect.getConnection());
+        wareHouseDao = new ManageWareHouseDao(JDBCConnect.getConnection());
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
@@ -63,7 +66,8 @@
                     <li class="table-col">Tên sách</li>
                     <li class="table-col">Hình ảnh</li>
                     <li class="table-col">Giá</li>
-                    <li class="table-col">Số lượng</li>
+                    <li class="table-col">Số lượng đã bán</li>
+                    <li class="table-col">Số lượng trong kho</li>
                     <li class="table-col">Sửa/Xóa</li>
                 </ul>
                 <div class="list_items">
@@ -78,10 +82,11 @@
                                     <img class="img__product" src="product-images/<%= p.getImage()%>" alt="ảnh">
                                 </li>
                                 <li class="table-content"><%= p.getPrice()%></li>
+                                <li class="table-content"><%= wareHouseDao.laySoLuongDaBanCuaMotSanPham(p.getId())%></li>
                                 <li class="table-content">
                                     <form action="order-now" method="post" class="form-inline">
                                         <input type="hidden" name="id" value="" class="form-input">
-                                        <h5><%=p.getQuantityInStore()-soLuongDaBanCuaMotSanPham%></h5>
+                                        <h5><%=wareHouseDao.laySoLuongTonKhoCuaMotSanPham(p.getId())%></h5>
                                     </form>
                                 </li>
                                 <ul class="table-content" style="display: flex; justify-content: space-around">
