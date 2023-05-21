@@ -34,9 +34,10 @@
 <html>
 <head>
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="CSS/detail.css">
+
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/detail.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
@@ -46,17 +47,18 @@
                 <img src="product-images/<%=p1.getImage()%>" alt="Sách">
             </div>
             <div class="block__right">
-                <li><%=p1.getName()%></li>
-                <li><%= p1.getCategory()%></li>
-                <li>Giá: <%= p1.getPrice()%></li>
-                <li>Đã bán: <%= soSachDaBanCuaSanPham%></li>
+                <li class="list__item--detail"><%=p1.getName()%></li>
+                <li class="list__item--detail">Thể loại: <%= p1.getCategory()%></li>
+                <li class="list__item--detail">Giá: <%= p1.getPrice()%></li>
+                <li class="list__item--detail">Đã bán: <%= soSachDaBanCuaSanPham%></li>
                 <% if(auth != null) { %>
                     <li>Giao đến: <%= auth.getAddress()%></li>
                 <%}%>
+                <li class="des"><%= p1.getDescription()%></li>
                 <div class="container-btn">
                     <a class="btn btn-primary" onclick="showAlert()" href="add-to-cart?id=<%=p1.getId()%>">Mua ngay</a>
                 </div>
-                <li><%= p1.getDescription()%></li>
+
             </div>
         </div>
     <footer>
