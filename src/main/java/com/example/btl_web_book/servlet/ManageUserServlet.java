@@ -59,12 +59,24 @@ public class ManageUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doGet(request,response);
     }
+//    private void listUser(HttpServletRequest request, HttpServletResponse response)
+//            throws SQLException, IOException, ServletException, ClassNotFoundException {
+//        List<User> listUser = manageUsersDAO.selectAllUsers();
+//        request.setAttribute("listUser", listUser);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("manageUser.jsp");
+//        dispatcher.forward(request, response);
+//    }
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
-        List<User> listUser = manageUsersDAO.selectAllUsers();
+        int startP = Math.max(Integer.parseInt(request.getParameter("index")), 1);
+        List<User> listUser = manageUsersDAO.selectPaginationUsers(startP);
+        List<User> listUserAll = manageUsersDAO.selectAllUsers();
+        int totalAccount = listUserAll.size();
+        int endPage = totalAccount/20;
+        if(totalAccount % 20 != 0) endPage++;
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("manageUser.jsp");
-        dispatcher.forward(request, response);
+        request.setAttribute("endP", endPage);
+        request.getRequestDispatcher("manageUser.jsp").forward(request, response);
     }
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

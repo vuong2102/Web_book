@@ -71,12 +71,23 @@ public class ManageBookServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+//    private void listProduct(HttpServletRequest request, HttpServletResponse response)
+//            throws SQLException, IOException, ServletException, ClassNotFoundException {
+//        List<Product> listProduct = manageBooksDao.selectAllProducts();
+//        request.setAttribute("listProduct", listProduct);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("manageBook.jsp");
+//        dispatcher.forward(request, response);
+//    }
     private void listProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
-        List<Product> listProduct = manageBooksDao.selectAllProducts();
+        int startP = Integer.parseInt(request.getParameter("index"));
+        List<Product> listProduct = manageBooksDao.selectPaginationProducts(startP);
+        List<Product> listProductAll = manageBooksDao.selectAllProducts();
         request.setAttribute("listProduct", listProduct);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("manageBook.jsp");
-        dispatcher.forward(request, response);
+        int totalPage = listProductAll.size() / 15;
+        if(listProductAll.size() % 15 != 0) totalPage++;
+        request.setAttribute("totalPage", totalPage);
+        request.getRequestDispatcher("manageBook.jsp").forward(request, response);
     }
     private void updateProduct(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {
