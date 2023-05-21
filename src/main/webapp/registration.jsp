@@ -38,20 +38,20 @@
                         <input type="text" class="input" name="userName" placeholder="Nhập tên:" required>
                     </label>
                     <label>
-                        <input type="text" class="input" name="phoneNumber" placeholder="Nhập SĐT:" required>
+                        <input id="phone" type="text" class="input" name="phoneNumber" placeholder="Nhập SĐT:" required>
                     </label>
                     <label>
                         <input type="text" class="input" name="address" placeholder="Nhập địa chỉ:" required>
                     </label>
                     <label>
-                        <input type="email" class="input" name="email" placeholder="Nhập email:" required>
+                        <input id="email" type="email" class="input" name="email" placeholder="Nhập email:" required>
                     </label>
                     <label>
                         <input type="password" class="input" name="passWord" placeholder="Nhập mật khẩu:" required>
                     </label>
                 </div>
                 <div class="card-submit">
-                    <button type="submit" class="btn-submit">Register</button>
+                    <button type="submit" class="btn-submit" onclick="checkEmail()">Register</button>
                     <div class ="login">
                         <a href="login.jsp">Login now</a>
                     </div>
@@ -59,6 +59,7 @@
             </form>
         </div>
     </div>
+    <script src="JS/check_mail_sdt.js"></script>
 <%--<%@include file="includes/footer.jsp"%>--%>
 </body>
 </html>
