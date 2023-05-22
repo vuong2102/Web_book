@@ -1,0 +1,91 @@
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto, serif;
+}
+
+.card-body {
+    margin: 0 10%;
+    height: 100%;
+}
+
+.card-header {
+    height: 30%;
+    padding: 3.5rem 4rem 1rem;
+}
+
+.register_form {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #263A29;
+}
+
+.form-group {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+}
+
+.item {
+    display: inline-flex;
+    padding: 0.75rem 1rem;
+    justify-content: flex-end;
+}
+
+input {
+    border: 0;
+    border-bottom: 0.5px solid #557669;
+    width: 70%;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.input[type="text"] {
+    font-size: 14px;
+    color: #263A29;
+}
+
+.nameItem {
+    width: 13%;
+    padding-left: 0.75rem;
+}
+
+.card-submit {
+    direction: rtl;
+    padding-right: 2rem;
+}
+
+.btn-submit {
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDF7E3;
+    color: #41644A;
+    font-family: cursive !important;
+    border-color: #5D9C59;
+}
+
+.btn-submit:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
