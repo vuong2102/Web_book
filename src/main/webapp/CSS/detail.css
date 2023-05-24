@@ -1,3 +1,7 @@
+html{
+    font-family: math;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -5,14 +9,14 @@ body{
 
 .container__detail{
     display: flex;
-    width: 80%;
+    width: 60%;
     height: max-content;
     flex-direction: row;
-    margin: auto;
-    position: relative;
-    top: 10vh;
+    margin: 100px auto 32px auto;
     list-style-type: none;
     font-size: 24px;
+    background-color: rgba(232, 229, 231, 0.8);
+    box-shadow: -7px 9px 10px 0 red;
 }
 
 .block__left{
@@ -21,8 +25,9 @@ body{
 }
 
 .block__left img{
-    width: 100%;
-    max-height: 720px;
+    width: 90%;
+    height: max-content;
+    padding: 16px;
 }
 
 .block__right{
@@ -32,19 +37,47 @@ body{
     padding-right: 10px;
 }
 
-.list__item--detail{
-    padding: 0 10px 20px 10px;
+.block__right--namePage{
+    color: red;
 }
 
 .block__right .container-btn{
     float: left;
-    font-size: 32px;
-    line-height: 32px;
-    background-color: #5D9C59;
+}
+
+.block__right .btn-primary{
+    padding: 10px 40px 10px 40px;
+    background: red;
+    color: white;
+    text-decoration: auto;
+    font-size: 20px;
 }
 
 .block__right .des{
     padding: 0 10px 20px 10px;
+}
+.block__right .detail__name {
+    font-weight: bold;
+    padding: 0 0 20px 0;
+}
+
+.block__right .detail__category{
+    padding: 0 0 10px 0;
+}
+
+.block__right .detail__price{
+    padding: 10px 0 10px 0;
+    font-weight: bold;
+    color: red;
+}
+
+.block__right .detail__count{
+    padding: 10px 0 20px 0;
+}
+
+.block__right .detail{
+    padding: 0 0 20px 0;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 730px) {
@@ -70,26 +103,61 @@ body{
 
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 420px) {
     .container__detail{
         flex-direction: column;
         font-size: 14px;
+        width: 80%;
+        box-shadow: -1px 2px 10px 0 red;
     }
 
     .block__left {
-        width: 60%;
+        width: 80%;
         height: max-content;
         margin: auto;
+    }
+
+    .block__left img {
+        width: 80%;
+        height: max-content;
+        padding: 16px 16px 16px 28px;
     }
 
     .block__right {
         width: 60%;
         height: max-content;
-        text-align: justify;
         margin: auto;
+    }
+
+    .block__right .detail__name{
+        font-size: 20px;
+        color: red;
+    }
+
+    .block__right .detail__category {
+        font-size: 16px;
+
+    }
+
+    .block__right .detail__price {
+        font-size: 16px;
+    }
+
+    .block__right .detail__count{
+        font-size: 16px;
+    }
+
+    .block__right .detail{
+        font-size: 16px;
     }
 
     .block__right .container-btn {
         margin-right: 14px;
+        height: 50px;
+    }
+
+    #footer{
+        position: absolute;
+        top: 250px;
     }
 }

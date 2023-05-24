@@ -47,14 +47,15 @@
                 <img src="product-images/<%=p1.getImage()%>" alt="Sách">
             </div>
             <div class="block__right">
-                <li class="list__item--detail"><%=p1.getName()%></li>
-                <li class="list__item--detail">Thể loại: <%= p1.getCategory()%></li>
-                <li class="list__item--detail">Giá: <%= p1.getPrice()%></li>
-                <li class="list__item--detail">Đã bán: <%= soSachDaBanCuaSanPham%></li>
+                <h3 class="block__right--namePage">Trang chủ/Sản phẩm</h3>
+                <li class="list__item--detail detail__name"><%=p1.getName()%></li>
+                <li class="list__item--detail detail__category">Thể loại: <%= p1.getCategory()%></li>
+                <li class="list__item--detail detail__price">Giá: <%= p1.getPrice()%></li>
+                <li class="list__item--detail detail__count">Đã bán: <%= soSachDaBanCuaSanPham%></li>
                 <% if(auth != null) { %>
                     <li>Giao đến: <%= auth.getAddress()%></li>
                 <%}%>
-                <li class="des"><%= p1.getDescription()%></li>
+                <li class="des detail"><%= p1.getDescription()%></li>
                 <div class="container-btn">
                     <a class="btn btn-primary" onclick="showAlert()" href="add-to-cart?id=<%=p1.getId()%>">Mua ngay</a>
                 </div>
