@@ -68,14 +68,35 @@
             <div class="maxim">
                 <h3>Chuyên bán sách giả sách lậu. Cam kết ko chính hãng. Mua là mất tiền</h3>
             </div>
+        <div class="container">
+
+            <form>
+                <a>Lọc theo thể loại :</a>
+                <select name="category" class="col">
+                    <option>Tất cả</option>
+                    <option>Science</option>
+                    <option>Self-help</option>
+                    <option>Bí kíp</option>
+                    <option>Đố vui</option>
+                    <option>Business</option>
+                    <option>Model</option>
+                    <option>Bí kíp</option>
+                </select>
+                <button type="submit" onclick="">Xac nhan loc</button>
+            </form>
+
+
+        </div>
 
         <tbody>
             <div class="container">
                 <div id="content-index" class="row">
                     <%
                         if (!products.isEmpty()) {
-//                        if (products != null) {
+
                             for (Product p : products){
+
+                                if(request.getParameter("category")== null || request.getParameter("category").equals("Tất cả") ){
                             %>
                             <div class="col-home" onclick = window.location="http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=<%=p.getId()%>">
                                 <div class="card">
@@ -91,7 +112,25 @@
                                     </div>
                                 </div>
                             </div>
-                        <%}
+                        <%      } else if (p.getCategory().equals(request.getParameter("category"))) {
+                            %>
+
+                                    <div class="col-home" onclick = window.location="http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=<%=p.getId()%>">
+                                        <div class="card">
+                                            <img class="card-img-top" src="product-images/<%=p.getImage()%>"
+                                                 alt="Card image cap">
+                                            <div class="card-information">
+                                                <h5 class="card-title"><%= p.getName() %></h5>
+                                                <h6 class="category">Thể loại: <%= p.getCategory()%></h6>
+                                                <h4 class="price">$<%= p.getPrice()%></h4>
+                                                <div class="container-btn">
+                                                    <a class="btn-dark" href="add-to-cart?id=<%=p.getId()%>">Thêm vào giỏ hàng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <%          }
+                            }
                         }
                         %>
                 </div>
@@ -128,6 +167,7 @@
                 }
             });
         }
+
     </script>
     </body>
 </html>
