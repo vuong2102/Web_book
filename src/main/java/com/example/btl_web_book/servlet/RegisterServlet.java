@@ -36,13 +36,24 @@ public class RegisterServlet extends HttpServlet {
         String role = "user";
         User user = new User(userName,phoneNumber,address,email,EncodePassWord.toSHA1(password),role);
         RegisterDAO registerDAO = new RegisterDAO();
-        RequestDispatcher dispatcher = null;
-        try {
-            String result = registerDAO.insert(user);
+
+        if(registerDAO.existedEmail(user.getEmail())){
+            String message = "Email existed";
+            request.setAttribute("message",message);
+            request.getRequestDispatcher("registration.jsp").forward(request,response);
+        }else {
+            String result = null;
+            try {
+                result = registerDAO.insert(user);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             response.getWriter().print(result);
-            response.sendRedirect("login.jsp");
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+                response.sendRedirect("login.jsp");
+
         }
+
     }
 }

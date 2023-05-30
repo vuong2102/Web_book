@@ -98,18 +98,19 @@ public class ManageUserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("passWord");
         String role = request.getParameter("role");
-       // if (manageUsersDAO.existedEmail(email)){
-            //String ms = "Email existed";
-            //request.setAttribute("ms",ms);
-            //request.getRequestDispatcher("registration.jsp").forward(request,response);
-        //}else {
-            try {
-                User user = new User(userName,phoneNumber,address,email,password,role);
-                manageUsersDAO.insertUser(user);
-                response.sendRedirect("manage-user?index=1");
-            } catch (SQLException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
+       if (manageUsersDAO.existedEmail(email)){
+            String ms = "Email existed";
+            request.setAttribute("ms",ms);
+            request.getRequestDispatcher("registration.jsp").forward(request,response);
+        }else {
+           try {
+               User user = new User(userName, phoneNumber, address, email, password, role);
+               manageUsersDAO.insertUser(user);
+               response.sendRedirect("manage-user?index=1");
+           } catch (SQLException | ClassNotFoundException e) {
+               throw new RuntimeException(e);
+           }
+       }
     }
     private void updateUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ClassNotFoundException {
@@ -129,6 +130,6 @@ public class ManageUserServlet extends HttpServlet {
             throws SQLException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
         manageUsersDAO.deleteUser(id);
-        response.sendRedirect("manage-user");
+        response.sendRedirect("manage-user?index=1");
     }
 }

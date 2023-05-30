@@ -5,6 +5,7 @@ import com.example.btl_web_book.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegisterDAO {
@@ -30,5 +31,22 @@ public class RegisterDAO {
             result = "Failed";
         }
         return result;
+    }
+    public boolean existedEmail(String email){
+        String sql = "select * from users where email =?";
+        try(Connection connection = JDBCConnect.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+            preparedStatement.setString(1,email);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 }
