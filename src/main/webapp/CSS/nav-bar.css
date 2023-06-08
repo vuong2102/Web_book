@@ -23,7 +23,7 @@
 .search-container {
     margin-top: 0.7rem;
     float: left;
-    width: 40%;
+    width: 37.5%;
 }
 
 #search {
@@ -95,15 +95,22 @@
 .navbar-collapse {
     float: left;
     display: block;
-    width: 40%;
+    width: 42.5%;
+}
+
+.navbar-nav {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 1rem;
 }
 
 .nav-item {
     list-style-type: none;
-    float: left;
     padding: 4px;
     font-size: 17px;
-    margin-left: 1rem;
     font-weight: 900;
 }
 
