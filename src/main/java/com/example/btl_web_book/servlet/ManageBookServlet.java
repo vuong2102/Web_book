@@ -119,6 +119,6 @@ public class ManageBookServlet extends HttpServlet {
             throws SQLException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
         manageBooksDao.deleteBook(id);
-        response.sendRedirect("manage-book");
+        response.sendRedirect("manage-book?index=1");
     }
 }

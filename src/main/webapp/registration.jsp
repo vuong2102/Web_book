@@ -45,6 +45,7 @@
                     </label>
                     <label>
                         <input id="email" type="email" class="input" name="email" placeholder="Nhập email:" required>
+                        <p style="color: red">${requestScope.message}</p>
                     </label>
                     <label>
                         <input type="password" class="input" name="passWord" placeholder="Nhập mật khẩu:" required>
