@@ -72,7 +72,7 @@
             </div>
 <%--        </div>--%>
         <div class="divUpdate">
-            <button type="submit" class="btn-update">
+            <button onclick= window.location="http://localhost:8080/Web_book_war_exploded/detailAccount.jsp" type="submit" class="btn-update">
                 Update
             </button>
         </div>

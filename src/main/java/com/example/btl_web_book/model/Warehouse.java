@@ -11,11 +11,8 @@ public class Warehouse {
         this.sold = sold;
         this.inventory = inventory;
     }
-
     public Warehouse() {
-
     }
-
     public Warehouse(int productId, int sold, int inventory) {
         this.productId = productId;
         this.sold = sold;

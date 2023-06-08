@@ -65,4 +65,21 @@ public class ManageWareHouseDao {
         }
         return soLuong;
     }
+    public int tongSoSachTrongKho(){
+        Warehouse warehouse = new Warehouse();
+        boolean update = false;
+        int soLuong = 0;
+        try{
+            query = "select inventory from warehouse;";
+            pst = this.con.prepareStatement(query);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                soLuong += rs.getInt("inventory");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return soLuong;
+    }
 }
