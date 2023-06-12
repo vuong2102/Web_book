@@ -37,7 +37,9 @@ public class DetailAccountServlet extends HttpServlet {
         User user = new User(id, userName, phoneNumber, address, email);
         try {
             userDao.updateUser(user);
-//            response.sendRedirect("detailAccount.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("auth", user);
+            response.sendRedirect("detailAccount.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             throw new RuntimeException(ex);
         }
