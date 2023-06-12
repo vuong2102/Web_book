@@ -37,7 +37,7 @@ insert into products (name, category, price, image, description, quantityInStore
 insert into products (name, category, price, image, description, quantityInStore) values ('Nàng tiên cá', 'Truyện tranh', '10', 'Nàng tiên cá.jpg', 'hgjjghk', '1000');
 insert into products (name, category, price, image, description, quantityInStore) values ('Rùa và thỏ', 'Truyện tranh', '10', 'Rùa và thỏ.jpg', 'thstjjk', '1000');
 insert into products (name, category, price, image, description, quantityInStore) values ('Vịt con xấu xí', 'Truyện tranh', '10', 'Vịt con xấu xí.jpg', 'djklflj', '1000');
-insert into products (name, category, price, image, description, quantityInStore) values ('Dế mèn phiêu lưu ký', 'Truyện tranh', '10', 'Dế mèn phiêu lưu ký.jpg', 'xnbvmhg', '1000')
+insert into products (name, category, price, image, description, quantityInStore) values ('Dế mèn phiêu lưu ký', 'Truyện tranh', '10', 'Dế mèn phiêu lưu ký.jpg', 'xnbvmhg', '1000');
 insert into products (name, category, price, image, description, quantityInStore) values ('Thời gian tươi đẹp', 'Tiểu thuyết', '15', 'Thời gian tươi đẹp.jpg', 'qetewty', '1000');
 insert into products (name, category, price, image, description, quantityInStore) values ('Bên nhau trọn đời', 'Tiểu thuyết', '15', 'Bên nhau trọn đời.jpg', 'qetewty', '1000');
 insert into products (name, category, price, image, description, quantityInStore) values ('Hóa ra anh vẫn ở đây', 'Tiểu thuyết', '17', 'Hóa ra anh vẫn ở đây.jpg', 'qetewty', '1000');

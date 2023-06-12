@@ -75,6 +75,7 @@ public class ManageUserServlet extends HttpServlet {
         int endPage = totalAccount/20;
         if(totalAccount % 20 != 0) endPage++;
         request.setAttribute("listUser", listUser);
+//        request.setAttribute("listUser", listUserAll);
         request.setAttribute("endP", endPage);
         request.getRequestDispatcher("manageUser.jsp").forward(request, response);
     }

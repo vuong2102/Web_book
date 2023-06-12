@@ -7,17 +7,24 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.btl_web_book.dao.OrderDao" %>
+<%@ page import="com.example.btl_web_book.model.Comment" %>
+<%@ page import="com.example.btl_web_book.dao.CommentDao" %>
+<%@ page import="com.example.btl_web_book.dao.ManageUsersDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
     }
+    ManageUsersDAO mud = null;
     ProductDao pd = null;
     OrderDao od = null;
+    CommentDao cd = null;
     try {
+        mud = new ManageUsersDAO(JDBCConnect.getConnection());
         pd = new ProductDao(JDBCConnect.getConnection());
         od = new OrderDao(JDBCConnect.getConnection());
+        cd = new CommentDao(JDBCConnect.getConnection());
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
@@ -27,6 +34,7 @@
     }
     Product p1 = (Product) request.getAttribute("productDetail");
     int soSachDaBanCuaSanPham = od.demSoLuongSachDaBanCuaMotSanPham(p1.getId());
+    List<Comment> commentList = cd.getAllCommentByIdProduct(p1.getId());
     request.setAttribute("productDetail", p1);
     assert auth != null;
     int soLuong = 1;
@@ -61,6 +69,30 @@
                 </div>
 
             </div>
+        </div>
+        <div>
+            <% if(commentList != null){
+                for (Comment x : commentList){
+                    User nameUser = mud.selectUser(x.getIdUser());
+                    %>
+                    <div>
+                        <li><%= nameUser.getUserName()%></li>
+                        <li><%= x.getComment()%></li>
+                    </div>
+                <%}%>
+            <%}%>
+        </div>
+        <div>
+            <form action="comment" method="post">
+                <%if(auth != null){%>
+                    <input type="hidden" value="<%=auth.getId()%>" name="id_User">
+                <%}%>
+                <input type="hidden" value="<%=p1.getId()%>" name="id_Product">
+                <label>
+                    <input type="text" class="input" name="comment" placeholder="Comment" required>
+                </label>
+                <button type="submit" class="btn-submit">Bình luận</button>
+            </form>
         </div>
     <footer>
         <%@include file="includes/footer.jsp"%>

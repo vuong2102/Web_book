@@ -44,11 +44,12 @@
 <head>
     <title>Title</title>
     <%@include file="includes/head.jsp"%>
-    <link rel="stylesheet" href="CSS/orders.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/orders.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">--%>
 </head>
 <body>
     <header>

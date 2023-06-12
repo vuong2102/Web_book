@@ -18,7 +18,8 @@
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
-    List<Product> products = pd.get8TopLoadProducts();
+    List<Product> products = null;
+    products = pd.get8TopLoadProducts();
 
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     if(cartArrayList != null){
@@ -72,20 +73,20 @@
 
             <form>
                 <a>Lọc theo thể loại :</a>
-                <select name="category" class="col">
-                    <option>Tất cả</option>
-                    <option>Science</option>
-                    <option>Self-help</option>
-                    <option>Bí kíp</option>
-                    <option>Đố vui</option>
-                    <option>Business</option>
-                    <option>Model</option>
-                    <option>Bí kíp</option>
-                </select>
+                <label>
+                    <select name="category" class="col">
+                        <option>Tất cả</option>
+                        <option>Science</option>
+                        <option>Self-help</option>
+                        <option>Bí kíp</option>
+                        <option>Đố vui</option>
+                        <option>Business</option>
+                        <option>Model</option>
+                        <option>Bí kíp</option>
+                    </select>
+                </label>
                 <button type="submit" onclick="">Xac nhan loc</button>
             </form>
-
-
         </div>
 
         <tbody>
@@ -96,7 +97,7 @@
 
                             for (Product p : products){
 
-                                if(request.getParameter("category")== null || request.getParameter("category").equals("Tất cả") ){
+                                if(request.getParameter("category") == null || request.getParameter("category").equals("Tất cả") ){
                             %>
                             <div class="col-home" onclick = window.location="http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=<%=p.getId()%>">
                                 <div class="card">
