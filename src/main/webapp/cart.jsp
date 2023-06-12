@@ -7,7 +7,6 @@
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);
@@ -15,7 +14,6 @@
     User auth = (User) request.getSession().getAttribute("auth");
     if(auth!= null){
         request.setAttribute("auth", auth);
-//        response.senRedirect("index.jsp");
     }
     ArrayList<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct = null;
