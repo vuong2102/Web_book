@@ -202,6 +202,11 @@
     cursor: pointer;
 }
 
+.buy > a > button:hover {
+    background-color: #263A29;
+    color: #f6f1f1;
+}
+
 .btn-buy > button {
     border: 0;
     background-color: #f6f1f1;
