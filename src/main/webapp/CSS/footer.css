@@ -81,6 +81,7 @@
 
     .footer-side{
         flex-direction: column;
+        margin-left: 2rem;
     }
 
     .footer-detail {
