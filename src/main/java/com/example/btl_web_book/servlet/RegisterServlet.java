@@ -18,7 +18,6 @@ import java.sql.SQLException;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
     public RegisterServlet() throws SQLException, ClassNotFoundException {
         super();
         UserDao userDao = new UserDao(JDBCConnect.getConnection());
@@ -27,7 +26,6 @@ public class RegisterServlet extends HttpServlet {
         response.getWriter().append("Server at: ").append(request.getContextPath());
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String userName = request.getParameter("userName");
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
@@ -36,7 +34,6 @@ public class RegisterServlet extends HttpServlet {
         String role = "user";
         User user = new User(userName,phoneNumber,address,email,EncodePassWord.toSHA1(password),role);
         RegisterDAO registerDAO = new RegisterDAO();
-
         if(registerDAO.existedEmail(user.getEmail())){
             String message = "Email existed";
             request.setAttribute("message",message);
@@ -52,8 +49,6 @@ public class RegisterServlet extends HttpServlet {
             }
             response.getWriter().print(result);
                 response.sendRedirect("login.jsp");
-
         }
-
     }
 }

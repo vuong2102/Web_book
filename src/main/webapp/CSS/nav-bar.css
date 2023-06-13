@@ -23,7 +23,7 @@
 .search-container {
     margin-top: 0.7rem;
     float: left;
-    width: 40%;
+    width: 37.5%;
 }
 
 #search {
@@ -95,15 +95,22 @@
 .navbar-collapse {
     float: left;
     display: block;
-    width: 40%;
+    width: 42.5%;
+}
+
+.navbar-nav {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 1rem;
 }
 
 .nav-item {
     list-style-type: none;
-    float: left;
     padding: 4px;
     font-size: 17px;
-    margin-left: 1rem;
     font-weight: 900;
 }
 
@@ -176,7 +183,6 @@
     }
 
     .navbar-brand img {
-        transform: translateY(0.25rem);
         height: 3rem;
     }
 
@@ -190,7 +196,6 @@
 
     .nav-menu {
         float: left;
-        margin-top: 0.75rem;
         background-color: #ffffff;
         transition: all 0.5s ease;
     }
@@ -202,6 +207,9 @@
     .navbar-nav {
         padding: 0;
         margin: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .res-search-container {
@@ -214,6 +222,7 @@
     .nav-menu .fas {
         font-size: 15px;
         color: #777777;
+        margin-left: 0;
     }
     #res-search {
         margin: 0;

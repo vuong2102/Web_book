@@ -23,17 +23,16 @@ public class LoadHomeServlet extends HttpServlet {
         List<Product> list = productDao.getLoadProducts();
         PrintWriter out = response.getWriter();
         for(Product p : list){
-            out.println("<div class=\"col-home\">\n" +
+            out.println("<div class=\"col-home\" onclick = window.location=\"http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=" + p.getId() + "\">\n" +
                     "                                <div class=\"card\">\n" +
                     "                                    <img class=\"card-img-top\" src=\"product-images/" + p.getImage() + "\"\n" +
                     "                                         alt=\"Card image cap\">\n" +
-                    "                                    <div class=\"card-body\">\n" +
+                    "                                    <div class=\"card-information\">\n" +
                     "                                        <h5 class=\"card-title\">" + p.getName() + "</h5>\n" +
                     "                                        <h6 class=\"category\">Thể loại: " + p.getCategory() + "</h6>\n" +
                     "                                        <h4 class=\"price\">$" + p.getPrice() + "</h4>\n" +
                     "                                        <div class=\"container-btn\">\n" +
-                    "                                            <a class=\"btn btn-dark\" href=\"add-to-cart?id=" + p.getId() + "\">Thêm vào giỏ hàng</a>\n" +
-                    "                                            <a class=\"btn btn-primary\" href=\"order-now?quantity=1&id=" + p.getId() + "\">Mua ngay</a>\n" +
+                    "                                            <a class=\"btn-dark\" href=\"add-to-cart?id=" + p.getId() + "\">Thêm vào giỏ hàng</a>\n" +
                     "                                        </div>\n" +
                     "                                    </div>\n" +
                     "                                </div>\n" +

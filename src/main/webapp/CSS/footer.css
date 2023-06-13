@@ -21,7 +21,7 @@
 }
 
 .footer-detail .fab, .fas {
-    padding: 0 0.5rem;
+    padding-right: 0.5rem;
     margin-left: -0.5rem;
 }
 
@@ -81,6 +81,7 @@
 
     .footer-side{
         flex-direction: column;
+        margin-left: 2rem;
     }
 
     .footer-detail {

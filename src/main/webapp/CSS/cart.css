@@ -4,7 +4,7 @@
 
 .address {
     position: relative;
-    margin: 5rem 0 4rem 0;
+    margin: 6.5rem 0 4rem 0;
     display: inline-flex;
     width: 100%;
     justify-content: flex-end;
@@ -200,6 +200,22 @@
     border: 1px solid #41644A;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.buy > a > button:hover {
+    background-color: #263A29;
+    color: #f6f1f1;
+}
+
+.btn-buy > button {
+    border: 0;
+    background-color: #f6f1f1;
+    cursor: pointer;
+    padding-bottom: 0;
+}
+
+.btn-buy > button > svg:hover {
+    opacity: 0.8;
 }
 
 .table-cart-right {

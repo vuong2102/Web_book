@@ -97,7 +97,7 @@ public class ManageUsersDAO {
     public List<User> selectAllUsers() throws SQLException,ClassNotFoundException{
         List<User> users = new ArrayList<>();
         try (Connection connection = JDBCConnect.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)){
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from users")){
             System.out.println(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -109,7 +109,6 @@ public class ManageUsersDAO {
                 String password = resultSet.getString("passWord");
                 String role = resultSet.getString("role");
                 users.add(new User(id,userName,phoneNumber,address,email,password,role));
-
             }
         } catch (SQLException e){
             printSQLException(e);

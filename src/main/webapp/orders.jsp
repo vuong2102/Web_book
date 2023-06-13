@@ -44,11 +44,12 @@
 <head>
     <title>Title</title>
     <%@include file="includes/head.jsp"%>
-    <link rel="stylesheet" href="CSS/orders.css">
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/orders.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">--%>
 </head>
 <body>
     <header>
@@ -90,21 +91,6 @@
                     <%}
                     }
                     %>
-                </div>
-            </div>
-        </div>
-        <div class="modal js-modal">
-            <div class="modal-container">
-                <div class="modal-close"><i class="fa-solid fa-circle-xmark js-modal-close"></i></div>
-                <div class="modal-sucess"><i class="fa-solid fa-circle-check fa-beat" style="color: #036937;"></i></div>
-                <div>
-                    <h2 class="tieude">Đặt hàng thành công</h2>
-                    <p>Cảm ơn quý khách đã mua hàng tại <i class="name-branch">VATTH Book</i></p>
-                    <p class="content">Bộ phận phụ trách sẽ liên hệ lại với anh (chị) trong thời gian sớm nhất có thể.
-                        Trong trường hợp cần gấp, vui lòng liên hệ Hotline: <i class="phone-red">0388530484</i> để được hỗ trợ!</p>
-                </div>
-                <div>
-                    <button class="btn-index"><a href="index.jsp" class="btn-modal">Về trang chủ</a></button>
                 </div>
             </div>
         </div>

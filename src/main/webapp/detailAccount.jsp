@@ -20,6 +20,7 @@
 <head>
     <link rel="stylesheet" href="CSS/nav-bar.css">
     <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/detailAccount.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
@@ -71,7 +72,7 @@
             </div>
 <%--        </div>--%>
         <div class="divUpdate">
-            <button type="submit" class="btn-update">
+            <button onclick="alertUpdate()" type="submit" class="btn-update">
                 Update
             </button>
         </div>
@@ -80,5 +81,10 @@
     <footer>
         <%@include file="includes/footer.jsp"%>
     </footer>
+    <script>
+        function alertUpdate(){
+            alert("Cập nhật tài khoản thành công")
+        }
+    </script>
 </body>
 </html>

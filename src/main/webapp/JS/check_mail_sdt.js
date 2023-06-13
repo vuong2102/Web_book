@@ -8,7 +8,7 @@ function checkEmail() {
         email.focus;
         return false;
     }
-    if(!phone.match(phonenoa)) {
+    else if(!phone.match(phonenoa)) {
         return false;
         alert("Bạn hãy nhập đúng số điện thoại để đăng kí!");
         phone.focus();

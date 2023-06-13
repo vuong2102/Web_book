@@ -20,6 +20,7 @@ body {
     font-size: 2rem;
     font-weight: 600;
     color: #263A29;
+    text-align: center;
 }
 
 .form-group {
@@ -64,6 +65,8 @@ input:-webkit-autofill{
 .card-submit {
     direction: rtl;
     padding-right: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .btn-submit {

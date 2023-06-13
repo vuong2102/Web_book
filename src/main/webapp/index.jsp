@@ -20,9 +20,12 @@
     } catch (ClassNotFoundException | SQLException e) {
         throw new RuntimeException(e);
     }
-    List<Product> products = pd.get8TopLoadProducts();
     CategoryDAO categoryDAO= new CategoryDAO(JDBCConnect.getConnection());
     List<Category> categories = (ArrayList<Category>) categoryDAO.selectAllCategory();
+
+    List<Product> products = null;
+    products = pd.get8TopLoadProducts();
+
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     if(cartArrayList != null){
         request.setAttribute("cartArrayList", cartArrayList);
@@ -82,8 +85,6 @@
                 </select>
                 <button type="submit" onclick="">Xac nhan loc</button>
             </form>
-
-
         </div>
 
         <tbody>
@@ -94,7 +95,7 @@
 
                             for (Product p : products){
 
-                                if(request.getParameter("category")== null || request.getParameter("category").equals("Tất cả") ){
+                                if(request.getParameter("category") == null || request.getParameter("category").equals("Tất cả") ){
                             %>
                             <div class="col-home" onclick = window.location="http://localhost:8080/Web_book_war_exploded/getSingleProduct?id=<%=p.getId()%>">
                                 <div class="card">

@@ -1,5 +1,5 @@
-tbody{
-    font-family: Roboto,Helvetica,Arial,sans-serif;
+html {
+    background: #ffffff;
 }
 
 .order-title {
@@ -16,6 +16,7 @@ tbody{
 }
 
 .container{
+    margin: 0;
     width: 100%;
     height: max-content;
     display: flex;
