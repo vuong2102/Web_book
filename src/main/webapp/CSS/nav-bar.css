@@ -183,7 +183,6 @@
     }
 
     .navbar-brand img {
-        transform: translateY(0.25rem);
         height: 3rem;
     }
 
@@ -197,7 +196,6 @@
 
     .nav-menu {
         float: left;
-        margin-top: 0.75rem;
         background-color: #ffffff;
         transition: all 0.5s ease;
     }
@@ -209,6 +207,9 @@
     .navbar-nav {
         padding: 0;
         margin: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .res-search-container {
@@ -221,6 +222,7 @@
     .nav-menu .fas {
         font-size: 15px;
         color: #777777;
+        margin-left: 0;
     }
     #res-search {
         margin: 0;
