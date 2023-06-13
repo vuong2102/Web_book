@@ -5,6 +5,8 @@
 <%@ page import="com.example.btl_web_book.model.Cart" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.btl_web_book.model.Category" %>
+<%@ page import="com.example.btl_web_book.dao.CategoryDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <%
@@ -19,7 +21,8 @@
         throw new RuntimeException(e);
     }
     List<Product> products = pd.get8TopLoadProducts();
-
+    CategoryDAO categoryDAO= new CategoryDAO(JDBCConnect.getConnection());
+    List<Category> categories = (ArrayList<Category>) categoryDAO.selectAllCategory();
     List<Cart> cartArrayList = (ArrayList<Cart>) session.getAttribute("cart-list");
     if(cartArrayList != null){
         request.setAttribute("cartArrayList", cartArrayList);
@@ -73,14 +76,9 @@
             <form>
                 <a>Lọc theo thể loại :</a>
                 <select name="category" class="col">
-                    <option>Tất cả</option>
-                    <option>Science</option>
-                    <option>Self-help</option>
-                    <option>Bí kíp</option>
-                    <option>Đố vui</option>
-                    <option>Business</option>
-                    <option>Model</option>
-                    <option>Bí kíp</option>
+                    <% for(Category c: categories){%>
+                    <option ><%=c.getName()%></option>
+                    <% }%>
                 </select>
                 <button type="submit" onclick="">Xac nhan loc</button>
             </form>
