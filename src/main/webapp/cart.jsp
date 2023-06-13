@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="address">
-            <div>Giao tới</div>
+            <div>Giao tới: ${sessionScope.auth.address}</div>
             <div class="changeAddress">
                 <a href="detailAccount.jsp">Thay đổi</a>
             </div>
